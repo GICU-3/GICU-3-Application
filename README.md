@@ -13,7 +13,7 @@ https://miro.medium.com/max/700/1*KB4sZe3J6Um27w1tbgfE5g.png
 | master                        | The master branch which holds release ready code. Uat pushes to here.     |
 | uat (user acceptance testing) | Branch for testing purposes. Dev pushes to here.                          |
 | dev                           | Development branch. Features pushes to here.                              |
-| feature                       | Features named clearly. Development happends here.                        |
+| feature/[descriptive name]    | Features named clearly. Development happends here.                        |
 
 Always work in a feature (project) branch which has been created from dev. A feature branch may be merged to dev when the feature is ready. Dev may be merged to uat for testing at any time.
 
