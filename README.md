@@ -15,7 +15,11 @@ https://miro.medium.com/max/700/1*KB4sZe3J6Um27w1tbgfE5g.png
 | dev                           | Development branch. Features pushes to here.                              |
 | feature/[descriptive name]    | Features named clearly. Development happends here.                        |
 
-Always work in a feature (project) branch which has been created from dev. A feature branch may be merged to dev when the feature is ready. Dev may be merged to uat for testing at any time.
+Always work in a feature (project) branch which has been created from dev. A feature branch may be merged to dev when the feature is ready. Dev may be merged 
+to uat for testing at any time.
+
+_Please note that it's mandatory for features to have corresponding issues. The naming convention is as follows: **feature/[name]**\
+Always use kebab-case!_
 
 ## File structure
 https://miro.medium.com/max/1400/1*tjoajjTY-bV5KdS3dPDAqw.png
