@@ -122,6 +122,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
 
         var del_history = document.getElementById("removeHistory");
         del_history.addEventListener("click", removebutton);
+        
 
         function sayhello() {
             var selected = document.querySelectorAll(".chosen");
@@ -177,4 +178,4 @@ function add() {
             try { b.parentNode.removeChild(b)} catch {};
         }
     })
-}
+} 
