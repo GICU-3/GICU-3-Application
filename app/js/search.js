@@ -10,68 +10,90 @@ function sleep(ms) {
 }
 
 document.getElementById("search").onkeyup = function() {
-    fuseSearch()
-    if (!document.getElementById("search").value) {
-        summonAllEmpty();
+
+    if (document.getElementById("search").value.length > 0) {
+        fuseSearch();
+
+        document.getElementById("searchResult").style.display = "block";
+    } else {
+        var list = document.getElementsByClassName("aaaa")
+        console.log("test")
+        while (list.length > 0) {
+            list[0].parentNode.removeChild(list[0])
+        }
+        document.getElementById("searchResult").style.display = "none";
     }
+
+
 };
 
 document.getElementById("search").onfocus = async function() {
-    document.getElementById("searchResult").style.display = "block";
-    //console.log("focused");
+    if (document.getElementById("search").value.length > 0) {
+        fuseSearch();
 
-    if (!document.getElementById("search").value) {
-        summonAllEmpty();
+        document.getElementById("searchResult").style.display = "block";
+    } else {
+        var list = document.getElementsByClassName("aaaa")
+        console.log("test")
+        while (list.length > 0) {
+            list[0].parentNode.removeChild(list[0])
+        }
+        document.getElementById("searchResult").style.display = "none";
     }
 };
+
 document.getElementById("search").onblur = async function() {
     await sleep(100);
-    add();
+
+    var search_elements = document.getElementById("searchResult")
+    console.log(search_elements.childNodes.length);
+
+    //hom();
     document.getElementById("searchResult").style.display = "block";
     if (document.getElementById("search").value == 0) {
         document.getElementById("searchResult").style.display = "none";
-        console.log("offfocused");
+
+        document.addEventListener("keypress", function(e) {
+            document.getElementById("search").focus();
+
+        })
+
     }
+
+
+
 };
 
 function fuseSearch() {
     // 1. List of items to search in
-    add();
-    var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
+
+    var books = JSON.parse(fs.readFileSync('utilities.json', 'utf8'));
 
     const options = {
         threshold: 0.0
     }
+    var output = [];
+
     books.forEach(function(o, i) {
+
         // 2. Set up the Fuse instance
+
         const fuse = new Fuse(books[i], {
             keys: ['utility', 'keywords', 'description']
         })
-
+        var afterbook = {};
         // 3. Now search!
 
-        var outputJson = fuse.search(document.getElementById("search").value);
-        //console.log(outputJson
+        afterbook = fuse.search(document.getElementById("search").value)
 
-        summonBar(outputJson);
+
+        output = output.concat(afterbook)
+
     });
+    summonBar(output);
     add();
-}
 
-function summonAllEmpty() {
-    var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
-    let booksOutput = [];
-    books.forEach(function(element, i) {
-        books[i].forEach(function(obj) {
-            let booksAfter = {};
-            booksAfter.item = obj;
 
-            booksOutput.push(booksAfter);
-        });
-    });
-    //console.log(booksOutput);
-    summonBar(booksOutput);
-    add();
 }
 
 function summonBar(inputJson) { // Reads the JSONdata and makes it magically appear under Search
@@ -122,7 +144,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
 
         var del_history = document.getElementById("removeHistory");
         del_history.addEventListener("click", removebutton);
-        
+
 
         function sayhello() {
             var selected = document.querySelectorAll(".chosen");
@@ -136,16 +158,16 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
             selected.forEach(function(div, e) {
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(a[e].id)
-                //console.log(a[e].id);
-                //console.log(r.id);
+                    //console.log(a[e].id);
+                    //console.log(r.id);
                 if (r.id == a[e].id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    
+
                     //ALERT MESASGES
                     //code from https://stackoverflow.com/questions/8965018/dynamically-creating-bootstrap-css-alert-messages
 
                     showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000);
-                    
+
                     function showAlert(message, type, closeDelay) {
                         var $cont = $("#alerts-container");
                         if ($cont.length == 0) {
@@ -153,15 +175,15 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                             $cont = $('<div id="alerts-container">')
                                 .css({
                                     //adjust message position
-                                     position: "fixed"
-                                    ,width: "50%"
-                                    ,left: "25%"
-                                    ,bottom: "0%"
+                                    position: "fixed",
+                                    width: "50%",
+                                    left: "25%",
+                                    bottom: "0%"
                                 })
                                 .appendTo($("body"));
                         }
                         // default to alert-info; other options include success, warning, danger
-                        type = type || "info";    
+                        type = type || "info";
                         // create the alert div
                         var alert = $('<div>')
                             .addClass("fade in show alert alert-" + type)
@@ -174,16 +196,17 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                         $cont.prepend(alert);
                         // if closeDelay was passed - set a timeout to close the alert
                         if (closeDelay)
-                            window.setTimeout(function() { alert.alert("close") }, closeDelay);     
-                        }
+                            window.setTimeout(function() { alert.alert("close") }, closeDelay);
+                    }
 
-                    
+
                 }
             })
             searchHistory.appendChild(r);
             r.appendChild(image);
             add();
         }
+
         function removebutton() {
             var selected = document.querySelectorAll(".chosen");
             selected.forEach(function(div, e) {
@@ -192,7 +215,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                 try { b.parentNode.removeChild(b) } catch {};
             })
         }
-        
+
         /*if (element_id !== sayhello().target && !element_id.contains(sayhello().target)) {    
             console.log('clicking outside the div');
             element_id.style.height == "160px";
@@ -207,12 +230,12 @@ function add() {
     selected.forEach(function(div, i) {
         var a = document.getElementsByClassName("chosen")
         var b = document.getElementById(a[i].id)
-        //let parent = document.querySelector(".chosen");
+            //let parent = document.querySelector(".chosen");
         b.addEventListener("click", remove);
         console.log(selected[i]);
 
         function remove() {
-            try { b.parentNode.removeChild(b)} catch {};
+            try { b.parentNode.removeChild(b) } catch {};
         }
     })
-} 
+}
