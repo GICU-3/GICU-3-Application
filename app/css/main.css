@@ -262,4 +262,11 @@ body .custom-switch > .custom-control-label::before {
 body .settingsPadding {
   padding-bottom: 15px;
 }
+
+[draggable] {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
 /*# sourceMappingURL=main.css.map */

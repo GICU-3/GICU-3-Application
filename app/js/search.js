@@ -67,7 +67,7 @@ document.getElementById("search").onblur = async function() {
 function fuseSearch() {
     // 1. List of items to search in
 
-    var books = JSON.parse(fs.readFileSync('utilities.json', 'utf8'));
+    var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
 
     const options = {
         threshold: 0.0
