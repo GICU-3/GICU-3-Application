@@ -174,9 +174,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                         // if closeDelay was passed - set a timeout to close the alert
                         if (closeDelay)
                             window.setTimeout(function() { alert.alert("close") }, closeDelay);     
-                        }
-
-                    
+                        }                    
                 }
             })
             searchHistory.appendChild(r);
