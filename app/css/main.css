@@ -237,6 +237,60 @@ body .bodySection #searchHistory .removeHistory {
   height: 40px;
 }
 
+body #admin_s {
+  background-color: white;
+}
+
+body #data {
+  background-color: #fff;
+}
+
+body #data #standard_partern_layout {
+  background-color: #fff;
+  display: -ms-grid;
+  display: grid;
+  padding-left: 12px;
+  -ms-grid-columns: 200px 200px 200px 200px 200px;
+      grid-template-columns: 200px 200px 200px 200px 200px;
+  text-align: center;
+}
+
+body #data #diffrent_partern_layout {
+  background-color: #fff;
+  display: -ms-grid;
+  display: grid;
+  padding-left: 12px;
+  -ms-grid-columns: 333px 333px 333px;
+      grid-template-columns: 333px 333px 333px;
+  text-align: center;
+}
+
+body #data #diffrent_partern_layout2 {
+  background-color: #fff;
+  display: -ms-grid;
+  display: grid;
+  padding-left: 12px;
+  -ms-grid-columns: 1000px;
+      grid-template-columns: 1000px;
+  text-align: center;
+}
+
+body #change {
+  background-color: #fff;
+}
+
+body #change #save_button {
+  color: green;
+}
+
+body #change #remove_button {
+  color: red;
+}
+
+body #change #add_component {
+  color: #1b1b1b;
+}
+
 body .custom-switch > .custom-control-label {
   padding-left: 1.75rem;
   padding-bottom: 0.5rem;

@@ -172,6 +172,45 @@ body {
             }
         }
     }
+    #admin_s {
+        background-color: rgb(255, 255, 255);
+    }
+    #data {
+        background-color: #fff;
+    }
+    #data #standard_partern_layout {
+        background-color: #fff;
+        display: grid;
+        padding-left: 12px;
+        grid-template-columns: 200px 200px 200px 200px 200px;
+        text-align: center;
+    }
+    #data #diffrent_partern_layout {
+        background-color: #fff;
+        display: grid;
+        padding-left: 12px;
+        grid-template-columns: 333px 333px 333px;
+        text-align: center;
+    }
+    #data #diffrent_partern_layout2 {
+        background-color: #fff;
+        display: grid;
+        padding-left: 12px;
+        grid-template-columns: 1000px;
+        text-align: center;
+    }
+    #change {
+        background-color: #fff;
+        #save_button {
+            color: green;
+        }
+        #remove_button {
+            color: red;
+        }
+        #add_component {
+            color: #1b1b1b;
+        }
+    }
     // Positioning the enlarged switch 
     .custom-switch>.custom-control-label {
         padding-left: 1.75rem;

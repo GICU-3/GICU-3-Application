@@ -197,7 +197,9 @@ function add_containers() {
             selected_cabinet.id = "selected_cabinet";
             select_cabinet_change_name.id = "select_cabinet_change_name"
             select_cabinet_open_button.id = "select_cabinet_open_button"
+            select_cabinet_open_button.innerHTML = "Open"
             select_cabinet_remove.id = "select_cabinet_remove"
+            select_cabinet_remove.innerHTML = "Remove"
             select_cabinet.innerHTML = cl[q].id
 
             selected_cabinet.appendChild(select_cabinet_change_name)
@@ -395,6 +397,7 @@ function change_databas(q) {
         class_id.addEventListener("click", change)
 
         function change() {
+            made_change = true;
             document.getElementById("change").innerHTML = "";
             database = JSON.parse(fs.readFileSync(fil, 'utf8'));
             console.log(database);
@@ -603,6 +606,7 @@ function change_databas(q) {
             }
 
             add_component.id = "add_component"
+            add_component.innerHTML = "Add component"
 
             add_component.onclick = function() {
                 console.log("test")
