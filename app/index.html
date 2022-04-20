@@ -10,7 +10,6 @@
         <script src="js/databas.js"></script>
         <script scr="js/jquery-3.6.0.js"></script>
         <script defer src="js/search.js"></script>
-
         <!-- BOOTSTRAP MODAL -->
         <!-- Insert this line above script imports  -->
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}
@@ -81,12 +80,32 @@
                   <div class="modal-body">
                     <!-- Default switch -->
                     <div class="custom-control custom-switch settingsPadding">
-                      <input type="checkbox" class="custom-control-input" id="switchDarkmode">
+                      <input type="checkbox" class="custom-control-input" id="switchDarkmode" onchange="checkedValue=this.checked">
                       <label class="custom-control-label settingsControlLabel" for="switchDarkmode">Darkmode</label>
                       <script>
+
                         const themeSwitch = document.querySelector('input');
+                        var temp = 0;
+                        if (temp == 0) { //temporär lösning för att köra koden en gång
+                        console.log(localStorage.getItem('theme'));
+                          if (localStorage.getItem('theme') == 'dark') {
+                            console.log("logged darkmode from memory");
+                            document.body.classList.toggle('dark-theme');
+                            themeSwitch.checked = true;
+                          }
+                          temp = 1;
+                        }
                         themeSwitch.addEventListener('change', () => {
                         document.body.classList.toggle('dark-theme');
+                        console.log(checkedValue);
+                        if (checkedValue){
+                          localStorage.setItem('theme', 'dark'); //localStorage
+                          console.log("logged dark");
+                        } else {
+                          localStorage.setItem('theme','light');
+                          console.log("logged light");
+                        }
+                          
                         });
                       </script>
                     </div>
