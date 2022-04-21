@@ -244,15 +244,15 @@ function add_containers() {
     let placeholder_layout_1 = document.createElement("div");
     let placeholder_layout_2 = document.createElement("div");
     let placeholder_layout_3 = document.createElement("div");
-    placeholder_select_layout.className = "select_layout";
+    placeholder_select_layout.className = "layout";
     placeholder_select_layout.id = "select_layout"
-    placeholder_layout_1.className = "layout_1";
+    placeholder_layout_1.className = "layout";
     placeholder_layout_1.id = "layout_1";
     placeholder_layout_1.innerHTML = "Layout 1"
-    placeholder_layout_2.className = "layout_2";
+    placeholder_layout_2.className = "layout";
     placeholder_layout_2.id = "layout_2";
     placeholder_layout_2.innerHTML = "Layout 2"
-    placeholder_layout_3.className = "layout_3";
+    placeholder_layout_3.className = "layout";
     placeholder_layout_3.id = "layout_3";
     placeholder_layout_3.innerHTML = "Layout 3"
     placeholder_select_layout.appendChild(cabinet_name);
@@ -469,8 +469,7 @@ function change_databas(q) {
                     database[q][i].description = new_description;
                 }
                 if (new_key.length > 0 && new_key != " ") {
-                    var new_key_array = new_key.split(",");
-                    database[q][i].keywords = new_key_array;
+                    database[q][i].keywords = new_key;
                 }
 
 

@@ -173,31 +173,82 @@ body {
         }
     }
     #admin_s {
-        background-color: rgb(255, 255, 255);
+        background-color: rgba(45, 45, 45, 0.5);
+        display: none;
+        grid-template-columns: 300px 300px 300px;
+        grid-template-rows: 30px 30px;
+        row-gap: 16px;
+        column-gap: 16px;
+    }
+    #admin_s .skop {
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    #admin_s #select_layout {
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 5px 5px 5px 5px;
+        text-align: center;
+    }
+    #admin_s #selected_cabinet #select_cabinet_change_name {
+        width: 170px;
+    }
+    #admin_s .layout {
+        background-color: rgba(255, 255, 255, 1);
+    }
+    #admin_s #new_cabinet {
+        background-color: rgba(255, 255, 255, 0.75);
+        border-radius: 5px;
+        text-align: center;
     }
     #data {
+        background-color: rgba(45, 45, 45, 0.5);
+    }
+    #data #standard_partern_layout .components {
         background-color: #fff;
+        border-radius: 5px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    #data .new_element {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 5px;
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 5px;
     }
     #data #standard_partern_layout {
-        background-color: #fff;
         display: grid;
-        padding-left: 12px;
-        grid-template-columns: 200px 200px 200px 200px 200px;
+        grid-template-columns: 150px 150px 150px 150px 150px;
         text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
     }
     #data #diffrent_partern_layout {
-        background-color: #fff;
         display: grid;
-        padding-left: 12px;
-        grid-template-columns: 333px 333px 333px;
+        grid-template-columns: 280px 280px 280px;
+        justify-content: space-evenly;
         text-align: center;
     }
-    #data #diffrent_partern_layout2 {
+    #data #diffrent_partern_layout .components {
         background-color: #fff;
+        border-radius: 5px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    #data #diffrent_partern_layout2 {
         display: grid;
-        padding-left: 12px;
-        grid-template-columns: 1000px;
+        justify-content: space-evenly;
+        grid-template-columns: 932px;
         text-align: center;
+    }
+    #data #diffrent_partern_layout2 .components {
+        background-color: #fff;
+        border-radius: 5px;
+        margin-top: 8px;
+        margin-bottom: 8px;
     }
     #change {
         background-color: #fff;

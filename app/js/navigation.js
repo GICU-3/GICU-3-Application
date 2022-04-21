@@ -27,6 +27,6 @@ function home() {
 function admin() {
     document.getElementById("bodySection").style.display = "none";
     document.getElementById("labbarInterface").style.display = "none";
-    document.getElementById("admin_s").style.display = "block";
+    document.getElementById("admin_s").style.display = "grid";
     settings();
 }
