@@ -36,7 +36,8 @@ function remove_change() {
 }
 
 function drag() {
-
+    var ew, we;
+    var rt, oi;
 
 
     var dragSrcEl = null;
@@ -66,6 +67,7 @@ function drag() {
 
     function handleDragLeave(e) {
         this.classList.remove('over');
+
     }
 
     function handleDrop(e) {
@@ -74,19 +76,60 @@ function drag() {
         }
 
         if (dragSrcEl != this) {
+            we = document.getElementById(dragSrcEl.id).childNodes
+            ew = document.getElementById(this.id).childNodes
+            var t = dragSrcEl.id;
+            rt = t.match(/\d+/)
+
+            //console.log(rt)
+            var tq = this.id;
+            oi = tq.match(/\d+/)
             dragSrcEl.innerHTML = this.innerHTML;
             this.innerHTML = e.dataTransfer.getData('text/html');
         }
+        //console.log(dragSrcEl.id, this.id)
+
+
 
         return false;
     }
 
     function handleDragEnd(e) {
+        console.log("res")
         this.style.opacity = '1';
 
         items.forEach(function(item) {
             item.classList.remove('over');
         });
+        console.log(we)
+        console.log(ew)
+        if (oi[0] > rt[0]) {
+            for (let a = 0; a < ew.length; a++) {
+                console.log(oi)
+                document.getElementById(ew[a].id).id = oi[0];
+
+            }
+            for (let a = 0; a < we.length; a++) {
+                console.log(rt)
+                document.getElementById(we[a].id).id = rt[0];
+
+            }
+        }
+        if (oi[0] < rt[0]) {
+            for (let a = 0; a < we.length; a++) {
+                console.log(rt)
+                document.getElementById(we[a].id).id = rt[0];
+
+            }
+            for (let a = 0; a < ew.length; a++) {
+                console.log(oi)
+                document.getElementById(ew[a].id).id = oi[0];
+
+            }
+        }
+
+
+
         save_database();
     }
 
@@ -118,15 +161,17 @@ function save_database() {
             save_arry.push(save_arry_in);
             save_arry_in = [];
         } else {
-            database[z].forEach(function(object, r) {
+            var all_element = document.querySelectorAll('.element')
+            all_element.forEach(function(object, r) {
                 console.log("times")
                 database[z].forEach(function(obj, x) {
 
-                    var className = document.getElementsByClassName('components')
+                    var className_data = document.getElementsByClassName('.element')
 
-                    if (obj.utility == className[r].innerHTML) {
+                    if (obj.utility == object.innerHTML) {
+                        console.log(object)
                         save_arry_in[x] = obj;
-                        save_arry_in[x].Id = className[r].id;
+                        save_arry_in[x].Id = object.id;
                     }
                 });
 
@@ -145,6 +190,11 @@ function save_database() {
 
 function add_element(q) {
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+    database[q].sort(function(a, b) {
+        return a.Id - b.Id || a.utility.localeCompare(b.utility);
+    });
+    fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+
     if (there_is_element == true && z != null) { remove_element(); }
     document.getElementById("data").style.display = "grid";
     there_is_element = true;
@@ -390,10 +440,13 @@ function change_databas(q) {
     change.id = "change"
     document.body.appendChild(change);
     console.log(database);
-
-    database[q].forEach(function(obj, i) {
+    var clas = document.querySelectorAll(".components")
+    var elem = document.querySelectorAll(".element")
+    clas.forEach(function(obj, i) {
+        console.log("many")
         var className = document.getElementsByClassName("components")
         var class_id = document.getElementById(className[i].id)
+        console.log(class_id)
         class_id.addEventListener("click", change)
 
         function change() {
@@ -401,232 +454,250 @@ function change_databas(q) {
             document.getElementById("change").innerHTML = "";
             database = JSON.parse(fs.readFileSync(fil, 'utf8'));
             console.log(database);
-            let add_component = document.createElement("button");
-            let placeholder = document.createElement("div");
-            let name = document.createElement("div");
-            let input_utility = document.createElement("input");
-            let input_description = document.createElement("input");
-            let input_key = document.createElement("input");
-            let save_button = document.createElement("button");
-            let remove_button = document.createElement("button");
-            placeholder.className = "placeholder_change_databas";
-            placeholder.id = "placeholder_change_databas"
+
+            var k = 0;
+
+            database[q].forEach(function(p, g) {
+
+                if (p.Id + "outer" == clas[i].id) {
+
+                    let add_component = document.createElement("button");
+                    let placeholder = document.createElement("div");
+                    let name = document.createElement("div");
+                    let input_utility = document.createElement("input");
+                    let input_description = document.createElement("input");
+                    let input_key = document.createElement("input");
+                    let save_button = document.createElement("button");
+                    let remove_button = document.createElement("button");
+                    placeholder.className = "placeholder_change_databas";
+                    placeholder.id = "placeholder_change_databas"
+
+                    name.className = "name" + k;
+                    name.id = "name" + k;
+                    name.innerHTML = database[q][g].utility;
+
+                    input_utility.className = "utility_change" + k;
+                    input_utility.id = "utility_change" + k
+                    input_utility.placeholder = "Utility: " + p.utility;
 
 
+                    input_utility.onclick = function add_utility() {
+                        if (document.getElementById(input_utility.id).value.length == 0) {
+                            console.log("value");
+                            document.getElementById(input_utility.id).value = p.utility;
+                        }
+                    }
 
+                    input_description.className = "description_change" + k;
+                    input_description.id = "description_change" + k
+                    input_description.placeholder = "Description: " + p.description;
+                    input_description.onclick = function add_description() {
+                        if (document.getElementById(input_description.id).value.length == 0) {
+                            console.log("value");
+                            document.getElementById(input_description.id).value = p.description;
+                        }
+                    }
 
+                    input_key.className = "key_change" + k;
+                    input_key.id = "key_change" + k;
+                    input_key.placeholder = "Keywords: " + database[q][g].keywords;
+                    input_key.onclick = function add_description() {
+                        if (document.getElementById(input_key.id).value.length == 0) {
+                            console.log("value");
+                            document.getElementById(input_key.id).value = database[q][g].keywords;
+                        }
+                    }
 
-            name.className = "name";
-            name.id = "name";
-            name.innerHTML = database[q][i].utility;
+                    save_button.className = "save_button" + k;
+                    save_button.id = "save_button" + k;
+                    save_button.value = "Save" + k;
+                    save_button.innerHTML = "Save";
+                    save_button.onclick = function() {
+                        var new_utility = document.getElementById(input_utility.id).value;
+                        var new_description = document.getElementById(input_description.id).value;
+                        var new_key = document.getElementById(input_key.id).value
 
-            input_utility.className = "utility_change";
-            input_utility.id = "utility_change"
-            input_utility.placeholder = "Utility: " + database[q][i].utility;
-
-
-            input_utility.onclick = function add_utility() {
-                if (document.getElementById("utility_change").value.length == 0) {
-                    console.log("value");
-                    document.getElementById("utility_change").value = database[q][i].utility;
-                }
-            }
-
-            input_description.className = "description_change";
-            input_description.id = "description_change"
-            input_description.placeholder = "Description: " + database[q][i].description;
-            input_description.onclick = function add_description() {
-                if (document.getElementById("description_change").value.length == 0) {
-                    console.log("value");
-                    document.getElementById("description_change").value = database[q][i].description;
-                }
-            }
-
-            input_key.className = "key_change";
-            input_key.id = "key_change";
-            input_key.placeholder = "Keywords: " + database[q][i].keywords;
-            input_key.onclick = function add_description() {
-                if (document.getElementById("key_change").value.length == 0) {
-                    console.log("value");
-                    document.getElementById("key_change").value = database[q][i].keywords;
-                }
-            }
-
-            save_button.className = "save_button";
-            save_button.id = "save_button";
-            save_button.value = "Save";
-            save_button.innerHTML = "Save";
-            save_button.onclick = function() {
-                var new_utility = document.getElementById("utility_change").value;
-                var new_description = document.getElementById("description_change").value;
-                var new_key = document.getElementById("key_change").value
-
-                if (new_utility.length > 0 && new_utility != " ") {
-                    console.log(new_utility)
-                    database[q][i].utility = new_utility;
-                }
-                if (new_description.length > 0 && new_description != " ") {
-                    database[q][i].description = new_description;
-                }
-                if (new_key.length > 0 && new_key != " ") {
-                    database[q][i].keywords = new_key;
-                }
-
-
-
-
-                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-                var divdata = document.getElementById("data")
-                divdata.innerHTML = "";
-                made_change = true;
-                remove_change()
-                add_element(q);
-
-            }
-            remove_button.className = "remove_button";
-            remove_button.id = "remove_button";
-            remove_button.value = "Remove";
-            remove_button.innerHTML = "Remove";
-
-            remove_button.onclick = function() {
-                database[z].splice(i, 1);
-                class_id.parentNode.removeChild(class_id);
-                layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-                database[z].forEach(function(ele, y) {
-                    if (y >= i) {
-                        if (layout[0][z] == 1) {
-                            var id_minus_1 = Number(ele.Id) - 1;
-                            ele.Id = "" + id_minus_1
-                        } else if (layout[0][z] == 2) {
-                            if (Number(ele.Id) < ((q + 1) * 60) - 30) {
-                                var id_minus_1 = Number(ele.Id) - 1;
-                                ele.Id = "" + id_minus_1
-                            }
-                            if (((q + 1) * 60) - 30 <= ele.Id <= ((z + 1) * 60) - 10) {
-                                var newID;
-                                if (Number(ele.Id) == ((q + 1) * 60) - 30) {
-                                    newID = (Number(ele.Id)) - 1;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 29) {
-                                    newID = (Number(ele.Id)) - 1;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 27) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 25) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 19) {
-                                    newID = Number(ele.Id) - 6;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 17) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 15) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 14) {
-                                    newID = Number(ele.Id) - 1;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 12) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((q + 1) * 60) - 10) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-
-
-                            }
-                            if (Number(ele.Id) == ((z + 1) * 60) - 2) {
-                                var id_minus_1 = Number(ele.Id) - 8;
-                                ele.Id = "" + id_minus_1
-                            }
-                        } else if (layout[0][q] == 3) {
-                            if (Number(ele.Id) < ((q + 1) * 60) - 15) {
-                                var id_minus_1 = Number(ele.Id) - 1;
-                                ele.Id = "" + id_minus_1
-                            }
-                            if (((q + 1) * 60) - 15 <= ele.Id <= ((q + 1) * 60) + 1) {
-                                var newID;
-                                if (Number(ele.Id) == ((z + 1) * 60) - 15) {
-                                    newID = (Number(ele.Id)) - 1;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((z + 1) * 60) - 14) {
-                                    newID = (Number(ele.Id)) - 1;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((z + 1) * 60) - 12) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((z + 1) * 60) - 10) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((z + 1) * 60) - 4) {
-                                    newID = Number(ele.Id) - 6;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((z + 1) * 60) - 2) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                }
-                                if (Number(ele.Id) == ((z + 1) * 60)) {
-                                    newID = Number(ele.Id) - 2;
-                                    ele.Id = "" + newID
-                                    console.log([y].Id)
-                                }
-                                console.log(ele.Id);
-                            }
-
+                        if (new_utility.length > 0 && new_utility != " ") {
+                            console.log(new_utility)
+                            database[q][g].utility = new_utility;
+                        }
+                        if (new_description.length > 0 && new_description != " ") {
+                            database[q][g].description = new_description;
+                        }
+                        if (new_key.length > 0 && new_key != " ") {
+                            database[q][g].keywords = new_key;
                         }
 
 
+
+
+                        fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+                        var divdata = document.getElementById("data")
+                        divdata.innerHTML = "";
+                        made_change = true;
+                        remove_change()
+                        add_element(q);
+                        drag();
+
                     }
-                })
-                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-                var divdata = document.getElementById("data")
-                divdata.innerHTML = "";
-                made_change = true
-                remove_change();
-                add_element(q);
+                    remove_button.className = "remove_button" + k;
+                    remove_button.id = "remove_button" + k;
+                    remove_button.value = "Remove" + k;
+                    remove_button.innerHTML = "Remove";
 
-            }
+                    remove_button.onclick = function() {
+                        database[z].splice(g, 1);
+                        class_id.parentNode.removeChild(class_id);
+                        layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+                        var not_the_sameid = true;
+                        database[z].forEach(function(ele, y) {
+                            if (y > g) {
+                                if (layout[0][z] == 1) {
+                                    var id_minus_1 = Number(ele.Id) - 1;
+                                    ele.Id = "" + id_minus_1
+                                } else if (layout[0][z] == 2) {
+                                    if (ele.Id != p.Id && database[z][y - 2].Id != p.Id) { not_the_sameid = true; }
+                                    if (ele.Id == p.Id || database[z][y - 2].Id == p.Id) { not_the_sameid = false; }
+                                    if (Number(ele.Id) < ((q + 1) * 60) - 30 && not_the_sameid) {
+                                        var id_minus_1 = Number(ele.Id) - 1;
+                                        ele.Id = "" + id_minus_1
+                                    }
+                                    if (((q + 1) * 60) - 30 <= ele.Id <= ((z + 1) * 60) - 10 && not_the_sameid) {
+                                        var newID;
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 30) {
+                                            newID = (Number(ele.Id)) - 1;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 29) {
+                                            newID = (Number(ele.Id)) - 1;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 27) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 25) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 19) {
+                                            newID = Number(ele.Id) - 6;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 17) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 15) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 14) {
+                                            newID = Number(ele.Id) - 1;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 12) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((q + 1) * 60) - 10) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
 
-            add_component.id = "add_component"
-            add_component.innerHTML = "Add component"
 
-            add_component.onclick = function() {
-                console.log("test")
-                var same_id = obj.Id;
+                                    }
+                                    if (Number(ele.Id) == ((z + 1) * 60) - 2 && not_the_sameid) {
+                                        var id_minus_1 = Number(ele.Id) - 8;
+                                        ele.Id = "" + id_minus_1
+                                    }
+                                } else if (layout[0][q] == 3) {
+                                    if (Number(ele.Id) < ((q + 1) * 60) - 15) {
+                                        var id_minus_1 = Number(ele.Id) - 1;
+                                        ele.Id = "" + id_minus_1
+                                    }
+                                    if (((q + 1) * 60) - 15 <= ele.Id <= ((q + 1) * 60) + 1) {
+                                        var newID;
+                                        if (Number(ele.Id) == ((z + 1) * 60) - 15) {
+                                            newID = (Number(ele.Id)) - 1;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((z + 1) * 60) - 14) {
+                                            newID = (Number(ele.Id)) - 1;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((z + 1) * 60) - 12) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((z + 1) * 60) - 10) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((z + 1) * 60) - 4) {
+                                            newID = Number(ele.Id) - 6;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((z + 1) * 60) - 2) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                        }
+                                        if (Number(ele.Id) == ((z + 1) * 60)) {
+                                            newID = Number(ele.Id) - 2;
+                                            ele.Id = "" + newID
+                                            console.log([y].Id)
+                                        }
+                                        console.log(ele.Id);
+                                    }
 
-                document.getElementById("change").innerHTML = "";
-                add_same_id(q, same_id)
+                                }
 
 
-            }
+                            }
+                        })
+                        database[q].sort(function(a, b) {
+                            return a.Id - b.Id || a.utility.localeCompare(b.utility);
+                        });
+                        fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+                        var divdata = document.getElementById("data")
+                        divdata.innerHTML = "";
+                        made_change = true
+                        remove_change();
+                        add_element(q);
+                        drag();
+
+                    }
+
+                    add_component.id = "add_component" + k
+                    add_component.innerHTML = "Add component"
+
+                    add_component.onclick = function() {
+                        var same_id = p.Id;
+
+                        document.getElementById("change").innerHTML = "";
+                        add_same_id(q, same_id)
 
 
-            document.querySelector("#data").appendChild(placeholder);
+                    }
 
-            document.getElementById("change").appendChild(name);
-            document.getElementById("change").appendChild(input_utility);
-            document.getElementById("change").appendChild(input_description);
-            document.getElementById("change").appendChild(input_key);
-            document.getElementById("change").appendChild(save_button);
-            document.getElementById("change").appendChild(remove_button);
-            document.getElementById("change").appendChild(add_component)
+
+                    document.querySelector("#data").appendChild(placeholder);
+
+                    document.getElementById("change").appendChild(name);
+                    document.getElementById("change").appendChild(input_utility);
+                    document.getElementById("change").appendChild(input_description);
+                    document.getElementById("change").appendChild(input_key);
+                    document.getElementById("change").appendChild(save_button);
+                    document.getElementById("change").appendChild(remove_button);
+                    document.getElementById("change").appendChild(add_component)
+
+                    k = k + 1;
+                }
+                console.log("stop")
+            })
+
+
+
 
         }
 
@@ -662,6 +733,9 @@ function add_same_id(q, same_id) {
         console.log(Number(same_id));
         database[q][amout_of_elements + 1].Id = "" + newID;
         database[q][amout_of_elements + 1].utility = "" + newComponent_name
+        database[q].sort(function(a, b) {
+            return a.Id - b.Id || a.utility.localeCompare(b.utility);
+        });
         fs.writeFileSync(fil, JSON.stringify(database, null, 3));
 
         var divdata = document.getElementById("data")
@@ -669,5 +743,6 @@ function add_same_id(q, same_id) {
         made_change = true
         remove_change();
         add_element(q);
+        drag();
     }
 }

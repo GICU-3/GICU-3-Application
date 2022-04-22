@@ -28,13 +28,14 @@ document.getElementById("search").onkeyup = function() {
 };
 
 document.getElementById("search").onfocus = async function() {
+
     if (document.getElementById("search").value.length > 0) {
         fuseSearch();
 
         document.getElementById("searchResult").style.display = "block";
     } else {
         var list = document.getElementsByClassName("aaaa")
-        console.log("test")
+
         while (list.length > 0) {
             list[0].parentNode.removeChild(list[0])
         }
@@ -46,7 +47,6 @@ document.getElementById("search").onblur = async function() {
     await sleep(100);
 
     var search_elements = document.getElementById("searchResult")
-    console.log(search_elements.childNodes.length);
 
     //hom();
     document.getElementById("searchResult").style.display = "block";
@@ -220,7 +220,6 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
             console.log('clicking outside the div');
             element_id.style.height == "160px";
         }*/
-        console.log(obj.item.utility)
     });
 }
 
