@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu', sans-serif; 
   margin: 0;
   background-image: url("../img/light-background.jpg");
   background-size: cover;
