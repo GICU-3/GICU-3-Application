@@ -55,10 +55,10 @@ npm start
 
 ### Create production ready build
 ```
-CURRENTLY N/A
+npm run electron:build
 ```
 
 ### Create production ready build Linux
 ```
-CURRENTLY N/A
+npm run electron:build -- --linux
 ```
