@@ -10,6 +10,7 @@
         <script src="js/databas.js"></script>
         <script scr="js/jquery-3.6.0.js"></script>
         <script defer src="js/search.js"></script>
+        <script src="js/loadingscreen.js"></script>
         <!-- BOOTSTRAP MODAL -->
         <!-- Insert this line above script imports  -->
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}
@@ -53,8 +54,15 @@
         </style>
     </head>
     <body>
+      <div class="loadingscreen">
+        <img id="loadingscreenimg" class="loadingscreenimg" src="img/joelpe.png">
+        <h1 class="loadingscreentext1">intializing optimized quantum-search-algorithm</h1>
+        <h1 class="loadingscreentext2"></h1>
+        <h1 class="loadingscreentext3"></h1>
+        <h1 class="loadingscreentext4"></h1>
+      </div>
         <nav class="navbar">
-            <div class="container">
+            <div id="navbarcontainer" class="container">
               <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal">Inställningar</a>
               <a class="home" id="home" onclick="home()" href="#">Home</a>
               <a class="labbar" id="labbar" onclick="labbar()" href="#">Labbar</a>
