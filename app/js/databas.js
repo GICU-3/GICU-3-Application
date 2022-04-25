@@ -76,6 +76,7 @@ function drag() {
         }
 
         if (dragSrcEl != this) {
+
             we = document.getElementById(dragSrcEl.id).childNodes
             ew = document.getElementById(this.id).childNodes
             var t = dragSrcEl.id;
@@ -84,10 +85,14 @@ function drag() {
             //console.log(rt)
             var tq = this.id;
             oi = tq.match(/\d+/)
+
             dragSrcEl.innerHTML = this.innerHTML;
+
             this.innerHTML = e.dataTransfer.getData('text/html');
+
+
         }
-        //console.log(dragSrcEl.id, this.id)
+
 
 
 
@@ -101,6 +106,8 @@ function drag() {
         items.forEach(function(item) {
             item.classList.remove('over');
         });
+
+
         console.log(we)
         console.log(ew)
         if (oi[0] > rt[0]) {
@@ -114,6 +121,17 @@ function drag() {
                 document.getElementById(we[a].id).id = rt[0];
 
             }
+            database[z].forEach(function(obj, i) {
+                if (obj.Id == rt[0]) {
+                    obj.Id = oi[0]
+                    console.log(oi[0])
+                } else if (obj.Id == oi[0]) {
+                    obj.Id = rt[0]
+                    console.log(rt[0])
+                }
+                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+            })
+
         }
         if (oi[0] < rt[0]) {
             for (let a = 0; a < we.length; a++) {
@@ -126,11 +144,23 @@ function drag() {
                 document.getElementById(ew[a].id).id = oi[0];
 
             }
+            database[z].forEach(function(obj, i) {
+                if (obj.Id == oi[0]) {
+                    obj.Id = rt[0]
+
+                } else if (obj.Id == rt[0]) {
+                    obj.Id = oi[0]
+
+                }
+                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+            })
+
         }
-
-
-
-        save_database();
+        database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+        database[z].sort(function(a, b) {
+            return a.Id - b.Id || a.utility.localeCompare(b.utility);
+        });
+        fs.writeFileSync(fil, JSON.stringify(database, null, 3));
     }
 
 
@@ -168,10 +198,10 @@ function save_database() {
 
                     var className_data = document.getElementsByClassName('.element')
 
-                    if (obj.utility == object.innerHTML) {
+                    if (obj.Id == object.id) {
                         console.log(object)
-                        save_arry_in[x] = obj;
-                        save_arry_in[x].Id = object.id;
+                        save_arry_in[r] = obj;
+                        save_arry_in[r].Id = object.id;
                     }
                 });
 
@@ -209,14 +239,8 @@ function add_element(q) {
         if (layout[0][q] == 1) { display_layout1(obj, w, standard_partern_layout, diffrent_partern_layout, diffrent_partern_layout2); }
         if (layout[0][q] == 2) { display_layout2(obj, w, standard_partern_layout, diffrent_partern_layout, diffrent_partern_layout2); }
         if (layout[0][q] == 3) { display_layout3(obj, w, standard_partern_layout, diffrent_partern_layout, diffrent_partern_layout2); }
-
-
     })
-    layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-    if (layout[0][z] == 1) { layout1(q); }
-    if (layout[0][z] == 2) { layout2(q, standard_partern_layout, diffrent_partern_layout); }
-    if (layout[0][z] == 3) { layout3(q, standard_partern_layout, diffrent_partern_layout); }
-
+    change_databas(q);
 
 }
 
@@ -371,19 +395,47 @@ function add_containers() {
                     latest_id = object.Id;
                 })
             })
-            arr[amout_of_cabinet + 1][0] = {
-                "utility": "Name",
-                "icon": "images\\template.jpg",
-                "description": "description",
-                "keywords": "keyword",
-                "favourite": "false",
-                "number": "1",
-                "Id": ""
-            }
+            var first_change = ((amout_of_cabinet + 2) * 60) - 30;
+            console.log(first_change)
+            var second_change = ((amout_of_cabinet + 2) * 60) - 10;
+            console.log(second_change)
+            var latest_id = ((amout_of_cabinet + 1) * 60);
+            console.log(latest_id)
+            var newID;
+            for (let i = 0; i < 40; i++) {
+                arr[amout_of_cabinet + 1][i] = {
+                    "utility": "",
+                    "icon": "images\\template.jpg",
+                    "description": "description",
+                    "keywords": "keyword",
+                    "favourite": "false",
+                    "number": "1",
+                    "Id": ""
 
-            var newID = ((amout_of_cabinet + 1) * 60) + 1;
-            arr[amout_of_cabinet + 1][0].Id = "" + newID;
-            fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+                }
+
+                if (latest_id < first_change) {
+                    if (latest_id < first_change) { newID = (((amout_of_cabinet + 1) * 60) + 1) + i; }
+                    latest_id = newID
+                } else if (latest_id < second_change) {
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 30) { newID = (Number(latest_id)) + 1; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 29) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 27) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 25) { newID = (Number(latest_id)) + 6; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 19) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 17) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 15) { newID = (Number(latest_id)) + 1; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 14) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 12) { newID = (Number(latest_id)) + 2; }
+                    latest_id = newID
+                } else if (latest_id == second_change) { newID = (Number(latest_id)) + 8; }
+                latest_id = newID
+
+                arr[amout_of_cabinet + 1][i].Id = "" + newID;
+                arr[amout_of_cabinet + 1][i].utility = "­";
+
+                fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+            }
             document.getElementById("select_layout").innerHTML = "";
             document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
@@ -468,7 +520,6 @@ function change_databas(q) {
                     let input_description = document.createElement("input");
                     let input_key = document.createElement("input");
                     let save_button = document.createElement("button");
-                    let remove_button = document.createElement("button");
                     placeholder.className = "placeholder_change_databas";
                     placeholder.id = "placeholder_change_databas"
 
@@ -484,6 +535,9 @@ function change_databas(q) {
                     input_utility.onclick = function add_utility() {
                         if (document.getElementById(input_utility.id).value.length == 0) {
                             console.log("value");
+                            if (document.getElementById(input_utility.id).value == "­") {
+                                document.getElementById(input_utility.id).value = "d";
+                            }
                             document.getElementById(input_utility.id).value = p.utility;
                         }
                     }
@@ -540,124 +594,27 @@ function change_databas(q) {
                         drag();
 
                     }
+                    var not_the_sameid = false;
+                    database[z].forEach(function(ele, y) {
+                        if (y == g) {
+                            if (database[z][y + 1].Id == p.Id || database[z][y - 1].Id == p.Id) {
+                                not_the_sameid = true;
+                            }
+                        }
+                    })
+                    let remove_button = document.createElement("button");
                     remove_button.className = "remove_button" + k;
                     remove_button.id = "remove_button" + k;
                     remove_button.value = "Remove" + k;
                     remove_button.innerHTML = "Remove";
+                    console.log(not_the_sameid)
+                    if (not_the_sameid) {}
 
                     remove_button.onclick = function() {
                         database[z].splice(g, 1);
                         class_id.parentNode.removeChild(class_id);
                         layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-                        var not_the_sameid = true;
-                        database[z].forEach(function(ele, y) {
-                            if (y > g) {
-                                if (layout[0][z] == 1) {
-                                    var id_minus_1 = Number(ele.Id) - 1;
-                                    ele.Id = "" + id_minus_1
-                                } else if (layout[0][z] == 2) {
-                                    if (ele.Id != p.Id && database[z][y - 2].Id != p.Id) { not_the_sameid = true; }
-                                    if (ele.Id == p.Id || database[z][y - 2].Id == p.Id) { not_the_sameid = false; }
-                                    if (Number(ele.Id) < ((q + 1) * 60) - 30 && not_the_sameid) {
-                                        var id_minus_1 = Number(ele.Id) - 1;
-                                        ele.Id = "" + id_minus_1
-                                    }
-                                    if (((q + 1) * 60) - 30 <= ele.Id <= ((z + 1) * 60) - 10 && not_the_sameid) {
-                                        var newID;
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 30) {
-                                            newID = (Number(ele.Id)) - 1;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 29) {
-                                            newID = (Number(ele.Id)) - 1;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 27) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 25) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 19) {
-                                            newID = Number(ele.Id) - 6;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 17) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 15) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 14) {
-                                            newID = Number(ele.Id) - 1;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 12) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((q + 1) * 60) - 10) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
 
-
-                                    }
-                                    if (Number(ele.Id) == ((z + 1) * 60) - 2 && not_the_sameid) {
-                                        var id_minus_1 = Number(ele.Id) - 8;
-                                        ele.Id = "" + id_minus_1
-                                    }
-                                } else if (layout[0][q] == 3) {
-                                    if (Number(ele.Id) < ((q + 1) * 60) - 15) {
-                                        var id_minus_1 = Number(ele.Id) - 1;
-                                        ele.Id = "" + id_minus_1
-                                    }
-                                    if (((q + 1) * 60) - 15 <= ele.Id <= ((q + 1) * 60) + 1) {
-                                        var newID;
-                                        if (Number(ele.Id) == ((z + 1) * 60) - 15) {
-                                            newID = (Number(ele.Id)) - 1;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((z + 1) * 60) - 14) {
-                                            newID = (Number(ele.Id)) - 1;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((z + 1) * 60) - 12) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((z + 1) * 60) - 10) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((z + 1) * 60) - 4) {
-                                            newID = Number(ele.Id) - 6;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((z + 1) * 60) - 2) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                        }
-                                        if (Number(ele.Id) == ((z + 1) * 60)) {
-                                            newID = Number(ele.Id) - 2;
-                                            ele.Id = "" + newID
-                                            console.log([y].Id)
-                                        }
-                                        console.log(ele.Id);
-                                    }
-
-                                }
-
-
-                            }
-                        })
-                        database[q].sort(function(a, b) {
-                            return a.Id - b.Id || a.utility.localeCompare(b.utility);
-                        });
                         fs.writeFileSync(fil, JSON.stringify(database, null, 3));
                         var divdata = document.getElementById("data")
                         divdata.innerHTML = "";
@@ -688,7 +645,7 @@ function change_databas(q) {
                     document.getElementById("change").appendChild(input_description);
                     document.getElementById("change").appendChild(input_key);
                     document.getElementById("change").appendChild(save_button);
-                    document.getElementById("change").appendChild(remove_button);
+                    if (not_the_sameid) { document.getElementById("change").appendChild(remove_button); }
                     document.getElementById("change").appendChild(add_component)
 
                     k = k + 1;
