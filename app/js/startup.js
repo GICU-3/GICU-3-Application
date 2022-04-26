@@ -25,19 +25,19 @@ function startup() {
   //loadingscreen
 
   setTimeout(() => {
-    document.getElementById("loadingscreentext1").style.display = "none";
-    document.getElementById("loadingscreentext2").style.display = "inline";
+    document.getElementById("loadingscreentext1").style.opacity = "0%";
+    document.getElementById("loadingscreentext2").style.opacity = "100%";
   }, 500);
   setTimeout(() => {
-    document.getElementById("loadingscreentext2").style.display = "none";
-    document.getElementById("loadingscreentext3").style.display = "inline";
+    document.getElementById("loadingscreentext2").style.opacity = "0%";
+    document.getElementById("loadingscreentext3").style.opacity = "100%";
   }, 1000);
   setTimeout(() => {
-    document.getElementById("loadingscreentext3").style.display = "none";
-    document.getElementById("loadingscreentext4").style.display = "inline";
+    document.getElementById("loadingscreentext3").style.opacity = "0%";
+    document.getElementById("loadingscreentext4").style.opacity = "100%";
   }, 1500);
   setTimeout(() => {
-    document.getElementById("loadingscreentext4").style.display = "none";
+    document.getElementById("loadingscreentext4").style.opacity = "0%";
     document.getElementById("navbar").style.display = "flex";
     document.getElementById("bodySection").style.display = "flex";
     document.getElementById("loadingscreen").style.display = "none";
