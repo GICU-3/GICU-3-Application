@@ -107,60 +107,63 @@ function drag() {
             item.classList.remove('over');
         });
 
-
-        console.log(we)
-        console.log(ew)
-        if (oi[0] > rt[0]) {
-            for (let a = 0; a < ew.length; a++) {
-                console.log(oi)
-                document.getElementById(ew[a].id).id = oi[0];
-
-            }
-            for (let a = 0; a < we.length; a++) {
-                console.log(rt)
-                document.getElementById(we[a].id).id = rt[0];
-
-            }
-            database[z].forEach(function(obj, i) {
-                if (obj.Id == rt[0]) {
-                    obj.Id = oi[0]
-                    console.log(oi[0])
-                } else if (obj.Id == oi[0]) {
-                    obj.Id = rt[0]
-                    console.log(rt[0])
-                }
-                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-            })
-
-        }
-        if (oi[0] < rt[0]) {
-            for (let a = 0; a < we.length; a++) {
-                console.log(rt)
-                document.getElementById(we[a].id).id = rt[0];
-
-            }
-            for (let a = 0; a < ew.length; a++) {
-                console.log(oi)
-                document.getElementById(ew[a].id).id = oi[0];
-
-            }
-            database[z].forEach(function(obj, i) {
-                if (obj.Id == oi[0]) {
-                    obj.Id = rt[0]
-
-                } else if (obj.Id == rt[0]) {
-                    obj.Id = oi[0]
+        if (ew != null && we != null) {
+            console.log(we)
+            console.log(ew)
+            if (oi[0] > rt[0]) {
+                for (let a = 0; a < ew.length; a++) {
+                    console.log(oi)
+                    document.getElementById(ew[a].id).id = oi[0];
 
                 }
-                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-            })
+                for (let a = 0; a < we.length; a++) {
+                    console.log(rt)
+                    document.getElementById(we[a].id).id = rt[0];
 
+                }
+                database[z].forEach(function(obj, i) {
+                    if (obj.Id == rt[0]) {
+                        obj.Id = oi[0]
+                        console.log(oi[0])
+                    } else if (obj.Id == oi[0]) {
+                        obj.Id = rt[0]
+                        console.log(rt[0])
+                    }
+                    fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+                })
+
+            }
+            if (oi[0] < rt[0]) {
+                for (let a = 0; a < we.length; a++) {
+                    console.log(rt)
+                    document.getElementById(we[a].id).id = rt[0];
+
+                }
+                for (let a = 0; a < ew.length; a++) {
+                    console.log(oi)
+                    document.getElementById(ew[a].id).id = oi[0];
+
+                }
+                database[z].forEach(function(obj, i) {
+                    if (obj.Id == oi[0]) {
+                        obj.Id = rt[0]
+
+                    } else if (obj.Id == rt[0]) {
+                        obj.Id = oi[0]
+
+                    }
+                    fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+                })
+
+            }
+            database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+            database[z].sort(function(a, b) {
+                return a.Id - b.Id || a.utility.localeCompare(b.utility);
+            });
+            fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+            ew = null;
+            we = null;
         }
-        database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-        database[z].sort(function(a, b) {
-            return a.Id - b.Id || a.utility.localeCompare(b.utility);
-        });
-        fs.writeFileSync(fil, JSON.stringify(database, null, 3));
     }
 
 
@@ -406,8 +409,8 @@ function add_containers() {
                 arr[amout_of_cabinet + 1][i] = {
                     "utility": "",
                     "icon": "images\\template.jpg",
-                    "description": "description",
-                    "keywords": "keyword",
+                    "description": "",
+                    "keywords": "",
                     "favourite": "false",
                     "number": "1",
                     "Id": ""
@@ -596,11 +599,22 @@ function change_databas(q) {
                     }
                     var not_the_sameid = false;
                     database[z].forEach(function(ele, y) {
-                        if (y == g) {
+                        if (y == g && y != 0 && y != database[z].length - 1) {
                             if (database[z][y + 1].Id == p.Id || database[z][y - 1].Id == p.Id) {
                                 not_the_sameid = true;
                             }
                         }
+                        if (y == g && y == 0) {
+                            if (database[z][y + 1].Id == p.Id) {
+                                not_the_sameid = true
+                            }
+                        }
+                        if (y == g && y == database[z].length - 1) {
+                            if (database[z][y - 1].Id == p.Id) {
+                                not_the_sameid = true
+                            }
+                        }
+
                     })
                     let remove_button = document.createElement("button");
                     remove_button.className = "remove_button" + k;
@@ -608,7 +622,7 @@ function change_databas(q) {
                     remove_button.value = "Remove" + k;
                     remove_button.innerHTML = "Remove";
                     console.log(not_the_sameid)
-                    if (not_the_sameid) {}
+
 
                     remove_button.onclick = function() {
                         database[z].splice(g, 1);

@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
 :root {
-  --textTheme: #f0f0f0;
+  --textTheme: #1b1b1b;
   --text2Theme: #1b1b1b;
   --text3Theme: #f0f0f0;
   --backgroundTheme: #f0f0f0;
   --decorationTheme: #d5d5d5;
+  --background-admin: #1b1b1b80;
 }
 
 .dark-theme {
@@ -14,6 +15,7 @@
   --backgroundTheme: #2d2d2d;
   --decorationTheme: #1b1b1b;
   background-image: url("../img/main-background.jpg");
+  --background-admin: #f0f0f024;
 }
 
 body {
@@ -277,19 +279,28 @@ body #admin_s #new_cabinet {
 }
 
 body #data {
-  background-color: rgba(45, 45, 45, 0.5);
+  background-color: var(--background-admin);
 }
 
 body #data #standard_partern_layout .components {
-  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  height: 24px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: var(--backgroundTheme);
   border-radius: 5px;
   margin-top: 8px;
   margin-bottom: 8px;
+  color: var(--textTheme);
 }
 
 body #data .new_element {
   text-align: center;
-  background-color: #fff;
+  background-color: var(--backgroundTheme);
   border-radius: 5px;
   margin-left: 40px;
   margin-right: 40px;
@@ -299,8 +310,13 @@ body #data .new_element {
 body #data #standard_partern_layout {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 150px 150px 150px 150px 150px;
-      grid-template-columns: 150px 150px 150px 150px 150px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 5px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   text-align: center;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -313,19 +329,36 @@ body #data #standard_partern_layout {
 body #data #diffrent_partern_layout {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 280px 280px 280px;
-      grid-template-columns: 280px 280px 280px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 5px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body #data #diffrent_partern_layout .components {
-  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  height: 24px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: var(--backgroundTheme);
   border-radius: 5px;
   margin-top: 8px;
   margin-bottom: 8px;
+  color: var(--textTheme);
 }
 
 body #data #diffrent_partern_layout2 {
@@ -334,16 +367,33 @@ body #data #diffrent_partern_layout2 {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  -ms-grid-columns: 932px;
-      grid-template-columns: 932px;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  row-gap: 5px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body #data #diffrent_partern_layout2 .components {
-  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  height: 24px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: var(--backgroundTheme);
   border-radius: 5px;
   margin-top: 8px;
   margin-bottom: 8px;
+  color: var(--textTheme);
 }
 
 body #change {

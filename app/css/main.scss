@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 :root {
-    --textTheme: #f0f0f0;
+    --textTheme: #1b1b1b;
     --text2Theme: #1b1b1b;
     --text3Theme: #f0f0f0;
     --backgroundTheme: #f0f0f0;
     --decorationTheme: #d5d5d5;
+    --background-admin: #1b1b1b80;
 }
 
 .dark-theme {
@@ -14,6 +15,7 @@
     --backgroundTheme: #2d2d2d;
     --decorationTheme: #1b1b1b;
     background-image: url('../img/main-background.jpg');
+    --background-admin: #f0f0f024;
 }
 
 body {
@@ -203,17 +205,22 @@ body {
         text-align: center;
     }
     #data {
-        background-color: rgba(45, 45, 45, 0.5);
+        background-color: var(--background-admin)
     }
     #data #standard_partern_layout .components {
-        background-color: #fff;
+        display: flex;
+        overflow: hidden;
+        height: 24px;
+        justify-content: space-evenly;
+        background-color: var(--backgroundTheme);
         border-radius: 5px;
         margin-top: 8px;
         margin-bottom: 8px;
+        color: var(--textTheme);
     }
     #data .new_element {
         text-align: center;
-        background-color: #fff;
+        background-color: var(--backgroundTheme);
         border-radius: 5px;
         margin-left: 40px;
         margin-right: 40px;
@@ -221,34 +228,58 @@ body {
     }
     #data #standard_partern_layout {
         display: grid;
-        grid-template-columns: 150px 150px 150px 150px 150px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        row-gap: 5px;
+        column-gap: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
         text-align: center;
         justify-content: space-evenly;
         align-items: center;
     }
     #data #diffrent_partern_layout {
         display: grid;
-        grid-template-columns: 280px 280px 280px;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 5px;
+        column-gap: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
         justify-content: space-evenly;
         text-align: center;
+        align-items: center;
     }
     #data #diffrent_partern_layout .components {
-        background-color: #fff;
+        display: flex;
+        overflow: hidden;
+        height: 24px;
+        justify-content: space-evenly;
+        background-color: var(--backgroundTheme);
         border-radius: 5px;
         margin-top: 8px;
         margin-bottom: 8px;
+        color: var(--textTheme);
     }
     #data #diffrent_partern_layout2 {
         display: grid;
         justify-content: space-evenly;
-        grid-template-columns: 932px;
+        grid-template-columns: 1fr;
+        row-gap: 5px;
+        column-gap: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
         text-align: center;
+        align-items: center;
     }
     #data #diffrent_partern_layout2 .components {
-        background-color: #fff;
+        display: flex;
+        overflow: hidden;
+        height: 24px;
+        justify-content: space-evenly;
+        background-color: var(--backgroundTheme);
         border-radius: 5px;
         margin-top: 8px;
         margin-bottom: 8px;
+        color: var(--textTheme);
     }
     #change {
         background-color: #fff;
