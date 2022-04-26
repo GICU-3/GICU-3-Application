@@ -16,7 +16,7 @@
 }
 body{
     #loadingscreen{
-        animation: fadeout 2s;
+        animation: fadeout 2s; //fadeout animation of loadingscreen
         opacity: 0;
         justify-content: center;
         display: inline;
@@ -53,7 +53,7 @@ body{
             margin-top: -26px;
         }
     }
-    @keyframes fadeout {
+    @keyframes fadeout {  //fadeout animation of loadingscreen
         0% { opacity: 1; }
         75% { opacity: 1; }
         100% { opacity: 0; }
@@ -62,15 +62,15 @@ body{
     margin: 0;
     background-image: url('../img/light-background.jpg');
     background-size: cover;
-    .navbar{
+    .navbar{ //styling of navbar
         display: none;
         background: none;
         padding: 0.5em;
-        .container{
+        .container{ //styling of container for navbar
             //text-align: center;
             display: flex;
             justify-content: space-evenly;
-            a{
+            a { //styling of all "a" inside navbar
                 text-decoration: 0;
                 color: white;
                 font-weight: bold;
@@ -78,11 +78,11 @@ body{
         }
     }
     .searchbar{
-        h1{
+        h1{ //styling of h1 inside searchbar div  ("GICU-3" logo) 
             color: white;
             margin: 20px;
         }
-        span{
+        span{ //styling of GICU-3 logo (the span is the different color in the number 3)
             color: #a3c4cb;
         }
         margin-left: 256px;
@@ -93,7 +93,7 @@ body{
         text-align: center;
         background: none;
         font-size: 1.3em;
-        .search{
+        .search{ //styling of search field
             display: inline;
             width: 70%;
             height: 2em;
@@ -101,7 +101,7 @@ body{
             margin-bottom: 1em;
             background-color: var(--backgroundTheme);
         }
-        ::placeholder {
+        ::placeholder { //styling of placeholder text inside search field
             color: var(--text2Theme);
             font-size: smaller;
         }
@@ -119,7 +119,7 @@ body{
             }
         }*/
     }
-    .searchContentDiv {
+    .searchContentDiv { //styling of "header" for every dynamically created div containing title name for each component
         background-color: var(--decorationTheme);
         height: 45px;
         justify-content: left;
@@ -129,20 +129,20 @@ body{
         align-items: center;
         color: var(--text2Theme);
     }
-    .searchContentDivDescription {
+    .searchContentDivDescription { //styling of container for searchContentDivDescription
         width: 50%;
         position: relative;
         font-size: 12px;
         align-items: center;
         color: var(--text2Theme);
     }
-    .searchContentDivDescription a {
+    .searchContentDivDescription a { //styling of component description text
         position: relative;
         width: 150px;
         left:0px;
     }
     
-    #searchResult > div {
+    #searchResult > div { //styling of each dynamically created div
         border-radius: 10px;
         margin-top: 15px;
         margin-bottom: 15px;
@@ -151,7 +151,7 @@ body{
         background: var(--backgroundTheme);
         //overflow: hidden;
         margin-right: 15px;
-        .container{
+        .container{ //styling of container for "searchContentDivDescription" and "#searchResult img"
             display: flex;
             justify-content: space-evenly;
             padding-top: 30px;
@@ -159,22 +159,23 @@ body{
         }
     }
     
-    #searchResult img {
+    #searchResult img { //styling of image of components inside dynamically created div
         width: auto;
         height: 48px;
         border-radius: 10px;
         
     }
-    #searchResult {
+    #searchResult { //styling of "search result" div that contains all dynamically created divs. Essentially a container
         background: none;
         height: 360px;
         overflow-y: auto;
     }
-    .bodySection{
-
+    .bodySection{ //styling of both search history div and searchbar div. does NOT include navbar
         display: none;
         height: 510px;
-        #searchHistory{
+
+
+        #searchHistory{ //styling of entire search history or "aktiva sökningar" div
             background-color: rgba(45, 45, 45, 0.5);
             margin-left: 56px;
             margin-top: 110px;
@@ -183,7 +184,7 @@ body{
             border-bottom-left-radius: 10px;
             height: 300px;
             overflow-y: auto;
-            .searchHistoryTitle {
+            .searchHistoryTitle { //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
                 color: white;
                 margin-bottom: 15px;
                 padding-top: 5px;
@@ -193,19 +194,19 @@ body{
                 display: flex;
                 justify-content: center;
             }
-            .chosen{
+            .chosen{ //styling of chosen search in "aktiva sökningar" list
                 color: white;
                 display: flex;
                 justify-content: right;
-                img {
+                img { //styling of cross SVG-image shown beside the ".chosen" text
                     height: 30px;
                     padding-left: 10px;
                     padding-right: 30px;
                     width: auto;
-                    filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%); //lösning för att ge svg färg
+                    filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%); //a solution to change the color of SVG-image, simple generators found online
                 }
             }
-            .removeHistory{
+            .removeHistory{ //styling of "clear searches" button
                 position: absolute;
                 margin-top: 355px;
                 background-color: black;
@@ -219,7 +220,7 @@ body{
         }
     }
 
-    .rotate{
+    .rotate{ //rotation of loadingscreen image
         animation: rotation 1s infinite linear;
         @keyframes rotation {
 

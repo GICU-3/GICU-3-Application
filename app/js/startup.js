@@ -1,5 +1,5 @@
 
-function startup() {
+function startup() { //runs 1 time each startup, or more specifically when body is loaded
   
   //savestate darkmode
   const themeSwitch = document.querySelector('input');
@@ -22,7 +22,7 @@ function startup() {
     
   });
 
-  //loadingscreen
+  //loadingscreen scuffed solution, loading screen not important for functionality so let be
 
   setTimeout(() => {
     document.getElementById("loadingscreentext1").style.opacity = "0%";
