@@ -122,7 +122,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
 
         var del_history = document.getElementById("removeHistory");
         del_history.addEventListener("click", removebutton);
-
+        
         function sayhello() {
             var selected = document.querySelectorAll(".chosen");
             let r = document.createElement("div");
@@ -140,41 +140,8 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                 if (r.id == a[e].id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
                     
-                    //ALERT MESASGES
-                    //code from https://stackoverflow.com/questions/8965018/dynamically-creating-bootstrap-css-alert-messages
-
-                    showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000);
+                    showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000); //calls showAlert function
                     
-                    function showAlert(message, type, closeDelay) {
-                        var $cont = $("#alerts-container");
-                        if ($cont.length == 0) {
-                            // alerts-container does not exist, create it
-                            $cont = $('<div id="alerts-container">')
-                                .css({
-                                    //adjust message position
-                                     position: "fixed"
-                                    ,width: "50%"
-                                    ,left: "25%"
-                                    ,bottom: "0%"
-                                })
-                                .appendTo($("body"));
-                        }
-                        // default to alert-info; other options include success, warning, danger
-                        type = type || "info";    
-                        // create the alert div
-                        var alert = $('<div>')
-                            .addClass("fade in show alert alert-" + type)
-                            .append(
-                                $('<button type="button" class="close" data-dismiss="alert">')
-                                .append("&times;")
-                            )
-                            .append(message);
-                        // add the alert div to top of alerts-container, use append() to add to bottom
-                        $cont.prepend(alert);
-                        // if closeDelay was passed - set a timeout to close the alert
-                        if (closeDelay)
-                            window.setTimeout(function() { alert.alert("close") }, closeDelay);     
-                        }                    
                 }
             })
             searchHistory.appendChild(r);
@@ -198,6 +165,47 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
     });
 }
 
+/**
+ * The showAlert function displays an alert message in the browser.
+ * 
+ * @param message Display the message in the alert box
+ * @param type Set the alert type
+ * @param closeDelay Close the alert after a specified amount of time
+ * @return The alert div
+ * @docauthor Trelent
+ */
+function showAlert(message, type, closeDelay) {
+    var $cont = $("#alerts-container");
+    if ($cont.length == 0) {
+        // alerts-container does not exist, create it
+        $cont = $('<div id="alerts-container">')
+            .css({
+                //adjust message position
+                 position: "fixed"
+                ,width: "50%"
+                ,left: "25%"
+                ,bottom: "0%"
+            })
+            .appendTo($("body"));
+    }
+    // default to alert-info; other options include success, warning, danger
+    type = type || "info";    
+    // create the alert div
+    var alert = $('<div>')
+        .addClass("fade in show alert alert-" + type)
+        .append(
+            $('<button type="button" class="close" data-dismiss="alert">')
+            .append("&times;")
+        )
+        .append(message);
+    // add the alert div to top of alerts-container, use append() to add to bottom
+    $cont.prepend(alert);
+    // if closeDelay was passed - set a timeout to close the alert
+    if (closeDelay) {
+        window.setTimeout(function() { alert.alert("close") }, closeDelay);     
+    }
+}
+
 function add() {
     var selected = document.querySelectorAll(".chosen");
 
@@ -212,4 +220,4 @@ function add() {
             try { b.parentNode.removeChild(b)} catch {};
         }
     })
-}
+} 
