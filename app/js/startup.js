@@ -1,6 +1,16 @@
-
+/**
+ * The startup function is called when the page loads.
+ * It is devided into two parts.
+ * Part 1:
+ * Savestate darkmode reads the 'theme' value from 'localStorage' https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ * Part 2:
+ * Is used to hide elements on the loading page that are not needed until later, and to display elements that need to be shown immediately.
+ * 
+ * @return Nothing
+ * @docauthor Trelent
+ * @docmodifier Emil Lindén
+ */
 function startup() {
-  
   //savestate darkmode
   const themeSwitch = document.querySelector('input');
   console.log(localStorage.getItem('theme'));
@@ -10,19 +20,17 @@ function startup() {
     themeSwitch.checked = true;
   }
   themeSwitch.addEventListener('change', () => {
-  document.body.classList.toggle('dark-theme');
-  console.log(checkedValue);
-  if (checkedValue) {
-    localStorage.setItem('theme', 'dark'); //localStorage
-    console.log("logged dark");
-  } else {
-    localStorage.setItem('theme','light');
-    console.log("logged light");
-  }
-    
+    document.body.classList.toggle('dark-theme');
+    console.log(checkedValue);
+    if (checkedValue) {
+      localStorage.setItem('theme', 'dark'); //localStorage
+      console.log("logged dark");
+    } else {
+      localStorage.setItem('theme', 'light');
+      console.log("logged light");
+    }
   });
 
-  //loadingscreen
 
   setTimeout(() => {
     document.getElementById("loadingscreentext1").style.opacity = "0%";
