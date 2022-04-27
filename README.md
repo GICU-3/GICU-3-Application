@@ -97,7 +97,6 @@ Trelent is a tool for generating AI docstrings. It is found under VS Code extent
  * It is used to hide elements on the page that are not needed until later, and to display elements that need to be shown immediately.
  *
  * @param [Parameters, if any]
- *
  * @return Nothing
  * @docauthor Trelent
  */
