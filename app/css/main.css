@@ -52,12 +52,12 @@ body .navbar .container a {
 
 body .container a {
   display: block;
-  padding: 12px;
+  padding: 20px;
   text-decoration: none;
 }
 
 body .navbar .container img {
-  width: 56px;
+  width: 48px;
   filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
 }
 
