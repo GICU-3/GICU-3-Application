@@ -31,6 +31,7 @@ function startup() {
     }
   });
 
+// Part 2
 
   setTimeout(() => {
     document.getElementById("loadingscreentext1").style.opacity = "0%";
