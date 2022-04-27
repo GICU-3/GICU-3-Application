@@ -61,17 +61,17 @@
         <h1 id="loadingscreentext3">( . ) ( . ) 80085</h1>
         <h1 id="loadingscreentext4">finish up... (UwU)</h1>
       </div>
-        <nav class="navbar" id="navbar">
-            <div id="navbarcontainer" class="container">
-              <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal">Inställningar</a>
-              <a class="home" id="home" onclick="home()" href="#">Home</a>
-              <a class="labbar" id="labbar" onclick="labbar()" href="#">Labbar</a>
-              <a class="admin" id="admin" onclick="admin()" href="#">Admin</a>
+        <nav class="navbar">
+            <div class="container">
+              <a class="home" id="home" onclick="home()" href="#"><img id="homeimg" src="./img/home.svg"/></a>
+              <a class="labbar" id="labbar" onclick="labbar()" href="#"><img id="bookimg" src="./img/book.svg"/></a>
+              <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal"><img id="gearimg" src="./img/gear.svg"/></a> 
+              <a class="admin" id="admin" onclick="admin()" href="#"><img id="engineerimg" src="./img/engineer.svg"/></a>
             </div>
         </nav>
 
         <!-- BOOTSTRAP MODAL -->
-        <div class="container">
+        <div class="modal-container">
           
             <!-- The Modal -->
             <div class="modal fade" id="myModal">
