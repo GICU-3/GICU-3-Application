@@ -23,24 +23,35 @@ body {
   background-size: cover;
 }
 
+body .modal-container a {
+  display: block;
+  text-decoration: none;
+}
+
 body .navbar {
   position: fixed;
   background: none;
   padding: 0.5em;
   width: 80px;
   padding-bottom: 100%;
-  backdrop-filter: blur(5px) grayscale(30%);
-  box-shadow: 1px 2px 3px rgba(0,0,0,.1);
+  -webkit-backdrop-filter: blur(5px) grayscale(30%);
+          backdrop-filter: blur(5px) grayscale(30%);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 body .navbar .container {
-  display: -webkit-box; /*! Overwritten by 'display: flex;' */
-  display: -ms-flexbox; /*! Overwritten by 'display: flex;' */
+  padding: 20px;
+  display: -webkit-box;
+  /*! Overwritten by 'display: flex;' */
+  display: -ms-flexbox;
+  /*! Overwritten by 'display: flex;' */
   display: flex;
-  -webkit-box-pack: space-evenly; /*! Unused */
-  -ms-flex-pack: space-evenly; /*! Unused */
+  -webkit-box-pack: space-evenly;
+  /*! Unused */
+  -ms-flex-pack: space-evenly;
+  /*! Unused */
   justify-content: space-evenly;
-
 }
 
 body .navbar .container a {
@@ -50,17 +61,17 @@ body .navbar .container a {
   font-weight: bold;
 }
 
-body .container a {
-  display: block;
-  padding: 20px;
-  text-decoration: none;
-}
-
 body .navbar .container img {
+  margin: 20px;
   width: 48px;
-  filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
+  -webkit-filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
+          filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
 }
 
+body #homeimg {
+  -webkit-filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
+          filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
+}
 
 body .searchbar {
   margin-left: 256px;

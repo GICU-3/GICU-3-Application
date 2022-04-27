@@ -52,18 +52,19 @@
             }
         </style>
     </head>
+
     <body>
         <nav class="navbar">
             <div class="container">
-              <a class="home" id="home" onclick="home()" href="#"><img src="./img/home.svg"/></a>
-              <a class="labbar" id="labbar" onclick="labbar()" href="#"><img src="./img/book.svg"/></a>
-              <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal"><img src="./img/gear.svg"/></a> 
-              <a class="admin" id="admin" onclick="admin()" href="#"><img src="./img/engineer.svg"/></a>
+              <a class="home" id="home" onclick="home()" href="#"><img id="homeimg" src="./img/home.svg"/></a>
+              <a class="labbar" id="labbar" onclick="labbar()" href="#"><img id="bookimg" src="./img/book.svg"/></a>
+              <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal"><img id="gearimg" src="./img/gear.svg"/></a> 
+              <a class="admin" id="admin" onclick="admin()" href="#"><img id="engineerimg" src="./img/engineer.svg"/></a>
             </div>
         </nav>
 
         <!-- BOOTSTRAP MODAL -->
-        <div class="container">
+        <div class="modal-container">
           
             <!-- The Modal -->
             <div class="modal fade" id="myModal">

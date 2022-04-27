@@ -19,19 +19,42 @@ body{
     margin: 0;
     background-image: url('../img/light-background.jpg');
     background-size: cover;
+    .modal-container{
+        a{
+            display: block;
+            text-decoration: none;
+        }
+    }
     .navbar{
+        position: fixed;
         background: none;
         padding: 0.5em;
+        width: 80px;
+        padding-bottom: 100%;
+        backdrop-filter: blur(5px) grayscale(30%);
+        box-shadow: 1px 2px 3px rgba(0,0,0,.1);
         .container{
-            //text-align: center;
+            padding: 20px;
+            display: -webkit-box; /*! Overwritten by 'display: flex;' */
+            display: -ms-flexbox; /*! Overwritten by 'display: flex;' */
             display: flex;
+            -webkit-box-pack: space-evenly; /*! Unused */
+            -ms-flex-pack: space-evenly; /*! Unused */
             justify-content: space-evenly;
             a{
                 text-decoration: 0;
                 color: white;
                 font-weight: bold;
             }
+            img {
+                margin:20px;
+                width: 48px;
+                filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
+            }
         }
+    }
+    #homeimg {
+        filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
     }
     .searchbar{
         h1{
