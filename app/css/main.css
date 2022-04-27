@@ -242,10 +242,11 @@ body .bodySection #searchHistory .removeHistory {
 body #admin_s {
   background-color: rgba(45, 45, 45, 0.5);
   display: none;
-  -ms-grid-columns: 300px 300px 300px;
-      grid-template-columns: 300px 300px 300px;
-  -ms-grid-rows: 30px 30px;
-      grid-template-rows: 30px 30px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 30px 30px 30px;
+      grid-template-rows: 30px 30px 30px;
+  grid-auto-flow: column;
   row-gap: 16px;
   -webkit-column-gap: 16px;
           column-gap: 16px;
@@ -262,6 +263,10 @@ body #admin_s #select_layout {
   background-color: white;
   border-radius: 5px 5px 5px 5px;
   text-align: center;
+}
+
+body #selected_cabinet {
+  margin-top: 10px;
 }
 
 body #admin_s #selected_cabinet #select_cabinet_change_name {

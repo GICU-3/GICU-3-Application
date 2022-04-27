@@ -8,6 +8,7 @@ var layout = [];
 var fil = 'dat/utilities.json'
 var test = 'dat/Layout.json'
 
+
 function settings() {
     if (there_is_element == true && z !== null) { remove_element(); }
     if (there_is_skop == true) { remove_skop(); }
@@ -36,6 +37,8 @@ function remove_change() {
 }
 
 function drag() {
+    var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+
     var ew, we;
     var rt, oi;
 
@@ -181,6 +184,114 @@ function drag() {
 
 }
 
+function drag_cabinets() {
+    var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+    var layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+
+    var dragSrcEl = null;
+
+    function handleDragStart(e) {
+        this.style.opacity = '0.4';
+
+        dragSrcEl = this;
+
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.innerHTML);
+    }
+
+    function handleDragOver(e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+
+        e.dataTransfer.dropEffect = 'move';
+
+        return false;
+    }
+
+    function handleDragEnter(e) {
+        this.classList.add('over');
+    }
+
+    function handleDragLeave(e) {
+        this.classList.remove('over');
+
+    }
+
+    function handleDrop(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation(); // stops the browser from redirecting.
+        }
+
+        if (dragSrcEl != this) {
+            var drdropid = this.id;
+            if (dragSrcEl.id < drdropid) {
+                database[dragSrcEl.id].forEach(function(obj, i) {
+                    console.log(drdropid)
+                    obj.Id = "" + (Number(obj.Id) + (drdropid - dragSrcEl.id) * 60)
+                })
+                database[drdropid].forEach(function(obj, i) {
+                    obj.Id = "" + (Number(obj.Id) - (drdropid - dragSrcEl.id) * 60)
+                })
+            } else if (dragSrcEl.id > drdropid) {
+                database[drdropid].forEach(function(obj, i) {
+                    console.log(drdropid)
+                    obj.Id = "" + (Number(obj.Id) + (dragSrcEl.id - drdropid) * 60)
+                })
+                database[dragSrcEl.id].forEach(function(obj, i) {
+                    obj.Id = "" + (Number(obj.Id) - (dragSrcEl.id - drdropid) * 60)
+                })
+            }
+
+            var temp_database = database[dragSrcEl.id]
+            database[dragSrcEl.id] = database[this.id]
+            database[this.id] = temp_database;
+
+            var temp_layout = layout[0][dragSrcEl.id]
+            layout[0][dragSrcEl.id] = layout[0][this.id]
+            layout[0][this.id] = temp_layout
+
+            temp_layout = layout[1][dragSrcEl.id]
+            layout[1][dragSrcEl.id] = layout[1][this.id]
+            layout[1][this.id] = temp_layout;
+
+            dragSrcEl.innerHTML = this.innerHTML;
+            this.innerHTML = e.dataTransfer.getData('text/html');
+        }
+
+        return false;
+    }
+
+    function handleDragEnd(e) {
+        console.log("res")
+        this.style.opacity = '1';
+
+        items.forEach(function(item) {
+            item.classList.remove('over');
+        });
+
+
+        fs.writeFileSync(fil, JSON.stringify(database, null, 3))
+        fs.writeFileSync(test, JSON.stringify(layout, null, 3))
+
+
+    }
+
+
+    let items = document.querySelectorAll('.skop');
+    items.forEach(function(item) {
+        console.log("all")
+        item.addEventListener('dragstart', handleDragStart, false);
+        item.addEventListener('dragenter', handleDragEnter, false);
+        item.addEventListener('dragover', handleDragOver, false);
+        item.addEventListener('dragleave', handleDragLeave, false);
+        item.addEventListener('drop', handleDrop, false);
+        item.addEventListener('dragend', handleDragEnd, false);
+    });
+
+
+}
+
 function save_database() {
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
     var save_arry = [];
@@ -250,6 +361,8 @@ function add_element(q) {
 function add_containers() {
     layout = JSON.parse(fs.readFileSync(test, 'utf8'));
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+
+
     database.forEach(function(array, q) {
 
         let skop = document.createElement("div");
@@ -257,16 +370,17 @@ function add_containers() {
         document.querySelector("#admin_s").appendChild(skop);
         var cl = document.getElementsByClassName('skop');
 
-        cl[q].id = layout[1][q]
-        cl[q].innerHTML = cl[q].id
+        cl[q].id = q
+        cl[q].innerHTML = layout[1][q]
         there_is_skop = true;
-
+        skop.draggable = true;
+        drag_cabinets();
 
 
         document.getElementById(cl[q].id).addEventListener("click", select_cabinet)
 
         function select_cabinet() {
-            let selected_cabinet = document.createElement("div")
+            document.getElementById("selected_cabinet").innerHTML = "";
             let select_cabinet_change_name = document.createElement("input")
             let select_cabinet_open_button = document.createElement("button")
             let select_cabinet_remove = document.createElement("button")
@@ -279,12 +393,13 @@ function add_containers() {
             select_cabinet_remove.innerHTML = "Remove"
             select_cabinet.innerHTML = cl[q].id
 
-            selected_cabinet.appendChild(select_cabinet_change_name)
-            selected_cabinet.appendChild(select_cabinet_open_button)
-            selected_cabinet.appendChild(select_cabinet_remove)
-            document.querySelector("#admin_s").appendChild(selected_cabinet);
+            document.querySelector("#selected_cabinet").appendChild(select_cabinet_change_name)
+            document.querySelector("#selected_cabinet").appendChild(select_cabinet_open_button)
+            document.querySelector("#selected_cabinet").appendChild(select_cabinet_remove)
+
             document.getElementById("select_cabinet_open_button").onclick = function() {
                 document.getElementById("admin_s").innerHTML = "";
+                document.getElementById("selected_cabinet").innerHTML = "";
                 chose();
             }
             document.getElementById("select_cabinet_remove").onclick = function() {
@@ -296,14 +411,16 @@ function add_containers() {
 
 
 
-
+            drag_cabinets();
         }
 
         function chose() {
             add_element(q);
             drag();
         }
+
         amout_of_cabinet = q;
+
     })
 
     let new_skop = document.createElement("div");
@@ -362,19 +479,32 @@ function add_containers() {
                     latest_id = object.Id;
                 })
             })
-            arr[amout_of_cabinet + 1][0] = {
-                "utility": "Name",
-                "icon": "images\\template.jpg",
-                "description": "description",
-                "keywords": "keyword",
-                "favourite": "false",
-                "number": "1",
-                "Id": ""
-            }
 
-            var newID = ((amout_of_cabinet + 1) * 60) + 1;
-            arr[amout_of_cabinet + 1][0].Id = "" + newID;
-            fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+            var latest_id = ((amout_of_cabinet + 1) * 60);
+            console.log(latest_id)
+            var newID;
+            for (let i = 0; i < 60; i++) {
+                arr[amout_of_cabinet + 1][i] = {
+                    "utility": "",
+                    "icon": "images\\template.jpg",
+                    "description": "",
+                    "keywords": "",
+                    "favourite": "false",
+                    "number": "1",
+                    "Id": ""
+
+                }
+
+
+                newID = (((amout_of_cabinet + 1) * 60) + 1) + i;
+                latest_id = newID
+
+
+                arr[amout_of_cabinet + 1][i].Id = "" + newID;
+                arr[amout_of_cabinet + 1][i].utility = "­";
+
+                fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+            }
             document.getElementById("select_layout").innerHTML = "";
             document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
@@ -462,24 +592,48 @@ function add_containers() {
                     latest_id = object.Id;
                 })
             })
-            arr[amout_of_cabinet + 1][0] = {
-                "utility": "Name",
-                "icon": "images\\template.jpg",
-                "description": "description",
-                "keywords": "keyword",
-                "favourite": "false",
-                "number": "1",
-                "Id": ""
-            }
 
-            var newID = ((amout_of_cabinet + 1) * 60) + 1;
-            arr[amout_of_cabinet + 1][0].Id = "" + newID;
-            fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+            var first_change = ((amout_of_cabinet + 2) * 60) - 15;
+            console.log(first_change)
+            var latest_id = ((amout_of_cabinet + 1) * 60);
+            console.log(latest_id)
+            var newID;
+            for (let i = 0; i < 51; i++) {
+                arr[amout_of_cabinet + 1][i] = {
+                    "utility": "",
+                    "icon": "images\\template.jpg",
+                    "description": "",
+                    "keywords": "",
+                    "favourite": "false",
+                    "number": "1",
+                    "Id": ""
+
+                }
+
+                if (latest_id < first_change) {
+                    if (latest_id < first_change) { newID = (((amout_of_cabinet + 1) * 60) + 1) + i; }
+                    latest_id = newID
+                } else {
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 15) { newID = (Number(latest_id)) + 1; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 14) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 12) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 10) { newID = (Number(latest_id)) + 6; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 4) { newID = (Number(latest_id)) + 2; }
+                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 2) { newID = (Number(latest_id)) + 2; }
+
+                    latest_id = newID
+                }
+                latest_id = newID
+
+                arr[amout_of_cabinet + 1][i].Id = "" + newID;
+                arr[amout_of_cabinet + 1][i].utility = "­";
+
+                fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+            }
             document.getElementById("select_layout").innerHTML = "";
             document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
             console.log(database);
-
         }
 
     }
@@ -512,7 +666,7 @@ function change_databas(q) {
 
             var k = 0;
 
-            database[q].forEach(function(p, g) {
+            database[z].forEach(function(p, g) {
 
                 if (p.Id + "outer" == clas[i].id) {
 
