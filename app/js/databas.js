@@ -404,12 +404,10 @@ function add_containers() {
             document.getElementById("select_cabinet_remove").onclick = function() {
                 database.splice(q, 1);
                 fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-                remove_skop();
+                document.getElementById("selected_cabinet").innerHTML = "";
+                document.getElementById("admin_s").innerHTML = "";
                 add_containers();
             }
-
-
-
             drag_cabinets();
         }
 
@@ -459,6 +457,7 @@ function add_containers() {
 
     function new_cabinet() {
         document.getElementById("select_layout").style.display = "block";
+        document.getElementById("selected_cabinet").innerHTML = "";
         document.getElementById("new_cabinet").parentNode.removeChild(document.getElementById("new_cabinet"))
 
         document.getElementById("layout_1").onclick = function() {
@@ -505,7 +504,8 @@ function add_containers() {
                 fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
             }
             document.getElementById("select_layout").innerHTML = "";
-            document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
+            document.getElementById("admin_s").innerHTML = "";
+            //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
             console.log(database);
 
@@ -569,12 +569,14 @@ function add_containers() {
                 fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
             }
             document.getElementById("select_layout").innerHTML = "";
-            document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
+            document.getElementById("admin_s").innerHTML = "";
+            //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
             console.log(database);
 
         }
         document.getElementById("layout_3").onclick = function() {
+
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
             layout[0][amout_of_cabinet + 1] = 3;
             layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
@@ -630,7 +632,8 @@ function add_containers() {
                 fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
             }
             document.getElementById("select_layout").innerHTML = "";
-            document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
+            document.getElementById("admin_s").innerHTML = "";
+            //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
             console.log(database);
         }
