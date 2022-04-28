@@ -759,7 +759,6 @@ function change_databas(q) {
                         var divdata = document.getElementById("data")
                         divdata.innerHTML = "";
                         made_change = true;
-                        remove_change()
                         add_element(q);
                         drag();
 
@@ -800,7 +799,6 @@ function change_databas(q) {
                         var divdata = document.getElementById("data")
                         divdata.innerHTML = "";
                         made_change = true
-                        remove_change();
                         add_element(q);
                         drag();
 
@@ -848,8 +846,8 @@ function add_same_id(q, same_id) {
 
     name_new.id = "name_new_component"
     name_new_button.id = "name_new_component_button"
-    document.querySelector("#data").appendChild(name_new);
-    document.querySelector("#data").appendChild(name_new_button);
+    document.querySelector("#change").appendChild(name_new);
+    document.querySelector("#change").appendChild(name_new_button);
 
     name_new_button.onclick = function() {
         console.log("here")
@@ -878,7 +876,6 @@ function add_same_id(q, same_id) {
         var divdata = document.getElementById("data")
         divdata.innerHTML = "";
         made_change = true
-        remove_change();
         add_element(q);
         drag();
     }
