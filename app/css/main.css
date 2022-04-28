@@ -401,20 +401,39 @@ body #data #diffrent_partern_layout2 .components {
   color: var(--textTheme);
 }
 
-body #change {
-  background-color: #fff;
+body #data #change_placeholder {
+  /* Hidden by default */
+  display: none;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
-body #change #save_button {
-  color: green;
-}
-
-body #change #remove_button {
-  color: red;
-}
-
-body #change #add_component {
-  color: #1b1b1b;
+body #data #change_placeholder #change {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 90%;
 }
 
 body .custom-switch > .custom-control-label {

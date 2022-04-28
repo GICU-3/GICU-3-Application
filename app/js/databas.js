@@ -12,7 +12,6 @@ var test = 'dat/Layout.json'
 function settings() {
     if (there_is_element == true && z !== null) { remove_element(); }
     if (there_is_skop == true) { remove_skop(); }
-    remove_change();
     z = null;
     add_containers();
 }
@@ -643,27 +642,41 @@ function add_containers() {
 }
 
 function change_databas(q) {
+
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+    let change_placeholder = document.createElement("div");
     let change = document.createElement("div");
+    change_placeholder.id = "change_placeholder"
     change.className = "change";
     change.id = "change"
-    document.body.appendChild(change);
+    change.role = "dialog"
+    document.getElementById("data").insertBefore(change_placeholder, document.getElementById("data").firstChild);
+    change_placeholder.appendChild(change);
     console.log(database);
     var clas = document.querySelectorAll(".components")
     var elem = document.querySelectorAll(".element")
+
     clas.forEach(function(obj, i) {
         console.log("many")
+
         var className = document.getElementsByClassName("components")
-        var class_id = document.getElementById(className[i].id)
+        var class_id = document.getElementById(className[i].id);
+
         console.log(class_id)
         class_id.addEventListener("click", change)
 
         function change() {
+            document.getElementById("change_placeholder").style.display = "block";
             made_change = true;
             document.getElementById("change").innerHTML = "";
             database = JSON.parse(fs.readFileSync(fil, 'utf8'));
             console.log(database);
 
+            window.onclick = function(event) {
+                if (event.target == change_placeholder) {
+                    change_placeholder.style.display = "none";
+                }
+            }
             var k = 0;
 
             database[z].forEach(function(p, g) {
@@ -806,7 +819,8 @@ function change_databas(q) {
                     }
 
 
-                    document.querySelector("#data").appendChild(placeholder);
+
+
 
                     document.getElementById("change").appendChild(name);
                     document.getElementById("change").appendChild(input_utility);
@@ -816,13 +830,11 @@ function change_databas(q) {
                     if (not_the_sameid) { document.getElementById("change").appendChild(remove_button); }
                     document.getElementById("change").appendChild(add_component)
 
+
                     k = k + 1;
                 }
                 console.log("stop")
             })
-
-
-
 
         }
 
