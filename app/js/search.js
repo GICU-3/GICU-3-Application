@@ -134,14 +134,12 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
             r.id = "chosen" + obj.item.Id;
             selected.forEach(function(div, e) {
                 var a = document.getElementsByClassName("chosen")
-                var b = document.getElementById(a[e].id)
-                //console.log(a[e].id);
-                //console.log(r.id);
-                if (r.id == a[e].id) {
+                var b = document.getElementById(div.id)
+                console.log(div.id);
+                console.log(r.id);
+                if (r.id == div.id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    
-                    showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000); //calls showAlert function
-                    
+                    showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000); //calls showAlert function   
                 }
             })
             searchHistory.appendChild(r);
