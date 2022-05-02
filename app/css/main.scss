@@ -37,6 +37,49 @@ body {
             }
         }
     }
+    #navigation_database_con {
+        background-color: var(--backgroundTheme);
+        display: flex;
+        margin: 10px;
+        border-radius: 5px;
+        justify-content: space-between;
+        #navigation_database_1 {
+            display: flex;
+            //align-items: flex-start;
+            max-height: 24px;
+            /* or whatever width you want. */
+            width: 1014px;
+            /* or whatever width you want. */
+            //margin-left: 60px;
+            //vertical-align: middle;
+            #navigation_database_arrow {
+                height: auto;
+                padding-right: 10px;
+                padding-left: 5px;
+            }
+        }
+        #navigation_database_2 {
+            display: flex;
+            //align-items: flex-start;
+            max-height: 24px;
+            /* or whatever width you want. */
+            max-width: 1024px;
+            padding-right: 5px;
+            /* or whatever width you want. */
+            //margin-left: 60px;
+            //vertical-align: middle;
+            #navigation_database_save {
+                display: none;
+                font-size: 12px;
+                align-self: flex-end;
+            }
+            #navigation_database_undo {
+                display: none;
+                font-size: 12px;
+                align-self: flex-end;
+            }
+        }
+    }
     .searchbar {
         h1 {
             color: white;
@@ -182,17 +225,15 @@ body {
         grid-auto-flow: column;
         row-gap: 16px;
         column-gap: 16px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
     #admin_s .skop {
         background-color: rgba(255, 255, 255, 1);
         border-radius: 5px;
         text-align: center;
+        line-height: 34px;
         margin-top: 5px;
-    }
-    #admin_s #select_layout {
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 5px 5px 5px 5px;
-        text-align: center;
     }
     #selected_cabinet {
         margin-top: 10px;
@@ -202,14 +243,31 @@ body {
     }
     #admin_s .layout {
         background-color: rgba(255, 255, 255, 1);
+        margin-top: 5px;
+        text-align: center;
+        border-radius: 5px 5px 0px 0px;
+        .layout1 {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .layout2 {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .layout3 {
+            background-color: rgba(255, 255, 255, 1);
+            border-radius: 0px 0px 5px 5px;
+        }
     }
     #admin_s #new_cabinet {
         background-color: rgba(255, 255, 255, 0.75);
         border-radius: 5px;
+        margin-top: 5px;
         text-align: center;
+        height: 35px;
+        line-height: 34px;
     }
     #data {
-        background-color: var(--background-admin)
+        background-color: var(--background-admin);
+        //margin-left: 50px;
     }
     #data #standard_partern_layout .components {
         display: flex;

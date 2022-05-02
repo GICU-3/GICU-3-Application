@@ -12,7 +12,6 @@ function labbar() {
 }
 
 function home() {
-    save_database();
     if (there_is_element == true && z != null) { remove_element(); }
     if (there_is_skop == true) { remove_skop(); }
     z = null;

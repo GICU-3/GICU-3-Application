@@ -8,7 +8,6 @@ var layout = [];
 var fil = 'dat/utilities.json'
 var test = 'dat/Layout.json'
 
-
 function settings() {
     if (there_is_element == true && z !== null) { remove_element(); }
     if (there_is_skop == true) { remove_skop(); }
@@ -84,7 +83,7 @@ function drag() {
             var t = dragSrcEl.id;
             rt = t.match(/\d+/)
 
-            //console.log(rt)
+
             var tq = this.id;
             oi = tq.match(/\d+/)
 
@@ -102,7 +101,7 @@ function drag() {
     }
 
     function handleDragEnd(e) {
-        console.log("res")
+
         this.style.opacity = '1';
 
         items.forEach(function(item) {
@@ -110,26 +109,25 @@ function drag() {
         });
 
         if (ew != null && we != null) {
-            console.log(we)
-            console.log(ew)
+
             if (oi[0] > rt[0]) {
                 for (let a = 0; a < ew.length; a++) {
-                    console.log(oi)
+
                     document.getElementById(ew[a].id).id = oi[0];
 
                 }
                 for (let a = 0; a < we.length; a++) {
-                    console.log(rt)
+
                     document.getElementById(we[a].id).id = rt[0];
 
                 }
                 database[z].forEach(function(obj, i) {
                     if (obj.Id == rt[0]) {
                         obj.Id = oi[0]
-                        console.log(oi[0])
+
                     } else if (obj.Id == oi[0]) {
                         obj.Id = rt[0]
-                        console.log(rt[0])
+
                     }
                     fs.writeFileSync(fil, JSON.stringify(database, null, 3));
                 })
@@ -137,12 +135,12 @@ function drag() {
             }
             if (oi[0] < rt[0]) {
                 for (let a = 0; a < we.length; a++) {
-                    console.log(rt)
+
                     document.getElementById(we[a].id).id = rt[0];
 
                 }
                 for (let a = 0; a < ew.length; a++) {
-                    console.log(oi)
+
                     document.getElementById(ew[a].id).id = oi[0];
 
                 }
@@ -165,13 +163,16 @@ function drag() {
             fs.writeFileSync(fil, JSON.stringify(database, null, 3));
             ew = null;
             we = null;
+            document.getElementById("navigation_database_save").style.display = "block";
+            document.getElementById("navigation_database_undo").style.display = "block";
+
         }
     }
 
 
     let items = document.querySelectorAll('.components');
     items.forEach(function(item) {
-        console.log("all")
+
         item.addEventListener('dragstart', handleDragStart, false);
         item.addEventListener('dragenter', handleDragEnter, false);
         item.addEventListener('dragover', handleDragOver, false);
@@ -226,7 +227,7 @@ function drag_cabinets() {
             var drdropid = this.id;
             if (dragSrcEl.id < drdropid) {
                 database[dragSrcEl.id].forEach(function(obj, i) {
-                    console.log(drdropid)
+
                     obj.Id = "" + (Number(obj.Id) + (drdropid - dragSrcEl.id) * 60)
                 })
                 database[drdropid].forEach(function(obj, i) {
@@ -234,7 +235,7 @@ function drag_cabinets() {
                 })
             } else if (dragSrcEl.id > drdropid) {
                 database[drdropid].forEach(function(obj, i) {
-                    console.log(drdropid)
+
                     obj.Id = "" + (Number(obj.Id) + (dragSrcEl.id - drdropid) * 60)
                 })
                 database[dragSrcEl.id].forEach(function(obj, i) {
@@ -262,7 +263,7 @@ function drag_cabinets() {
     }
 
     function handleDragEnd(e) {
-        console.log("res")
+
         this.style.opacity = '1';
 
         items.forEach(function(item) {
@@ -279,7 +280,7 @@ function drag_cabinets() {
 
     let items = document.querySelectorAll('.skop');
     items.forEach(function(item) {
-        console.log("all")
+
         item.addEventListener('dragstart', handleDragStart, false);
         item.addEventListener('dragenter', handleDragEnter, false);
         item.addEventListener('dragover', handleDragOver, false);
@@ -291,48 +292,10 @@ function drag_cabinets() {
 
 }
 
-function save_database() {
+function add_element(q, undo_database) {
+    document.querySelector(".navbar").style.display = "none";
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-    var save_arry = [];
-    var save_arry_in = [];
 
-    database.forEach(function(element, i) {
-        if (i != z) {
-            database[i].forEach(function(obj, x) {
-                save_arry_in[x] = obj;
-            });
-            save_arry.push(save_arry_in);
-            save_arry_in = [];
-        } else {
-            var all_element = document.querySelectorAll('.element')
-            all_element.forEach(function(object, r) {
-                console.log("times")
-                database[z].forEach(function(obj, x) {
-
-                    var className_data = document.getElementsByClassName('.element')
-
-                    if (obj.Id == object.id) {
-                        console.log(object)
-                        save_arry_in[r] = obj;
-                        save_arry_in[r].Id = object.id;
-                    }
-                });
-
-            });
-            save_arry.push(save_arry_in);
-            save_arry_in = [];
-
-        }
-        save_arry[i].sort(function(a, b) {
-            return a.Id - b.Id || a.utility.localeCompare(b.utility);
-        });
-    });
-    fs.writeFileSync(fil, JSON.stringify(save_arry, null, 3));
-}
-
-
-function add_element(q) {
-    var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
     database[q].sort(function(a, b) {
         return a.Id - b.Id || a.utility.localeCompare(b.utility);
     });
@@ -343,10 +306,50 @@ function add_element(q) {
     there_is_element = true;
     z = q;
     document.getElementById("admin_s").style.display = "none";
+    layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+
     let diffrent_partern_layout = document.createElement("div");
     let standard_partern_layout = document.createElement("div");
     let diffrent_partern_layout2 = document.createElement("div");
-    layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+
+    let navigation_database_1 = document.createElement("div");
+    let navigation_database_con = document.createElement("div");
+    let navigation_database_2 = document.createElement("div");
+    let navigation_database_arrow = document.createElement("a")
+    let navigation_database_name = document.createElement("a")
+
+    let navigation_database_save = document.createElement("button")
+    let navigation_database_undo = document.createElement("button")
+
+    navigation_database_save.id = "navigation_database_save";
+    navigation_database_save.innerHTML = "Save"
+
+    navigation_database_undo.id = "navigation_database_undo";
+    navigation_database_undo.innerHTML = "Undo"
+
+
+    navigation_database_arrow.id = "navigation_database_arrow"
+    navigation_database_name.id = "navigation_database_name"
+    navigation_database_arrow.innerHTML = "❮ "
+    navigation_database_name.innerHTML = layout[1][z];
+    navigation_database_1.id = "navigation_database_1"
+    navigation_database_2.id = "navigation_database_2"
+    navigation_database_con.id = "navigation_database_con"
+
+    document.querySelector("body").insertBefore(navigation_database_con, document.querySelector("body").firstChild);
+    navigation_database_con.appendChild(navigation_database_1)
+    navigation_database_con.appendChild(navigation_database_2)
+    navigation_database_1.appendChild(navigation_database_arrow);
+    navigation_database_1.appendChild(navigation_database_name);
+    navigation_database_2.appendChild(navigation_database_save)
+    navigation_database_2.appendChild(navigation_database_undo)
+
+    if (made_change) {
+        document.getElementById("navigation_database_save").style.display = "block";
+        document.getElementById("navigation_database_undo").style.display = "block";
+        made_change = false;
+    }
+
     database[q].forEach(function(obj, w) {
         database = JSON.parse(fs.readFileSync(fil, 'utf8'));
         if (layout[0][q] == 1) { display_layout1(obj, w, standard_partern_layout, diffrent_partern_layout, diffrent_partern_layout2); }
@@ -354,7 +357,19 @@ function add_element(q) {
         if (layout[0][q] == 3) { display_layout3(obj, w, standard_partern_layout, diffrent_partern_layout, diffrent_partern_layout2); }
     })
     change_databas(q);
-
+    window.onclick = function(event) {
+        if (event.target == navigation_database_arrow) {
+            navigation_database_con.parentNode.removeChild(navigation_database_con)
+            remove_element();
+            add_containers();
+            document.querySelector(".navbar").style.display = "flex";
+            document.getElementById("admin_s").style.display = "grid";
+        }
+    }
+    console.log(undo_database, database)
+    if (database == undo_database) {
+        console.log("Change has been made")
+    }
 }
 
 function add_containers() {
@@ -403,6 +418,18 @@ function add_containers() {
             }
             document.getElementById("select_cabinet_remove").onclick = function() {
                 database.splice(q, 1);
+                layout[0].splice(q, 1)
+                layout[1].splice(q, 1);
+
+                fs.writeFileSync(test, JSON.stringify(layout, null, 3));
+                database.forEach(function(obj, i) {
+                    if (i >= q) {
+
+                        database[i].forEach(function(element, x) {
+                            element.Id = "" + (Number(element.Id) - 60)
+                        })
+                    }
+                })
                 fs.writeFileSync(fil, JSON.stringify(database, null, 3));
                 document.getElementById("selected_cabinet").innerHTML = "";
                 document.getElementById("admin_s").innerHTML = "";
@@ -412,7 +439,9 @@ function add_containers() {
         }
 
         function chose() {
-            add_element(q);
+
+            var undo_database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+            add_element(q, undo_database);
             drag();
         }
 
@@ -437,13 +466,13 @@ function add_containers() {
     let placeholder_layout_3 = document.createElement("div");
     placeholder_select_layout.className = "layout";
     placeholder_select_layout.id = "select_layout"
-    placeholder_layout_1.className = "layout";
+    placeholder_layout_1.className = "layout1";
     placeholder_layout_1.id = "layout_1";
     placeholder_layout_1.innerHTML = "Layout 1"
-    placeholder_layout_2.className = "layout";
+    placeholder_layout_2.className = "layout2";
     placeholder_layout_2.id = "layout_2";
     placeholder_layout_2.innerHTML = "Layout 2"
-    placeholder_layout_3.className = "layout";
+    placeholder_layout_3.className = "layout3";
     placeholder_layout_3.id = "layout_3";
     placeholder_layout_3.innerHTML = "Layout 3"
     placeholder_select_layout.appendChild(cabinet_name);
@@ -467,7 +496,7 @@ function add_containers() {
 
 
 
-            console.log(amout_of_cabinet);
+
             var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
             fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
@@ -479,7 +508,7 @@ function add_containers() {
             })
 
             var latest_id = ((amout_of_cabinet + 1) * 60);
-            console.log(latest_id)
+
             var newID;
             for (let i = 0; i < 60; i++) {
                 arr[amout_of_cabinet + 1][i] = {
@@ -507,7 +536,7 @@ function add_containers() {
             document.getElementById("admin_s").innerHTML = "";
             //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
-            console.log(database);
+
 
         }
         document.getElementById("layout_2").onclick = function() {
@@ -517,7 +546,7 @@ function add_containers() {
 
 
 
-            console.log(amout_of_cabinet);
+
             var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
             fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
@@ -528,11 +557,11 @@ function add_containers() {
                 })
             })
             var first_change = ((amout_of_cabinet + 2) * 60) - 30;
-            console.log(first_change)
+
             var second_change = ((amout_of_cabinet + 2) * 60) - 10;
-            console.log(second_change)
+
             var latest_id = ((amout_of_cabinet + 1) * 60);
-            console.log(latest_id)
+
             var newID;
             for (let i = 0; i < 40; i++) {
                 arr[amout_of_cabinet + 1][i] = {
@@ -572,7 +601,7 @@ function add_containers() {
             document.getElementById("admin_s").innerHTML = "";
             //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
-            console.log(database);
+
 
         }
         document.getElementById("layout_3").onclick = function() {
@@ -583,7 +612,7 @@ function add_containers() {
 
 
 
-            console.log(amout_of_cabinet);
+
             var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
             fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
@@ -595,9 +624,9 @@ function add_containers() {
             })
 
             var first_change = ((amout_of_cabinet + 2) * 60) - 15;
-            console.log(first_change)
+
             var latest_id = ((amout_of_cabinet + 1) * 60);
-            console.log(latest_id)
+
             var newID;
             for (let i = 0; i < 51; i++) {
                 arr[amout_of_cabinet + 1][i] = {
@@ -635,7 +664,7 @@ function add_containers() {
             document.getElementById("admin_s").innerHTML = "";
             //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
             add_containers();
-            console.log(database);
+
         }
 
     }
@@ -655,31 +684,49 @@ function change_databas(q) {
     change.role = "dialog"
     document.getElementById("data").insertBefore(change_placeholder, document.getElementById("data").firstChild);
     change_placeholder.appendChild(change);
-    console.log(database);
+
     var clas = document.querySelectorAll(".components")
     var elem = document.querySelectorAll(".element")
 
+
     clas.forEach(function(obj, i) {
-        console.log("many")
+
 
         var className = document.getElementsByClassName("components")
         var class_id = document.getElementById(className[i].id);
 
-        console.log(class_id)
+
         class_id.addEventListener("click", change)
 
         function change() {
             document.getElementById("change_placeholder").style.display = "block";
-            made_change = true;
+            made_change = false;
             document.getElementById("change").innerHTML = "";
             database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-            console.log(database);
+
 
             window.onclick = function(event) {
                 if (event.target == change_placeholder) {
                     change_placeholder.style.display = "none";
+                    window.onclick = function(event) {
+                        if (event.target == navigation_database_arrow) {
+                            navigation_database_con.parentNode.removeChild(navigation_database_con)
+                            remove_element();
+                            add_containers();
+                            document.querySelector(".navbar").style.display = "flex";
+                            document.getElementById("admin_s").style.display = "grid";
+                        }
+                        if (event.target == navigation_database_name) {
+                            navigation_database_con.parentNode.removeChild(navigation_database_con)
+                            remove_element();
+                            add_containers();
+                            document.querySelector(".navbar").style.display = "flex";
+                            document.getElementById("admin_s").style.display = "grid";
+                        }
+                    }
                 }
             }
+
             var k = 0;
 
             database[z].forEach(function(p, g) {
@@ -707,7 +754,7 @@ function change_databas(q) {
 
                     input_utility.onclick = function add_utility() {
                         if (document.getElementById(input_utility.id).value.length == 0) {
-                            console.log("value");
+
                             if (document.getElementById(input_utility.id).value == "­") {
                                 document.getElementById(input_utility.id).value = "d";
                             }
@@ -720,7 +767,7 @@ function change_databas(q) {
                     input_description.placeholder = "Description: " + p.description;
                     input_description.onclick = function add_description() {
                         if (document.getElementById(input_description.id).value.length == 0) {
-                            console.log("value");
+
                             document.getElementById(input_description.id).value = p.description;
                         }
                     }
@@ -730,7 +777,7 @@ function change_databas(q) {
                     input_key.placeholder = "Keywords: " + database[q][g].keywords;
                     input_key.onclick = function add_description() {
                         if (document.getElementById(input_key.id).value.length == 0) {
-                            console.log("value");
+
                             document.getElementById(input_key.id).value = database[q][g].keywords;
                         }
                     }
@@ -745,7 +792,7 @@ function change_databas(q) {
                         var new_key = document.getElementById(input_key.id).value
 
                         if (new_utility.length > 0 && new_utility != " ") {
-                            console.log(new_utility)
+
                             database[q][g].utility = new_utility;
                         }
                         if (new_description.length > 0 && new_description != " ") {
@@ -755,14 +802,14 @@ function change_databas(q) {
                             database[q][g].keywords = new_key;
                         }
 
-
+                        document.getElementById("navigation_database_arrow").parentNode.parentNode.remove()
 
 
                         fs.writeFileSync(fil, JSON.stringify(database, null, 3));
                         var divdata = document.getElementById("data")
                         divdata.innerHTML = "";
                         made_change = true;
-                        add_element(q);
+                        add_element(q, made_change);
                         drag();
 
                     }
@@ -790,19 +837,21 @@ function change_databas(q) {
                     remove_button.id = "remove_button" + k;
                     remove_button.value = "Remove" + k;
                     remove_button.innerHTML = "Remove";
-                    console.log(not_the_sameid)
+
 
 
                     remove_button.onclick = function() {
                         database[z].splice(g, 1);
                         class_id.parentNode.removeChild(class_id);
                         layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+                        document.getElementById("navigation_database_arrow").parentNode.remove()
+
 
                         fs.writeFileSync(fil, JSON.stringify(database, null, 3));
                         var divdata = document.getElementById("data")
                         divdata.innerHTML = "";
                         made_change = true
-                        add_element(q);
+                        add_element(q, undo_database);
                         drag();
 
                     }
@@ -812,7 +861,7 @@ function change_databas(q) {
 
                     add_component.onclick = function() {
                         var same_id = p.Id;
-
+                        document.getElementById("navigation_database_arrow").parentNode.remove()
                         document.getElementById("change").innerHTML = "";
                         add_same_id(q, same_id)
 
@@ -834,7 +883,7 @@ function change_databas(q) {
 
                     k = k + 1;
                 }
-                console.log("stop")
+
             })
 
         }
@@ -853,7 +902,7 @@ function add_same_id(q, same_id) {
     document.querySelector("#change").appendChild(name_new_button);
 
     name_new_button.onclick = function() {
-        console.log("here")
+
         var newComponent_name;
         if (document.getElementById("name_new_component").value != null) {
             newComponent_name = document.getElementById("name_new_component").value;
@@ -868,7 +917,7 @@ function add_same_id(q, same_id) {
             "Id": ""
         }
         var newID = (Number(same_id));
-        console.log(Number(same_id));
+
         database[q][amout_of_elements + 1].Id = "" + newID;
         database[q][amout_of_elements + 1].utility = "" + newComponent_name
         database[q].sort(function(a, b) {
@@ -879,7 +928,7 @@ function add_same_id(q, same_id) {
         var divdata = document.getElementById("data")
         divdata.innerHTML = "";
         made_change = true
-        add_element(q);
+        add_element(q, undo_database);
         drag();
     }
 }

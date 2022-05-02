@@ -46,6 +46,59 @@ body .navbar .container a {
   font-weight: bold;
 }
 
+body #navigation_database_con {
+  background-color: var(--backgroundTheme);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+  border-radius: 5px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body #navigation_database_con #navigation_database_1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 24px;
+  /* or whatever width you want. */
+  width: 1014px;
+  /* or whatever width you want. */
+}
+
+body #navigation_database_con #navigation_database_1 #navigation_database_arrow {
+  height: auto;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+body #navigation_database_con #navigation_database_2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 24px;
+  /* or whatever width you want. */
+  max-width: 1024px;
+  padding-right: 5px;
+  /* or whatever width you want. */
+}
+
+body #navigation_database_con #navigation_database_2 #navigation_database_save {
+  display: none;
+  font-size: 12px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+body #navigation_database_con #navigation_database_2 #navigation_database_undo {
+  display: none;
+  font-size: 12px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
 body .searchbar {
   margin-left: 256px;
   width: 512px;
@@ -248,19 +301,16 @@ body #admin_s {
   row-gap: 16px;
   -webkit-column-gap: 16px;
           column-gap: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 body #admin_s .skop {
   background-color: white;
   border-radius: 5px;
   text-align: center;
+  line-height: 34px;
   margin-top: 5px;
-}
-
-body #admin_s #select_layout {
-  background-color: white;
-  border-radius: 5px 5px 5px 5px;
-  text-align: center;
 }
 
 body #selected_cabinet {
@@ -273,12 +323,31 @@ body #admin_s #selected_cabinet #select_cabinet_change_name {
 
 body #admin_s .layout {
   background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 5px 5px 0px 0px;
+}
+
+body #admin_s .layout .layout1 {
+  background-color: white;
+}
+
+body #admin_s .layout .layout2 {
+  background-color: white;
+}
+
+body #admin_s .layout .layout3 {
+  background-color: white;
+  border-radius: 0px 0px 5px 5px;
 }
 
 body #admin_s #new_cabinet {
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
+  margin-top: 5px;
   text-align: center;
+  height: 35px;
+  line-height: 34px;
 }
 
 body #data {
