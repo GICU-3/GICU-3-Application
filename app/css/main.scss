@@ -16,10 +16,10 @@
 }
 body{
     #loadingscreen{
+        display: none;
         animation: fadeout 2s; //fadeout animation of loadingscreen
         opacity: 0;
         justify-content: center;
-        display: inline;
         position: absolute;
         height: 600px;
         width: 1024px;

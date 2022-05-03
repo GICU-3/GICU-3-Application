@@ -12,7 +12,7 @@
  */
 function startup() {
   //savestate darkmode
-  const themeSwitch = document.querySelector('input');
+  const themeSwitch = document.querySelector('#switchDarkmode');
   console.log(localStorage.getItem('theme'));
   if (localStorage.getItem('theme') == 'dark') {
     console.log("logged darkmode from memory");
@@ -21,8 +21,8 @@ function startup() {
   }
   themeSwitch.addEventListener('change', () => {
     document.body.classList.toggle('dark-theme');
-    console.log(checkedValue);
-    if (checkedValue) {
+    console.log(checkedValueDarkmode);
+    if (checkedValueDarkmode) {
       localStorage.setItem('theme', 'dark'); //localStorage
       console.log("logged dark");
     } else {
@@ -30,25 +30,48 @@ function startup() {
       console.log("logged light");
     }
   });
+  //savestate loading screen
+  const lsSwitch = document.querySelector('#switchLoadingscreen');
+  if(localStorage.getItem('loadingscreen') == 'active') {
+    lsSwitch.checked = true;
+  }
+  lsSwitch.addEventListener('change', () => {
+    console.log(checkedValueLoadingscreen);
+    if (checkedValueLoadingscreen) {
+      localStorage.setItem('loadingscreen', 'active'); //localStorage
+      console.log("logged active ls");
+    } else {
+      localStorage.setItem('loadingscreen', 'inactive');
+      console.log("logged inactive ls");
+    }
+  });
 
 // Part 2
 
-  setTimeout(() => {
-    document.getElementById("loadingscreentext1").style.opacity = "0%";
-    document.getElementById("loadingscreentext2").style.opacity = "100%";
-  }, 500);
-  setTimeout(() => {
-    document.getElementById("loadingscreentext2").style.opacity = "0%";
-    document.getElementById("loadingscreentext3").style.opacity = "100%";
-  }, 1000);
-  setTimeout(() => {
-    document.getElementById("loadingscreentext3").style.opacity = "0%";
-    document.getElementById("loadingscreentext4").style.opacity = "100%";
-  }, 1500);
-  setTimeout(() => {
-    document.getElementById("loadingscreentext4").style.opacity = "0%";
+  if (localStorage.getItem('loadingscreen') == 'active') {
+    document.getElementById("loadingscreen").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("loadingscreentext1").style.opacity = "0%";
+      document.getElementById("loadingscreentext2").style.opacity = "100%";
+    }, 500);
+    setTimeout(() => {
+      document.getElementById("loadingscreentext2").style.opacity = "0%";
+      document.getElementById("loadingscreentext3").style.opacity = "100%";
+    }, 1000);
+    setTimeout(() => {
+      document.getElementById("loadingscreentext3").style.opacity = "0%";
+      document.getElementById("loadingscreentext4").style.opacity = "100%";
+    }, 1500);
+    setTimeout(() => {
+      document.getElementById("loadingscreentext4").style.opacity = "0%";
+      document.getElementById("navbar").style.display = "flex";
+      document.getElementById("bodySection").style.display = "flex";
+      document.getElementById("loadingscreen").style.display = "none";
+    }, 2000);
+  }
+  else {
     document.getElementById("navbar").style.display = "flex";
     document.getElementById("bodySection").style.display = "flex";
-    document.getElementById("loadingscreen").style.display = "none";
-  }, 2000);
+  }
+
 }

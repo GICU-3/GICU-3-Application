@@ -24,13 +24,13 @@ body {
 }
 
 body #loadingscreen {
+  display: none;
   -webkit-animation: fadeout 2s;
           animation: fadeout 2s;
   opacity: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  display: inline;
   position: absolute;
   height: 600px;
   width: 1024px;
