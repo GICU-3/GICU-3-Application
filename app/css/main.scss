@@ -69,14 +69,21 @@ body {
             //margin-left: 60px;
             //vertical-align: middle;
             #navigation_database_save {
+                background-color: green;
                 display: none;
-                font-size: 12px;
+                font-size: 16px;
+                text-align: center;
                 align-self: flex-end;
+                margin-right: 5px;
+                border-radius: 5px;
             }
             #navigation_database_undo {
+                background-color: red;
                 display: none;
-                font-size: 12px;
+                font-size: 16px;
+                text-align: center;
                 align-self: flex-end;
+                border-radius: 5px;
             }
         }
     }

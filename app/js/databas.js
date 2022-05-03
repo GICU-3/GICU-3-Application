@@ -318,8 +318,8 @@ function add_element(q, undo_database) {
     let navigation_database_arrow = document.createElement("a")
     let navigation_database_name = document.createElement("a")
 
-    let navigation_database_save = document.createElement("button")
-    let navigation_database_undo = document.createElement("button")
+    let navigation_database_save = document.createElement("div")
+    let navigation_database_undo = document.createElement("div")
 
     navigation_database_save.id = "navigation_database_save";
     navigation_database_save.innerHTML = "Save"
@@ -691,11 +691,21 @@ function change_databas(q) {
 
     clas.forEach(function(obj, i) {
 
-
+        var save = document.getElementById("navigation_database_save")
+        var undo = document.getElementById("navigation_database_undo")
         var className = document.getElementsByClassName("components")
         var class_id = document.getElementById(className[i].id);
 
+        save.addEventListener("click", function save_db() {
 
+            remove_element();
+            add_containers();
+            document.querySelector(".navbar").style.display = "flex";
+            document.getElementById("admin_s").style.display = "grid";
+        })
+        undo.addEventListener("click", function undo_db() {
+
+        })
         class_id.addEventListener("click", change)
 
         function change() {
@@ -851,7 +861,7 @@ function change_databas(q) {
                         var divdata = document.getElementById("data")
                         divdata.innerHTML = "";
                         made_change = true
-                        add_element(q, undo_database);
+                        add_element(q);
                         drag();
 
                     }
@@ -924,11 +934,11 @@ function add_same_id(q, same_id) {
             return a.Id - b.Id || a.utility.localeCompare(b.utility);
         });
         fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-
+        document.getElementById("navigation_database_save").parentNode.parentNode.remove()
         var divdata = document.getElementById("data")
         divdata.innerHTML = "";
         made_change = true
-        add_element(q, undo_database);
+        add_element(q);
         drag();
     }
 }
