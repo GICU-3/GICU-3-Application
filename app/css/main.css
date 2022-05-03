@@ -281,9 +281,9 @@ body .bodySection {
 
 body .bodySection #searchHistory {
   background-color: rgba(45, 45, 45, 0.5);
-  margin-left: 56px;
+  margin-left: 16px;
   margin-top: 110px;
-  width: 200px;
+  width: 240px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   height: 300px;
@@ -307,6 +307,7 @@ body .bodySection #searchHistory .searchHistoryTitle {
 
 body .bodySection #searchHistory .chosen {
   color: white;
+  font-size: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -318,7 +319,7 @@ body .bodySection #searchHistory .chosen {
 body .bodySection #searchHistory .chosen img {
   height: 30px;
   padding-left: 10px;
-  padding-right: 30px;
+  padding-right: 20px;
   width: auto;
   -webkit-filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%);
           filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%);

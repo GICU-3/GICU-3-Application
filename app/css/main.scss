@@ -200,9 +200,9 @@ body{
 
         #searchHistory{ //styling of entire search history or "aktiva sökningar" div
             background-color: rgba(45, 45, 45, 0.5);
-            margin-left: 56px;
+            margin-left: 16px;
             margin-top: 110px;
-            width: 200px;
+            width: 240px;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             height: 300px;
@@ -219,12 +219,13 @@ body{
             }
             .chosen{ //styling of chosen search in "aktiva sökningar" list
                 color: white;
+                font-size: 14px;
                 display: flex;
                 justify-content: right;
                 img { //styling of cross SVG-image shown beside the ".chosen" text
                     height: 30px;
                     padding-left: 10px;
-                    padding-right: 30px;
+                    padding-right: 20px;
                     width: auto;
                     filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%); //a solution to change the color of SVG-image, simple generators found online
                 }
