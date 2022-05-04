@@ -123,14 +123,16 @@ body{
         background: none;
         font-size: 1.3em;
         .search{ //styling of search field
+            background-color: var(--backgroundTheme);
+            color: var(--text2Theme);
             display: inline;
             border: none;
             width: 70%;
             height: 50px;
             margin-bottom: 1em;
             opacity: 90%;
-            backdrop-filter: blur(5px);
-            box-shadow: -4px 4px 3px rgba(0,0,0,.1);
+            border-bottom: 1px solid var(--decorationTheme);
+            box-shadow: 4px 4px 3px rgba(0,0,0,.2);
             
         }
         ::placeholder { //styling of placeholder text inside search field
@@ -157,10 +159,12 @@ body{
         justify-content: left;
         display: flex;
         padding-left: 10px;
-        border-bottom: 3px solid white;
+        border-bottom: 2px solid white;
         align-items: center;
         color: var(--text2Theme);
         font-weight: 600;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
     .searchContentDivDescription { //styling of container for searchContentDivDescription
         width: 50%;
@@ -290,7 +294,8 @@ body{
         padding-bottom: 15px;
     }
     .aaaa {
-        border: 3px solid white;
-        box-shadow: -4px 4px 3px rgba(0,0,0,.1);
+        border: 2px solid white;
+        box-shadow: 4px 4px 3px rgba(0,0,0,.2);
+        border-radius: 10px;
     }
 } 
