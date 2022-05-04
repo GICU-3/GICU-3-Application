@@ -15,6 +15,7 @@
     background-image: url('../img/main-background.jpg');
 }
 body{
+    input:focus {outline:none;} //removes highlightcolor of all input fields
     #loadingscreen{
         animation: fadeout 2s; //fadeout animation of loadingscreen
         opacity: 0;
@@ -76,7 +77,7 @@ body{
         width: 80px;
         padding-bottom: 100%;
         backdrop-filter: blur(5px) grayscale(30%);
-        box-shadow: 1px 2px 3px rgba(0,0,0,.1);
+        box-shadow: 1px 0px 3px rgba(0,0,0,.1);
         .container{
             padding: 20px;
             display: -webkit-box; /*! Overwritten by 'display: flex;' */
@@ -118,11 +119,14 @@ body{
         font-size: 1.3em;
         .search{ //styling of search field
             display: inline;
+            border: none;
             width: 70%;
-            height: 2em;
-            border-radius: 0.4em;
+            height: 50px;
             margin-bottom: 1em;
-            background-color: var(--backgroundTheme);
+            opacity: 90%;
+            backdrop-filter: blur(5px);
+            box-shadow: -4px 4px 3px rgba(0,0,0,.1);
+            
         }
         ::placeholder { //styling of placeholder text inside search field
             color: var(--text2Theme);
@@ -198,18 +202,15 @@ body{
         height: 510px;
 
         #searchHistory {
-
             #searchHistoryContainer{ //styling of entire search history or "aktiva sökningar" div
-                background-color: none;
+                background: none;
                 margin-left: 16px;
-                margin-top: 110px;
+                margin-top: 50px;
                 width: 240px;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-                height: 300px;
+                height: 470px;
                 overflow-y: auto;
-                backdrop-filter: blur(5px) grayscale(30%);
-                box-shadow: 1px 2px 3px rgba(0,0,0,.1);
+                backdrop-filter: blur(5px) grayscale(50%);
+                box-shadow: -2px 2px 3px rgba(0,0,0,.1);
                 .searchHistoryTitle { //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
                     color: white;
                     margin-bottom: 15px;
@@ -235,13 +236,16 @@ body{
                 }
             }
             .removeHistory{ //styling of "clear searches" button
-                background-color: black;
-                color:#a3c4cb;
-                border: white 2px solid;
-                border-radius: 10px;
+                margin-top: 10px;
+                margin-left: 16px;
+                background: none;
+                color: white;
+                border: none;
                 font-weight: bold;
-                width: 200px;
+                width: 240px;
                 height: 40px;
+                backdrop-filter: blur(10px) grayscale(50%);
+                box-shadow: -2px 2px 2px rgba(0,0,0,.1);
             }
         }
     }

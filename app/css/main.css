@@ -23,6 +23,10 @@ body {
   background-size: cover;
 }
 
+body input:focus {
+  outline: none;
+}
+
 body #loadingscreen {
   -webkit-animation: fadeout 2s;
           animation: fadeout 2s;
@@ -108,8 +112,8 @@ body .navbar {
   padding-bottom: 100%;
   -webkit-backdrop-filter: blur(5px) grayscale(30%);
           backdrop-filter: blur(5px) grayscale(30%);
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
 }
 
 body .navbar .container {
@@ -179,11 +183,15 @@ body .searchbar span {
 
 body .searchbar .search {
   display: inline;
+  border: none;
   width: 70%;
-  height: 2em;
-  border-radius: 0.4em;
+  height: 50px;
   margin-bottom: 1em;
-  background-color: var(--backgroundTheme);
+  opacity: 90%;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-box-shadow: -4px 4px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: -4px 4px 3px rgba(0, 0, 0, 0.1);
 }
 
 body .searchbar ::-webkit-input-placeholder {
@@ -280,18 +288,16 @@ body .bodySection {
 }
 
 body .bodySection #searchHistory #searchHistoryContainer {
-  background-color: none;
+  background: none;
   margin-left: 16px;
-  margin-top: 110px;
+  margin-top: 50px;
   width: 240px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  height: 300px;
+  height: 470px;
   overflow-y: auto;
-  -webkit-backdrop-filter: blur(5px) grayscale(30%);
-          backdrop-filter: blur(5px) grayscale(30%);
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(5px) grayscale(50%);
+          backdrop-filter: blur(5px) grayscale(50%);
+  -webkit-box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 body .bodySection #searchHistory #searchHistoryContainer .searchHistoryTitle {
@@ -330,13 +336,18 @@ body .bodySection #searchHistory #searchHistoryContainer .chosen img {
 }
 
 body .bodySection #searchHistory .removeHistory {
-  background-color: black;
-  color: #a3c4cb;
-  border: white 2px solid;
-  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 16px;
+  background: none;
+  color: white;
+  border: none;
   font-weight: bold;
-  width: 200px;
+  width: 240px;
   height: 40px;
+  -webkit-backdrop-filter: blur(10px) grayscale(50%);
+          backdrop-filter: blur(10px) grayscale(50%);
+  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 body .rotate {
