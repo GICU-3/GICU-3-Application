@@ -279,8 +279,8 @@ body .bodySection {
   height: 510px;
 }
 
-body .bodySection #searchHistory {
-  background-color: rgba(45, 45, 45, 0.5);
+body .bodySection #searchHistory #searchHistoryContainer {
+  background-color: none;
   margin-left: 16px;
   margin-top: 110px;
   width: 240px;
@@ -288,9 +288,13 @@ body .bodySection #searchHistory {
   border-bottom-left-radius: 10px;
   height: 300px;
   overflow-y: auto;
+  -webkit-backdrop-filter: blur(5px) grayscale(30%);
+          backdrop-filter: blur(5px) grayscale(30%);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
-body .bodySection #searchHistory .searchHistoryTitle {
+body .bodySection #searchHistory #searchHistoryContainer .searchHistoryTitle {
   color: white;
   margin-bottom: 15px;
   padding-top: 5px;
@@ -305,7 +309,7 @@ body .bodySection #searchHistory .searchHistoryTitle {
           justify-content: center;
 }
 
-body .bodySection #searchHistory .chosen {
+body .bodySection #searchHistory #searchHistoryContainer .chosen {
   color: white;
   font-size: 14px;
   display: -webkit-box;
@@ -316,7 +320,7 @@ body .bodySection #searchHistory .chosen {
           justify-content: right;
 }
 
-body .bodySection #searchHistory .chosen img {
+body .bodySection #searchHistory #searchHistoryContainer .chosen img {
   height: 30px;
   padding-left: 10px;
   padding-right: 20px;
@@ -326,8 +330,6 @@ body .bodySection #searchHistory .chosen img {
 }
 
 body .bodySection #searchHistory .removeHistory {
-  position: absolute;
-  margin-top: 355px;
   background-color: black;
   color: #a3c4cb;
   border: white 2px solid;

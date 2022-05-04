@@ -197,42 +197,44 @@ body{
         display: none;
         height: 510px;
 
+        #searchHistory {
 
-        #searchHistory{ //styling of entire search history or "aktiva sökningar" div
-            background-color: rgba(45, 45, 45, 0.5);
-            margin-left: 16px;
-            margin-top: 110px;
-            width: 240px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            height: 300px;
-            overflow-y: auto;
-            .searchHistoryTitle { //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
-                color: white;
-                margin-bottom: 15px;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                border-bottom: white 1px solid;
-                font-weight: bold;
-                display: flex;
-                justify-content: center;
-            }
-            .chosen{ //styling of chosen search in "aktiva sökningar" list
-                color: white;
-                font-size: 14px;
-                display: flex;
-                justify-content: right;
-                img { //styling of cross SVG-image shown beside the ".chosen" text
-                    height: 30px;
-                    padding-left: 10px;
-                    padding-right: 20px;
-                    width: auto;
-                    filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%); //a solution to change the color of SVG-image, simple generators found online
+            #searchHistoryContainer{ //styling of entire search history or "aktiva sökningar" div
+                background-color: none;
+                margin-left: 16px;
+                margin-top: 110px;
+                width: 240px;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                height: 300px;
+                overflow-y: auto;
+                backdrop-filter: blur(5px) grayscale(30%);
+                box-shadow: 1px 2px 3px rgba(0,0,0,.1);
+                .searchHistoryTitle { //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
+                    color: white;
+                    margin-bottom: 15px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    border-bottom: white 1px solid;
+                    font-weight: bold;
+                    display: flex;
+                    justify-content: center;
+                }
+                .chosen{ //styling of chosen search in "aktiva sökningar" list
+                    color: white;
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: right;
+                    img { //styling of cross SVG-image shown beside the ".chosen" text
+                        height: 30px;
+                        padding-left: 10px;
+                        padding-right: 20px;
+                        width: auto;
+                        filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%); //a solution to change the color of SVG-image, simple generators found online
+                    }
                 }
             }
             .removeHistory{ //styling of "clear searches" button
-                position: absolute;
-                margin-top: 355px;
                 background-color: black;
                 color:#a3c4cb;
                 border: white 2px solid;

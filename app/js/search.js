@@ -129,7 +129,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
             let image = document.createElement("img");
             image.src = "img/cross.svg";
             r.className = "chosen"
-            document.querySelector("#searchHistory").appendChild(r);
+            document.querySelector("#searchHistoryContainer").appendChild(r);
             r.innerHTML = obj.item.utility;
             r.id = "chosen" + obj.item.Id;
             selected.forEach(function(div, e) {
@@ -142,7 +142,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                     showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000); //calls showAlert function   
                 }
             })
-            searchHistory.appendChild(r);
+            searchHistoryContainer.appendChild(r);
             r.appendChild(image);
             add();
         }
