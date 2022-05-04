@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+@font-face {
+  font-family: 'Inter';
+  src: url("../../../Inter/Inter-VariableFont_slnt,wght.ttf");
+}
+
 :root {
   --textTheme: #f0f0f0;
   --text2Theme: #1b1b1b;
@@ -16,8 +20,11 @@
   background-image: url("../img/main-background.jpg");
 }
 
+* {
+  font-family: 'Inter';
+}
+
 body {
-  font-family: 'Ubuntu', sans-serif;
   margin: 0;
   background-image: url("../img/light-background.jpg");
   background-size: cover;
@@ -224,11 +231,12 @@ body .searchContentDiv {
   display: -ms-flexbox;
   display: flex;
   padding-left: 10px;
-  border-radius: 10px;
+  border-bottom: 3px solid white;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   color: var(--text2Theme);
+  font-weight: 600;
 }
 
 body .searchContentDivDescription {
@@ -248,13 +256,10 @@ body .searchContentDivDescription a {
 }
 
 body #searchResult > div {
-  border-radius: 10px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px;
   width: auto;
   height: 160px;
   background: var(--backgroundTheme);
-  margin-right: 15px;
 }
 
 body #searchResult > div .container {
@@ -401,5 +406,11 @@ body .custom-switch > .custom-control-label::before {
 
 body .settingsPadding {
   padding-bottom: 15px;
+}
+
+body .aaaa {
+  border: 3px solid white;
+  -webkit-box-shadow: -4px 4px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: -4px 4px 3px rgba(0, 0, 0, 0.1);
 }
 /*# sourceMappingURL=main.css.map */
