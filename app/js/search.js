@@ -139,7 +139,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                 console.log(r.id);
                 if (r.id == div.id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000); //calls showAlert function   
+                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()   
                 }
             })
             searchHistory.appendChild(r);
@@ -152,6 +152,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(a[e].id);
                 try { b.parentNode.removeChild(b) } catch {};
+                showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
             })
         }
         
