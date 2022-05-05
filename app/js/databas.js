@@ -7,7 +7,8 @@ var amout_of_elements;
 var layout = [];
 var fil = 'dat/utilities.json'
 var test = 'dat/Layout.json'
-let image;
+var image;
+var undo_database = null;
 
 function settings() {
     if (there_is_element == true && z !== null) { remove_element(); }
@@ -293,7 +294,7 @@ function drag_cabinets() {
 
 }
 
-function add_element(q, undo_database) {
+function add_element(q) {
     document.querySelector(".navbar").style.display = "none";
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
 
@@ -359,18 +360,22 @@ function add_element(q, undo_database) {
     })
     change_databas(q);
     window.onclick = function(event) {
-        if (event.target == navigation_database_arrow) {
-            navigation_database_con.parentNode.removeChild(navigation_database_con)
-            remove_element();
-            add_containers();
-            document.querySelector(".navbar").style.display = "flex";
-            document.getElementById("admin_s").style.display = "grid";
+            if (event.target == navigation_database_arrow) {
+                var check_save_undo = document.getElementById("navigation_database_save").style.display;
+                console.log(check_save_undo)
+                if (check_save_undo == "") {
+                    navigation_database_con.parentNode.removeChild(navigation_database_con)
+                    remove_element();
+                    add_containers();
+                    document.querySelector(".navbar").style.display = "flex";
+                    document.getElementById("admin_s").style.display = "grid";
+                } else { showAlert_db("Vad fan gör du? Spara databasen!", "warning", 5000); }
+            }
         }
-    }
-    console.log(undo_database, database)
-    if (database == undo_database) {
-        console.log("Change has been made")
-    }
+        /*console.log(undo_database, database)
+        if (database == undo_database) {
+            console.log("Change has been made")
+        }*/
 }
 
 function add_containers() {
@@ -440,9 +445,8 @@ function add_containers() {
         }
 
         function chose() {
-
-            var undo_database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-            add_element(q, undo_database);
+            undo_database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+            add_element(q);
             drag();
         }
 
@@ -688,55 +692,37 @@ function change_databas(q) {
 
     var clas = document.querySelectorAll(".components")
     var elem = document.querySelectorAll(".element")
+    var save = document.getElementById("navigation_database_save")
+    var undo = document.getElementById("navigation_database_undo")
 
-
+    save.addEventListener("click", function save_db() {
+        navigation_database_con.parentNode.removeChild(navigation_database_con)
+        fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+        var divdata = document.getElementById("data")
+        divdata.innerHTML = "";
+        add_element(q);
+        drag();
+    })
+    undo.addEventListener("click", function undo_db() {
+        navigation_database_con.parentNode.removeChild(navigation_database_con)
+        fs.writeFileSync(fil, JSON.stringify(undo_database, null, 3));
+        var divdata = document.getElementById("data")
+        divdata.innerHTML = "";
+        add_element(q);
+        drag();
+    })
     clas.forEach(function(obj, i) {
 
-        var save = document.getElementById("navigation_database_save")
-        var undo = document.getElementById("navigation_database_undo")
         var className = document.getElementsByClassName("components")
         var class_id = document.getElementById(className[i].id);
 
-        save.addEventListener("click", function save_db() {
 
-            remove_element();
-            add_containers();
-            document.querySelector(".navbar").style.display = "flex";
-            document.getElementById("admin_s").style.display = "grid";
-        })
-        undo.addEventListener("click", function undo_db() {
-
-        })
         class_id.addEventListener("click", change)
 
         function change() {
             document.getElementById("change_placeholder").style.display = "block";
-            made_change = false;
             document.getElementById("change").innerHTML = "";
             database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-
-
-            window.onclick = function(event) {
-                if (event.target == change_placeholder) {
-                    change_placeholder.style.display = "none";
-                    window.onclick = function(event) {
-                        if (event.target == navigation_database_arrow) {
-                            navigation_database_con.parentNode.removeChild(navigation_database_con)
-                            remove_element();
-                            add_containers();
-                            document.querySelector(".navbar").style.display = "flex";
-                            document.getElementById("admin_s").style.display = "grid";
-                        }
-                        if (event.target == navigation_database_name) {
-                            navigation_database_con.parentNode.removeChild(navigation_database_con)
-                            remove_element();
-                            add_containers();
-                            document.querySelector(".navbar").style.display = "flex";
-                            document.getElementById("admin_s").style.display = "grid";
-                        }
-                    }
-                }
-            }
 
             var k = 0;
 
@@ -855,8 +841,10 @@ function change_databas(q) {
                         if (new_key.length > 0 && new_key != " ") {
                             database[q][g].keywords = new_key;
                         }
-                        database[q][g].icon = image;
-                        image = null;
+                        if (image != undefined) {
+                            database[q][g].icon = image;
+                        }
+
                         document.getElementById("navigation_database_arrow").parentNode.parentNode.remove()
 
 
@@ -864,7 +852,7 @@ function change_databas(q) {
                         var divdata = document.getElementById("data")
                         divdata.innerHTML = "";
                         made_change = true;
-                        add_element(q, made_change);
+                        add_element(q);
                         drag();
 
                     }
@@ -983,4 +971,35 @@ function add_same_id(q, same_id) {
         add_element(q);
         drag();
     }
+}
+
+function showAlert_db(message, type, closeDelay) {
+    var $cont = $("#alerts-container");
+    if ($cont.length == 0) {
+        // alerts-container does not exist, create it
+        $cont = $('<div id="alerts-container">')
+            .css({
+                //adjust message position
+                position: "fixed",
+                width: "50%",
+                left: "25%",
+                bottom: "0%"
+            })
+            .appendTo($("body"));
+    }
+    // default to alert-info; other options include success, warning, danger
+    type = type || "info";
+    // create the alert div
+    var alert = $('<div>')
+        .addClass("fade in show alert alert-" + type)
+        .append(
+            $('<button type="button" class="close" data-dismiss="alert">')
+            .append("&times;")
+        )
+        .append(message);
+    // add the alert div to top of alerts-container, use append() to add to bottom
+    $cont.prepend(alert);
+    // if closeDelay was passed - set a timeout to close the alert
+    if (closeDelay)
+        window.setTimeout(function() { alert.alert("close") }, closeDelay);
 }

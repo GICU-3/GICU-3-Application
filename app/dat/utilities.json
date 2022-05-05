@@ -2,7 +2,7 @@
    [
       {
          "utility": "­10 ohm",
-         "icon": "images\\template_B.jpg",
+         "icon": "images\\template_A.jpg",
          "description": "10 ohm resistor",
          "keywords": "10 ohm",
          "favourite": "false",
@@ -11,7 +11,7 @@
       },
       {
          "utility": "­12 ohm",
-         "icon": "images\\template.jpg",
+         "icon": "images\\template_C.jpg",
          "description": "12 ohm resistor",
          "keywords": "12 ohm",
          "favourite": "false",
