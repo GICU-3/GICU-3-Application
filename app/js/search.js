@@ -80,9 +80,9 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         //console.log(obj);
 
         let newDiv = document.createElement("div");
-        let contentDiv = document.createElement("div");
-        let contentDivDescription = document.createElement("div");
-        let contentcontainer = document.createElement("div");
+        let componentCard = document.createElement("div");
+        let componentCardDescription = document.createElement("div");
+        let componentCardContainer = document.createElement("div");
         //newDiv.className = "menubarAContainer";
 
         var root = process.cwd(); // Grab application directory
@@ -99,21 +99,21 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         newImage = document.createElement("img");
         newImage.src = obj.item.icon;
 
-        contentDiv.className = "searchContentDiv";
-        contentDivDescription.className = "searchContentDivDescription";
-        newDiv.className = "aaaa";
-        contentcontainer.className = "container";
+        componentCard.className = "componentCardHeader";
+        componentCardDescription.className = "componentCardDescription";
+        newDiv.className = "componentCard";
+        componentCardContainer.className = "container";
 
         document.querySelector("#searchResult").appendChild(newDiv);
 
-        contentcontainer.appendChild(contentDivDescription);
-        contentcontainer.appendChild(newImage);
-        newDiv.appendChild(contentDiv);
-        newDiv.appendChild(contentcontainer);
+        componentCardContainer.appendChild(newImage);
+        componentCardContainer.appendChild(componentCardDescription);
+        newDiv.appendChild(componentCard);
+        newDiv.appendChild(componentCardContainer);
 
-        contentDiv.appendChild(newElement);
-        contentDivDescription.appendChild(newElementDescription);
-        var class_id = document.getElementsByClassName('aaaa');
+        componentCard.appendChild(newElement);
+        componentCardDescription.appendChild(newElementDescription);
+        var class_id = document.getElementsByClassName('componentCard');
         class_id[i].id = obj.item.Id; //Ger ett id för varje sökbara element
 
         var element_id = document.getElementById(class_id[i].id);
@@ -129,7 +129,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
             let image = document.createElement("img");
             image.src = "img/cross.svg";
             r.className = "chosen"
-            document.querySelector("#searchHistory").appendChild(r);
+            document.querySelector("#searchHistoryContainer").appendChild(r);
             r.innerHTML = obj.item.utility;
             r.id = "chosen" + obj.item.Id;
             selected.forEach(function(div, e) {
@@ -142,7 +142,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
                     showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000); //calls showAlert function   
                 }
             })
-            searchHistory.appendChild(r);
+            searchHistoryContainer.appendChild(r);
             r.appendChild(image);
             add();
         }
