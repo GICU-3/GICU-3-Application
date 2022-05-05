@@ -62,6 +62,7 @@ body input:focus {
 }
 
 body #loadingscreen {
+  display: none;
   -webkit-animation: fadeout 2s;
           animation: fadeout 2s;
   opacity: 0;

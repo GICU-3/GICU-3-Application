@@ -73,5 +73,5 @@ function startup() {
     document.getElementById("navbar").style.display = "flex";
     document.getElementById("bodySection").style.display = "flex";
   }
-
+  
 }
