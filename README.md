@@ -98,12 +98,12 @@ Trelent is a tool for generating AI docstrings. It is found under VS Code extent
  *
  * @param [Parameters, if any]
  * @return Nothing
- * @docauthor Trelent
+ * @docauthor Trelent, [your name]
  */
 ```
 _In other words, remove empty lines taking up space. Always modify trelent generated docstrings if their description is not perfect. Always add your own name under "@docauthor Trelent" as following:_
 ```
-@docauthor Trelent
+@docauthor Trelent, [your name]
 @docmodifier [your name]
 ```
 
