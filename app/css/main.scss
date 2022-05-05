@@ -68,6 +68,37 @@ body{
             text-decoration: none;
         }
     }
+
+    .test{
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        width: 400px;
+        height: 200px;
+        .header{
+            color: #000000;
+            font-size: medium;
+            font-weight: bold;
+            size: 20px;
+            border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+            padding: 10px;
+        }
+        .mainpart {
+            display: flex;
+            .img{
+                background-color: #000000;
+                height: 100px;
+                width: 100px;
+            }
+            .text{
+            
+            }
+        }
+    }
+
     .navbar{
         display: none;
         position: fixed;
