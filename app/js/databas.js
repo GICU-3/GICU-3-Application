@@ -7,6 +7,7 @@ var amout_of_elements;
 var layout = [];
 var fil = 'dat/utilities.json'
 var test = 'dat/Layout.json'
+let image;
 
 function settings() {
     if (there_is_element == true && z !== null) { remove_element(); }
@@ -749,6 +750,7 @@ function change_databas(q) {
                     let input_utility = document.createElement("input");
                     let input_description = document.createElement("input");
                     let input_key = document.createElement("input");
+                    let chose_image = document.createElement("select")
                     let save_button = document.createElement("button");
                     placeholder.className = "placeholder_change_databas";
                     placeholder.id = "placeholder_change_databas"
@@ -792,6 +794,48 @@ function change_databas(q) {
                         }
                     }
 
+
+                    chose_image.id = "chose_image"
+                    let images = [{
+                        "name": "Resistor",
+                        "icon": "images\\template_A.jpg"
+                    }, {
+                        "name": "Led",
+                        "icon": "images\\template_B.jpg"
+                    }, {
+                        "name": "Transistor",
+                        "icon": "images\\template_C.jpg"
+                    }, {
+                        "name": "IC-krets",
+                        "icon": "images\\template_C.jpg"
+                    }];
+                    let what_icon = null;
+                    images.forEach(function(obj, i) {
+                        let image_option = document.createElement("option")
+                        image_option.value = obj.icon
+                        image_option.innerHTML = obj.name
+                        console.log(images[i].icon)
+                        if (database[q][g].icon == images[i].icon) {
+                            what_icon = i;
+                        }
+                        chose_image.appendChild(image_option)
+
+                    })
+                    if (what_icon == null) {
+                        chose_image.selectedIndex = -1;
+
+                    } else { chose_image.selectedIndex = what_icon; }
+
+
+                    chose_image.onclick = function() {
+                        var select = document.getElementById("chose_image");
+                        var option = select.options[select.selectedIndex].value;
+                        image = option;
+                        console.log(option);
+                    }
+
+
+
                     save_button.className = "save_button" + k;
                     save_button.id = "save_button" + k;
                     save_button.value = "Save" + k;
@@ -811,7 +855,8 @@ function change_databas(q) {
                         if (new_key.length > 0 && new_key != " ") {
                             database[q][g].keywords = new_key;
                         }
-
+                        database[q][g].icon = image;
+                        image = null;
                         document.getElementById("navigation_database_arrow").parentNode.parentNode.remove()
 
 
@@ -878,14 +923,11 @@ function change_databas(q) {
 
                     }
 
-
-
-
-
                     document.getElementById("change").appendChild(name);
                     document.getElementById("change").appendChild(input_utility);
                     document.getElementById("change").appendChild(input_description);
                     document.getElementById("change").appendChild(input_key);
+                    document.getElementById("change").appendChild(chose_image);
                     document.getElementById("change").appendChild(save_button);
                     if (not_the_sameid) { document.getElementById("change").appendChild(remove_button); }
                     document.getElementById("change").appendChild(add_component)
