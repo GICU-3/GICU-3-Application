@@ -46,6 +46,12 @@ body .navbar .container a {
   font-weight: bold;
 }
 
+body #image-float {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
 body #navigation_database_con {
   background-color: var(--backgroundTheme);
   display: -webkit-box;

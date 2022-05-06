@@ -38,152 +38,195 @@ function remove_change() {
 
 function drag() {
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
+    var imgId = 'test'
+    var dropZoneId = ''
 
-    var ew, we;
-    var rt, oi;
-
-
-    var dragSrcEl = null;
-
-    function handleDragStart(e) {
-        this.style.opacity = '0.4';
-
-        dragSrcEl = this;
-
-        e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('text/html', this.innerHTML);
+    function allowDrop(ev) {
+        ev.preventDefault();
     }
 
-    function handleDragOver(e) {
-        if (e.preventDefault) {
-            e.preventDefault();
+    function dragTouchstart(e) {
+        imgId = e.target
+        console.log(imgId.id)
+        var try_id = "" + Number(imgId.id)
+        if (try_id == "NaN") {
+            console.log("problem")
+            imgId = imgId.childNodes[0]
+            console.log(imgId)
+            let image = document.createElement("div"); // Create a new element
+            image.setAttribute("id", "image-float");
+            image.innerHTML = imgId.innerHTML
+            let left = e.touches[0].pageX;
+            let top = e.touches[0].pageY;
+            image.style.left = left + 'px';
+            image.style.top = top + 'px';
+            image.style.opacity = 0.5;
+
+
+            document.body.appendChild(image);
+        } else {
+
+            let image = document.createElement("div"); // Create a new element
+            image.setAttribute("id", "image-float");
+
+
+            // get the image from the stored reference
+            image.innerHTML = imgId.innerHTML
+            let left = e.touches[0].pageX;
+            let top = e.touches[0].pageY;
+            image.style.left = left + 'px';
+            image.style.top = top + 'px';
+            image.style.opacity = 0.5;
+
+
+            document.body.appendChild(image);
         }
-
-        e.dataTransfer.dropEffect = 'move';
-
-        return false;
-    }
-
-    function handleDragEnter(e) {
-        this.classList.add('over');
-    }
-
-    function handleDragLeave(e) {
-        this.classList.remove('over');
+        // position the image to the touch, can be improve to detect the position of touch inside the image
 
     }
 
-    function handleDrop(e) {
-        if (e.stopPropagation) {
-            e.stopPropagation(); // stops the browser from redirecting.
-        }
-
-        if (dragSrcEl != this) {
-
-            we = document.getElementById(dragSrcEl.id).childNodes
-            ew = document.getElementById(this.id).childNodes
-            var t = dragSrcEl.id;
-            rt = t.match(/\d+/)
-
-
-            var tq = this.id;
-            oi = tq.match(/\d+/)
-
-            dragSrcEl.innerHTML = this.innerHTML;
-
-            this.innerHTML = e.dataTransfer.getData('text/html');
-
-
-        }
-
-
-
-
-        return false;
+    function dragTouchmove(e) {
+        // on touch move or dragging, we get the newly created image element
+        let image = document.getElementById('image-float')
+            // this will give us the dragging feeling of the element while actually it's a different element
+        let left = e.touches[0].pageX;
+        let top = e.touches[0].pageY;
+        //image.style.position = 'absolute'
+        image.style.left = left + 'px';
+        image.style.top = top + 'px';
+        let touchX = e.touches[0].pageX
+        let touchY = e.touches[0].pageY
+            //apply touch enter fucntion inside touch move
+        dragTouchenter(e, touchX, touchY)
     }
+    var get = [];
+    var statement = true
 
-    function handleDragEnd(e) {
-
-        this.style.opacity = '1';
-
-        items.forEach(function(item) {
-            item.classList.remove('over');
-        });
-
-        if (ew != null && we != null) {
-
-            if (oi[0] > rt[0]) {
-                for (let a = 0; a < ew.length; a++) {
-
-                    document.getElementById(ew[a].id).id = oi[0];
-
+    function dragTouchenter(e, touchX, touchY) {
+        database[z].forEach(function(object, i) {
+            if (statement) {
+                get[i] = document.getElementById(object.Id + "outer")
+                get[i] = get[i].getBoundingClientRect();
+                var overlap1 = !(get[i].right < touchX ||
+                    get[i].left > touchX ||
+                    get[i].bottom < touchY ||
+                    get[i].top > touchY)
+                if (overlap1) {
+                    dropZoneId = document.getElementById(object.Id + "outer")
                 }
-                for (let a = 0; a < we.length; a++) {
+            }
+        })
 
-                    document.getElementById(we[a].id).id = rt[0];
+    }
 
-                }
-                database[z].forEach(function(obj, i) {
-                    if (obj.Id == rt[0]) {
-                        obj.Id = oi[0]
+    function dragTouchend(e) {
+        //remove dragged image duplicate
+        let image = document.getElementById('image-float')
+        image.remove()
 
-                    } else if (obj.Id == oi[0]) {
-                        obj.Id = rt[0]
+        //dropZoneId.style.border = "1px solid #0b79d0";
+        //if outside any dropzone, just do nothing
+        if (dropZoneId == '') {
+            dropZoneId = ''
+            imgId = ''
+        } else {
+            if ("" + Number(dropZoneId) == "NaN") {
+                console.log(dropZoneId, imgId)
+                let toSwap = dropZoneId
+                let originDropzone = imgId.parentNode
+                let all_components = document.querySelectorAll(".element")
+                database[z].forEach(function(object, i) {
+                    if (object.Id == imgId.id) {
+                        database[z].forEach(function(obj, x) {
+                            if (obj.Id == dropZoneId.childNodes[0].id) {
+                                console.log(database[z][i], database[z][x])
+                                database[z][i] = obj;
+                                database[z][x] = object;
+                                console.log(database[z][i], database[z][x])
 
+                            }
+                        })
                     }
-                    fs.writeFileSync(fil, JSON.stringify(database, null, 3));
                 })
 
-            }
-            if (oi[0] < rt[0]) {
-                for (let a = 0; a < we.length; a++) {
 
-                    document.getElementById(we[a].id).id = rt[0];
+                var temp_id = dropZoneId.childNodes[0].id
+                console.log(temp_id)
+                dropZoneId.childNodes[0].id = imgId.id
+                console.log(dropZoneId.childNodes[0].id)
+                imgId.id = temp_id;
+                console.log(imgId.id)
 
-                }
-                for (let a = 0; a < ew.length; a++) {
+                originDropzone.appendChild(dropZoneId.childNodes[0])
+                toSwap.appendChild(imgId)
 
-                    document.getElementById(ew[a].id).id = oi[0];
 
-                }
-                database[z].forEach(function(obj, i) {
-                    if (obj.Id == oi[0]) {
-                        obj.Id = rt[0]
+                console.log(imgId.id, dropZoneId.id)
+                    //let all_components = document.
 
-                    } else if (obj.Id == rt[0]) {
-                        obj.Id = oi[0]
-
-                    }
-                    fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-                })
+                temp_id = ''
+                dropZoneId = ''
+                imgId = ''
 
             }
-            database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-            database[z].sort(function(a, b) {
-                return a.Id - b.Id || a.utility.localeCompare(b.utility);
-            });
-            fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-            ew = null;
-            we = null;
-            document.getElementById("navigation_database_save").style.display = "block";
-            document.getElementById("navigation_database_undo").style.display = "block";
-            change_databas(z);
         }
+
+
+    }
+
+    function dragEnter(ev) {
+        var element = document.getElementById(ev.target.id);
+        /* element.style.border = "dotted";
+         element.style.borderColor = "#0b79d0";*/
+    }
+
+    function dragLeave(ev) {
+        var element = document.getElementById(ev.target.id);
+        //element.style.border = "1px solid #0b79d0";
+    }
+
+    function dragStart(ev) {
+        ev.dataTransfer.setData("src", ev.target.id);
+        var number = ev.target.id.replace(/[^\d.]/g, '');
+        ev.dataTransfer.setData("text/plain", number);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var src = document.getElementById(ev.dataTransfer.getData("src"));
+
+        var srcParent = src.childNodes[0];
+        var tgt = ev.currentTarget.childNodes[0];
+        console.log(tgt, srcParent)
+        ev.currentTarget.replaceChild(srcParent, tgt);
+        src.appendChild(tgt);
+
+        //var temp_id = srcParent.id
+        //srcParent.id = tgt.id
+        //tgt.id = temp_id;
+
+        var number1 = srcParent.id.replace(/[^\d.]/g, '');
+        var number2 = ev.currentTarget.id.replace(/[^\d.]/g, '');
+
+        var element = document.getElementById(ev.target.id);
+        // element.style.border = "solid 1px #0b79d0";
+
+        var number = ev.target.id.replace(/[^\d.]/g, '');
     }
 
 
     let items = document.querySelectorAll('.components');
     items.forEach(function(item) {
-
-        item.addEventListener('dragstart', handleDragStart, false);
-        item.addEventListener('dragenter', handleDragEnter, false);
-        item.addEventListener('dragover', handleDragOver, false);
-        item.addEventListener('dragleave', handleDragLeave, false);
-        item.addEventListener('drop', handleDrop, false);
-        item.addEventListener('dragend', handleDragEnd, false);
+        item.addEventListener("dragover", allowDrop)
+        item.addEventListener("drop", drop)
+        item.addEventListener("dragenter", dragEnter)
+        item.addEventListener("dragleave", dragLeave)
+        item.addEventListener("dragstart", dragStart)
+        item.addEventListener("touchstart", dragTouchstart)
+        item.addEventListener("touchmove", dragTouchmove)
+        item.addEventListener("touchstart", dragTouchstart)
+        item.addEventListener("touchend", dragTouchend)
     });
-
-
 }
 
 function drag_cabinets() {

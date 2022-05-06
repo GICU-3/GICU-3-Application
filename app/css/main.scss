@@ -37,6 +37,11 @@ body {
             }
         }
     }
+    #image-float {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
     #navigation_database_con {
         background-color: var(--backgroundTheme);
         display: flex;

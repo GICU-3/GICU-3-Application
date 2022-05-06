@@ -60,7 +60,7 @@ function display_layout1(obj, w, standard_partern_layout, diffrent_partern_layou
             latest_id = obj.Id;
             standard_partern.innerHTML = obj.utility;
             if (obj.utility == "") { standard_partern.innerHTML = "-" }
-            //standard_partern.draggable = "true";
+            standard_partern.draggable = "false";
             amout_of_elements = w;
             document.querySelector("#data").appendChild(standard_partern_layout);
             standard_partern_layout.appendChild(multi_componets)
