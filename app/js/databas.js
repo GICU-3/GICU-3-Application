@@ -167,7 +167,7 @@ function drag() {
             we = null;
             document.getElementById("navigation_database_save").style.display = "block";
             document.getElementById("navigation_database_undo").style.display = "block";
-
+            change_databas(z);
         }
     }
 
@@ -404,9 +404,13 @@ function add_containers() {
             let select_cabinet_change_name = document.createElement("input")
             let select_cabinet_open_button = document.createElement("button")
             let select_cabinet_remove = document.createElement("button")
+            let button_change_name = document.createElement("button")
 
+            button_change_name.id = "button_change_name"
+            button_change_name.innerHTML = "Change name"
             selected_cabinet.id = "selected_cabinet";
             select_cabinet_change_name.id = "select_cabinet_change_name"
+            select_cabinet_change_name.placeholder = layout[1][q]
             select_cabinet_open_button.id = "select_cabinet_open_button"
             select_cabinet_open_button.innerHTML = "Open"
             select_cabinet_remove.id = "select_cabinet_remove"
@@ -416,6 +420,21 @@ function add_containers() {
             document.querySelector("#selected_cabinet").appendChild(select_cabinet_change_name)
             document.querySelector("#selected_cabinet").appendChild(select_cabinet_open_button)
             document.querySelector("#selected_cabinet").appendChild(select_cabinet_remove)
+            document.querySelector("#selected_cabinet").appendChild(button_change_name)
+
+            document.getElementById("button_change_name").onclick = function() {
+                if (select_cabinet_change_name.value != "") {
+                    layout[1][q] = select_cabinet_change_name.value
+                    fs.writeFileSync(test, JSON.stringify(layout, null, 3));
+                    document.getElementById("selected_cabinet").innerHTML = "";
+                    remove_skop();
+                    add_containers();
+
+                } else {
+                    showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000);
+                }
+            }
+
 
             document.getElementById("select_cabinet_open_button").onclick = function() {
                 document.getElementById("admin_s").innerHTML = "";
@@ -466,11 +485,14 @@ function add_containers() {
     cabinet_name.id = "cabinet_name"
     cabinet_name.placeholder = "Name of cabinet"
     let placeholder_select_layout = document.createElement("div")
+    let explanation_layout_icon = document.createElement("div")
     let placeholder_layout_1 = document.createElement("div");
     let placeholder_layout_2 = document.createElement("div");
     let placeholder_layout_3 = document.createElement("div");
     placeholder_select_layout.className = "layout";
     placeholder_select_layout.id = "select_layout"
+    explanation_layout_icon.id = "explanation_layout_icon"
+    explanation_layout_icon.innerHTML = "   &#63;"
     placeholder_layout_1.className = "layout1";
     placeholder_layout_1.id = "layout_1";
     placeholder_layout_1.innerHTML = "Layout 1"
@@ -481,6 +503,7 @@ function add_containers() {
     placeholder_layout_3.id = "layout_3";
     placeholder_layout_3.innerHTML = "Layout 3"
     placeholder_select_layout.appendChild(cabinet_name);
+    placeholder_select_layout.appendChild(explanation_layout_icon)
     placeholder_select_layout.appendChild(placeholder_layout_1);
     placeholder_select_layout.appendChild(placeholder_layout_2);
     placeholder_select_layout.appendChild(placeholder_layout_3);
@@ -493,16 +516,35 @@ function add_containers() {
         document.getElementById("select_layout").style.display = "block";
         document.getElementById("selected_cabinet").innerHTML = "";
         document.getElementById("new_cabinet").parentNode.removeChild(document.getElementById("new_cabinet"))
+        let explanation_placeholder = document.createElement("div");
+        explanation_placeholder.id = "explanation_placeholder"
+        let explanation = document.createElement("div");
+        explanation.id = "explanation"
+        explanation.innerHTML = "test"
+
+        document.querySelector("body").appendChild(explanation_placeholder)
+        explanation_placeholder.appendChild(explanation);
+
+        document.getElementById("explanation_layout_icon").onclick = function() {
+            console.log("fres")
+            document.getElementById("explanation_placeholder").style.display = "block";
+        }
 
         document.getElementById("layout_1").onclick = function() {
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-            layout[0][amout_of_cabinet + 1] = 1;
-            layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
 
+            if (amout_of_cabinet == 0) {
+                layout[0][amout_of_cabinet] = 1;
+                layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
+                var arr = Array.from(Array(1), () => new Array());
+                console.log("it happend")
+                amout_of_cabinet = -1;
+            } else {
+                layout[0][amout_of_cabinet + 1] = 1;
+                layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
+                var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
+            }
 
-
-
-            var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
             fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
             database.forEach(function(obj, i) {
@@ -546,13 +588,19 @@ function add_containers() {
         }
         document.getElementById("layout_2").onclick = function() {
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-            layout[0][amout_of_cabinet + 1] = 2;
-            layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
 
+            if (amout_of_cabinet == 0) {
+                layout[0][amout_of_cabinet] = 2;
+                layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
+                var arr = Array.from(Array(1), () => new Array());
+                console.log("it happend")
+                amout_of_cabinet = -1;
+            } else {
+                layout[0][amout_of_cabinet + 1] = 2;
+                layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
+                var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
+            }
 
-
-
-            var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
             fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
             database.forEach(function(obj, i) {
@@ -612,13 +660,19 @@ function add_containers() {
         document.getElementById("layout_3").onclick = function() {
 
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-            layout[0][amout_of_cabinet + 1] = 3;
-            layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
 
+            if (amout_of_cabinet == 0) {
+                layout[0][amout_of_cabinet] = 3;
+                layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
+                var arr = Array.from(Array(1), () => new Array());
+                console.log("it happend")
+                amout_of_cabinet = -1;
+            } else {
+                layout[0][amout_of_cabinet + 1] = 3;
+                layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
+                var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
+            }
 
-
-
-            var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
             fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
             database.forEach(function(obj, i) {
@@ -723,7 +777,24 @@ function change_databas(q) {
             document.getElementById("change_placeholder").style.display = "block";
             document.getElementById("change").innerHTML = "";
             database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-
+            window.onclick = function(event) {
+                if (event.target == change_placeholder) {
+                    change_placeholder.style.display = "none";
+                    window.onclick = function(event) {
+                        if (event.target == navigation_database_arrow) {
+                            var check_save_undo = document.getElementById("navigation_database_save").style.display;
+                            console.log(check_save_undo)
+                            if (check_save_undo == "") {
+                                navigation_database_con.parentNode.removeChild(navigation_database_con)
+                                remove_element();
+                                add_containers();
+                                document.querySelector(".navbar").style.display = "flex";
+                                document.getElementById("admin_s").style.display = "grid";
+                            } else { showAlert_db("Vad fan gör du? Spara databasen!", "warning", 5000); }
+                        }
+                    }
+                }
+            }
             var k = 0;
 
             database[z].forEach(function(p, g) {

@@ -8,7 +8,7 @@ function sleep(ms) {
         setTimeout(resolve, ms);
     });
 }
-
+document.getElementById("search").focus();
 document.getElementById("search").onkeyup = function() {
 
     if (document.getElementById("search").value.length > 0) {

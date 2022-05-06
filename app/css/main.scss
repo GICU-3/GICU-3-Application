@@ -372,6 +372,35 @@ body {
         background-color: rgba(0, 0, 0, 0.4);
         /* Black w/ opacity */
     }
+    #explanation_placeholder {
+        display: none;
+        position: fixed;
+        /* Stay in place */
+        z-index: 2;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        #explanation {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #888;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+    }
     #data #change_placeholder #change {
         background-color: #fefefe;
         margin: auto;
