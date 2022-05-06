@@ -1,177 +1,260 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
-:root{
-    --textTheme: #f0f0f0;
-    --text2Theme: #1b1b1b;
-    --text3Theme: #f0f0f0;
+@font-face {
+    font-family: 'Inter';
+    src: url('../font/Inter/Inter-VariableFont_slnt\,wght.ttf');
+}
+:root {
+    --backgroundBlur: rgba(240, 240, 240, 0.25);
+    --textHeader: #000000;
+    --text: #1b1b1b;
     --backgroundTheme: #f0f0f0;
     --decorationTheme: #d5d5d5;
 }
-.dark-theme{
-    --textTheme: #f0f0f0;
-    --text2Theme: #f0f0f0;
-    --text3Theme: #1b1b1b;
+.dark-theme {
+    --backgroundBlur: rgba(0, 0, 0, 0.25);
+    --textHeader: #a3a3a3;
+    --text: #f0f0f0;
     --backgroundTheme: #2d2d2d;
     --decorationTheme: #1b1b1b;
     background-image: url('../img/main-background.jpg');
 }
-body{
-    font-family: 'Ubuntu', sans-serif;
+* {
+    font-family: 'Inter'; // Changes font for all elements
+}
+body {
+    .rotate { //rotation of loadingscreen image
+        animation: rotation 1s infinite linear;
+        @keyframes rotation {
+
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(359deg);
+            }
+        }
+    }
+
+    input:focus {outline:none;} //removes highlightcolor of all input fields
+    #loadingscreen {
+        display: none;
+        animation: fadeout 2s; //fadeout animation of loadingscreen
+        opacity: 0;
+        justify-content: center;
+        position: absolute;
+        height: 600px;
+        width: 1024px;
+        background-color: black;
+        img {
+            height: 223px;
+            width: 210px;
+            margin-left: 407px;
+            margin-right: 407px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        h1 {
+            color: white;
+            font-size: 16px;
+            text-align: center;
+        }
+        #loadingscreentext2 {
+            opacity: 0%;
+            text-align: center;
+            margin-top: -26px;
+        }
+        #loadingscreentext3 {
+            opacity: 0%;
+            text-align: center;
+            margin-top: -26px;
+        }
+        #loadingscreentext4 {
+            opacity: 0%;
+            text-align: center;
+            margin-top: -26px;
+        }
+    }
+    @keyframes fadeout {  //fadeout animation of loadingscreen
+        0% { opacity: 1; }
+        75% { opacity: 1; }
+        100% { opacity: 0; }
+    }
     margin: 0;
     background-image: url('../img/light-background.jpg');
     background-size: cover;
-    .navbar{
+    .modal-container {
+        a {
+            display: block;
+            text-decoration: none;
+        }
+    }
+
+    .navbar {
+        display: none;
+        position: fixed;
         background: none;
         padding: 0.5em;
-        .container{
-            //text-align: center;
+        width: 80px;
+        padding-bottom: 100%;
+        backdrop-filter: blur(5px) grayscale(30%);
+        box-shadow: 1px 0px 3px rgba(0,0,0,.1);
+        .container {
+            padding: 20px;
+            display: -webkit-box; /*! Overwritten by 'display: flex;' */
+            display: -ms-flexbox; /*! Overwritten by 'display: flex;' */
             display: flex;
+            -webkit-box-pack: space-evenly; /*! Unused */
+            -ms-flex-pack: space-evenly; /*! Unused */
             justify-content: space-evenly;
-            a{
+            a { //styling of all "a" inside navbar
                 text-decoration: 0;
                 color: white;
                 font-weight: bold;
             }
-        }
-    }
-    .searchbar{
-        h1{
-            color: white;
-            margin: 20px;
-        }
-        span{
-            color: #a3c4cb;
-        }
-        margin-left: 256px;
-        width: 512px;
-        margin-top: 0;
-        border-radius: 1em;
-        //border: 2px solid black;
-        text-align: center;
-        background: none;
-        font-size: 1.3em;
-        .search{
-            display: inline;
-            width: 70%;
-            height: 2em;
-            border-radius: 0.4em;
-            margin-bottom: 1em;
-            background-color: var(--backgroundTheme);
-        }
-        ::placeholder {
-            color: var(--text2Theme);
-            font-size: smaller;
-        }
-        /*.button{
-            height: 2.2em;
-            width: 20%;
-            background-color: white;
-            border-radius: 1.3em;
-            font-size: 0.7em;
-            color: rgb(0, 180, 0);
-            border-color: rgb(0, 180, 0);
-            cursor: pointer;
-            :hover {
-                font-weight: bolder;
+            img {
+                margin:20px;
+                width: 48px;
+                filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
             }
-        }*/
-    }
-    .searchContentDiv {
-        background-color: var(--decorationTheme);
-        height: 45px;
-        justify-content: left;
-        display: flex;
-        padding-left: 10px;
-        border-radius: 10px;
-        align-items: center;
-        color: var(--text2Theme);
-    }
-    .searchContentDivDescription {
-        width: 50%;
-        position: relative;
-        font-size: 12px;
-        align-items: center;
-        color: var(--text2Theme);
-    }
-    .searchContentDivDescription a {
-        position: relative;
-        width: 150px;
-        left:0px;
-    }
-    
-    #searchResult > div {
-        border-radius: 10px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: auto;
-        height: 160px;
-        background: var(--backgroundTheme);
-        //overflow: hidden;
-        margin-right: 15px;
-        .container{
-            display: flex;
-            justify-content: space-evenly;
-            padding-top: 30px;
-            align-items: center;
         }
     }
-    
-    #searchResult img {
-        width: auto;
-        height: 48px;
-        border-radius: 10px;
-        
+
+    #homeimg {
+        filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
     }
-    #searchResult {
-        background: none;
-        height: 360px;
-        overflow-y: auto;
-    }
-    .bodySection{
-        display: flex;
-        #searchHistory{
-            background-color: rgba(45, 45, 45, 0.5);
-            margin-left: 56px;
-            margin-top: 110px;
-            width: 200px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            height: 400px;
-            overflow-y: auto;
-            .searchHistoryTitle {
+
+    .bodySection { //styling of both search history div and searchbar div. does NOT include navbar
+        display: none;
+        height: 510px;
+        .searchbar {
+            h1 { //styling of h1 inside searchbar div  ("GICU-3" logo) 
                 color: white;
-                margin-bottom: 15px;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                border-bottom: white 1px solid;
-                font-weight: bold;
-                display: flex;
-                justify-content: center;
+                margin: 20px;
             }
-            .chosen{
-                color: white;
-                display: flex;
-                justify-content: right;
-                img {
-                    height: 30px;
-                    padding-left: 10px;
-                    padding-right: 30px;
+            span { //styling of GICU-3 logo (the span is the different color in the number 3)
+                color: #a3c4cb;
+            }
+            margin-left: 256px;
+            width: 512px;
+            margin-top: 0;
+            border-radius: 1em;
+            //border: 2px solid black;
+            text-align: center;
+            background: none;
+            font-size: 1.3em;
+            .search { //styling of search field
+                background-color: var(--backgroundTheme);
+                color: var(--text);
+                display: inline;
+                border: none;
+                width: 70%;
+                height: 50px;
+                margin-bottom: 1em;
+                opacity: 90%;
+                border-bottom: 1px solid var(--decorationTheme);
+                box-shadow: 4px 4px 3px rgba(0,0,0,.2);
+                padding-left: 5px;
+            }
+            ::placeholder { //styling of placeholder text inside search field
+                color: var(--text);
+                font-size: smaller;
+                margin-left: 5px;
+            }
+            #searchResult { //styling of "search result" div that contains all dynamically created divs. Essentially a container
+                background: none;
+                height: 360px;
+                overflow-y: auto;
+                .componentCard { //styling of each dynamically created div
+                    margin: 15px;
                     width: auto;
-                    filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%); //lösning för att ge svg färg
+                    height: 127px;
+                    background: var(--backgroundBlur);
+                    box-shadow: -4px 4px 3px var(--backgroundBlur);
+                    backdrop-filter: blur( 20px );
+                    -webkit-backdrop-filter: blur( 10px );
+                    border-radius: 10px;
+                    border: 1px solid rgba( 255, 255, 255, 0.18 );
+                    .componentCardHeader { //styling of "header" for every dynamically created div containing title name for each component
+                        color: var(--textHeader);
+                        font-size: medium;
+                        font-weight: medium;
+                        border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+                        padding: 5px;
+                        a {
+                            margin-right: 128px;    
+                        }
+                    }    
+                    .container { //styling of container for "componentCardDescription" and "img"
+                        display: flex;
+                        padding: 0px;
+                        justify-content: space-between;
+                        img { //styling of image of components inside dynamically created div
+                            margin-top: -36px;
+                            margin-right: 1px;
+                            width: 127px;
+                            height: 127px;
+                            border-top-right-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                            box-shadow: -4px 4px 3px rgba(0,0,0,.2);
+                        }
+                        .componentCardDescription { //styling of container for componentCardDescription
+                            padding: 10px;
+                            font-size: 12px;
+                            color: var(--text);
+                            text-align: left;  
+                        }
+                    }
                 }
             }
-            .removeHistory{
-                position: absolute;
-                margin-top: 355px;
-                background-color: black;
-                color:#a3c4cb;
-                border: white 2px solid;
-                border-radius: 10px;
-                font-weight: bold;
-                width: 200px;
+        }
+        #searchHistory {
+            #searchHistoryContainer { //styling of entire search history or "aktiva sökningar" div
+                background: none;
+                margin-left: 16px;
+                margin-top: 50px;
+                width: 240px;
+                height: 470px;
+                overflow-y: auto;
+                backdrop-filter: blur(5px) grayscale(50%);
+                box-shadow: -2px 2px 3px rgba(0,0,0,.1);
+                .searchHistoryTitle { //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
+                    color: white;
+                    margin-bottom: 15px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    border-bottom: white 1px solid;
+                    font-weight: 400;
+                    display: flex;
+                    justify-content: center;
+                }
+                .chosen { //styling of chosen search in "aktiva sökningar" list
+                    color: white;
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: right;
+                    img { //styling of cross SVG-image shown beside the ".chosen" text
+                        height: 30px;
+                        padding-left: 10px;
+                        padding-right: 20px;
+                        width: auto;
+                        filter: invert(100%) sepia(30%) saturate(80%) hue-rotate(157deg) brightness(104%) contrast(101%); //a solution to change the color of SVG-image, simple generators found online
+                    }
+                }
+            }
+            .removeHistory { //styling of "clear searches" button
+                margin-top: 10px;
+                margin-left: 16px;
+                background: none;
+                color: white;
+                border: none;
+                font-weight: 400;
+                width: 240px;
                 height: 40px;
+                backdrop-filter: blur(10px) grayscale(50%);
+                box-shadow: -2px 2px 2px rgba(0,0,0,.1);
             }
         }
     }
+
     // Positioning the enlarged switch 
     .custom-switch > .custom-control-label {
         padding-left: 1.75rem;
@@ -196,4 +279,4 @@ body{
     .settingsPadding {
         padding-bottom: 15px;
     }
-}
+} 
