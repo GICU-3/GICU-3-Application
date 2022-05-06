@@ -13,7 +13,7 @@ function labbar() {
     document.getElementById("data").style.display = "none";
     document.getElementById("admin_s").style.display = "none";
     document.getElementById("searchbar").style.display = "none";
-    document.getElementById("bodySection").style.justifyContent = "right"; //kanske behöer ändras när divvar läggs till
+    document.getElementById("bodySection").style.justifyContent = "right"; //? kanske behöver ändras när divvar läggs till
     document.getElementById("labbarInterface").style.display = "grid";
     document.getElementById("bodySection").style.display = "flex";
     document.getElementById("bookimg").style.filter="invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%)";

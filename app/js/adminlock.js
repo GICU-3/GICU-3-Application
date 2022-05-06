@@ -8,7 +8,7 @@ var lock_checkstatus = setInterval(admin_panel, 250); //use clearInterval(lock_c
  * @return The state of the pin, if it is on or off
  * @docauthor Trelent, Simon
  */
-function admin_panel() {
+function admin_panel() { //TODO rename to adminPanel()
     if (admin_key.readSync() === 1) { //check the pin state, if the state is 0 (or off)
         document.getElementById("admin").style.display = "block";
     } else {
