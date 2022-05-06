@@ -148,12 +148,16 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         }
         function removebutton() {
             var selected = document.querySelectorAll(".chosen");
+            var placeholder = 0;
             selected.forEach(function(div, e) {
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(a[e].id);
                 try { b.parentNode.removeChild(b) } catch {};
-                showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
+                placeholder++;
             })
+            if (placeholder > 0) {
+            showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
+            }
         }
         
         /*if (element_id !== sayhello().target && !element_id.contains(sayhello().target)) {    
