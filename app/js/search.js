@@ -106,8 +106,8 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
 
         document.querySelector("#searchResult").appendChild(newDiv);
 
-        componentCardContainer.appendChild(newImage);
         componentCardContainer.appendChild(componentCardDescription);
+        componentCardContainer.appendChild(newImage);
         newDiv.appendChild(componentCard);
         newDiv.appendChild(componentCardContainer);
 
