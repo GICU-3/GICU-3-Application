@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>GICU-3</title>
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/startup.js"></script>
+        <script src="js/adminlock.js"></script>
         <script src="js/navigation.js"></script>
         <script src="js/databas.js"></script>
         <script scr="js/jquery-3.6.0.js"></script>
@@ -25,8 +27,9 @@
         <!-- BOOTSTRAP MODAL END -->
 
         <!-- <script defer src="index.js"></script> | PATH NOW OUTDATED 2022-04-14 -->
+
         <style>
-            ::-webkit-scrollbar {
+            ::-webkit-scrollbar { 
                 width: 18px;
             }
 
@@ -52,18 +55,25 @@
             }
         </style>
     </head>
-    <body>
-        <nav class="navbar">
+    <body onload="startup()">
+      <div id="loadingscreen"> 
+        <img id="loadingscreenimg" class="rotate" src="img/joelpe.png">
+        <h1 id="loadingscreentext1">intializing optimized quantum-search-algorithm</h1>
+        <h1 id="loadingscreentext2">Indexing components: Inverted flux capacitor...</h1>
+        <h1 id="loadingscreentext3">Indexing components: Super flux capactor...</h1>
+        <h1 id="loadingscreentext4">finishing up...</h1>
+      </div>
+        <nav class="navbar" id="navbar">
             <div class="container">
-              <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal">Inställningar</a>
-              <a class="home" id="home" onclick="home()" href="#">Home</a>
-              <a class="labbar" id="labbar" onclick="labbar()" href="#">Labbar</a>
-              <a class="admin" id="admin" onclick="admin()" href="#">Admin</a>
+              <a class="home" id="home" onclick="home()" href="#"><img id="homeimg" src="./img/home.svg"/></a>
+              <a class="labbar" id="labbar" onclick="labbar()" href="#"><img id="bookimg" src="./img/book.svg"/></a>
+              <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal"><img id="gearimg" src="./img/gear.svg"/></a> 
+              <a class="admin" id="admin" onclick="admin()" href="#"><img id="engineerimg" src="./img/engineer.svg"/></a>
             </div>
         </nav>
 
         <!-- BOOTSTRAP MODAL -->
-        <div class="container">
+        <div class="modal-container">
           
             <!-- The Modal -->
             <div class="modal fade" id="myModal">
@@ -72,7 +82,7 @@
                 
                   <!-- Modal Header -->
                   <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h4 class="modal-title">Settings</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
 
@@ -80,38 +90,12 @@
                   <div class="modal-body">
                     <!-- Default switch -->
                     <div class="custom-control custom-switch settingsPadding">
-                      <input type="checkbox" class="custom-control-input" id="switchDarkmode" onchange="checkedValue=this.checked">
+                      <input type="checkbox" class="custom-control-input" id="switchDarkmode" onchange="checkedValueDarkmode=this.checked">
                       <label class="custom-control-label settingsControlLabel" for="switchDarkmode">Darkmode</label>
-                      <script>
-
-                        const themeSwitch = document.querySelector('input');
-                        var temp = 0;
-                        if (temp == 0) { //temporär lösning för att köra koden en gång
-                        console.log(localStorage.getItem('theme'));
-                          if (localStorage.getItem('theme') == 'dark') {
-                            console.log("logged darkmode from memory");
-                            document.body.classList.toggle('dark-theme');
-                            themeSwitch.checked = true;
-                          }
-                          temp = 1;
-                        }
-                        themeSwitch.addEventListener('change', () => {
-                        document.body.classList.toggle('dark-theme');
-                        console.log(checkedValue);
-                        if (checkedValue){
-                          localStorage.setItem('theme', 'dark'); //localStorage
-                          console.log("logged dark");
-                        } else {
-                          localStorage.setItem('theme','light');
-                          console.log("logged light");
-                        }
-                          
-                        });
-                      </script>
                     </div>
                     <div class="custom-control custom-switch settingsPadding">
-                      <input type="checkbox" class="custom-control-input" id="switchOther">
-                      <label class="custom-control-label" for="switchOther">Annan skum inställning</label>
+                      <input type="checkbox" class="custom-control-input" id="switchLoadingscreen" onchange="checkedValueLoadingscreen=this.checked">
+                      <label class="custom-control-label" for="switchLoadingscreen">Joelpe loading screen</label>
                     </div>
                   </div>
                   
@@ -132,20 +116,19 @@
             <div id="searchResult"></div>
         </div>
         <div id="searchHistory">
-          <div class="searchHistoryTitle">Aktiva Sökningar</div>
+          <div id="searchHistoryContainer">
+            <div class="searchHistoryTitle">Active Searches</div>
+          </div>
           <button id="removeHistory" class="removeHistory">Clear Searches</button>
         </div>
       </section>
 
       <div id="admin_s"></div>
       <div id="data"></div>
-      <div id="labbarInterface" class="labbarInterface">        
+      <div id="labbarInterface" class="labbarInterface"> 
       
-        
+      <!-- ALERT DIV -->
       <div id="alert"></div>
 
-
-      </div>
-      
     </body>
 </html>

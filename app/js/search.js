@@ -80,9 +80,9 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         //console.log(obj);
 
         let newDiv = document.createElement("div");
-        let contentDiv = document.createElement("div");
-        let contentDivDescription = document.createElement("div");
-        let contentcontainer = document.createElement("div");
+        let componentCard = document.createElement("div");
+        let componentCardDescription = document.createElement("div");
+        let componentCardContainer = document.createElement("div");
         //newDiv.className = "menubarAContainer";
 
         var root = process.cwd(); // Grab application directory
@@ -99,21 +99,21 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         newImage = document.createElement("img");
         newImage.src = obj.item.icon;
 
-        contentDiv.className = "searchContentDiv";
-        contentDivDescription.className = "searchContentDivDescription";
-        newDiv.className = "aaaa";
-        contentcontainer.className = "container";
+        componentCard.className = "componentCardHeader";
+        componentCardDescription.className = "componentCardDescription";
+        newDiv.className = "componentCard";
+        componentCardContainer.className = "container";
 
         document.querySelector("#searchResult").appendChild(newDiv);
 
-        contentcontainer.appendChild(contentDivDescription);
-        contentcontainer.appendChild(newImage);
-        newDiv.appendChild(contentDiv);
-        newDiv.appendChild(contentcontainer);
+        componentCardContainer.appendChild(componentCardDescription);
+        componentCardContainer.appendChild(newImage);
+        newDiv.appendChild(componentCard);
+        newDiv.appendChild(componentCardContainer);
 
-        contentDiv.appendChild(newElement);
-        contentDivDescription.appendChild(newElementDescription);
-        var class_id = document.getElementsByClassName('aaaa');
+        componentCard.appendChild(newElement);
+        componentCardDescription.appendChild(newElementDescription);
+        var class_id = document.getElementsByClassName('componentCard');
         class_id[i].id = obj.item.Id; //Ger ett id för varje sökbara element
 
         var element_id = document.getElementById(class_id[i].id);
@@ -123,74 +123,41 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         var del_history = document.getElementById("removeHistory");
         del_history.addEventListener("click", removebutton);
         
-
         function sayhello() {
             var selected = document.querySelectorAll(".chosen");
             let r = document.createElement("div");
             let image = document.createElement("img");
             image.src = "img/cross.svg";
             r.className = "chosen"
-            document.querySelector("#searchHistory").appendChild(r);
+            document.querySelector("#searchHistoryContainer").appendChild(r);
             r.innerHTML = obj.item.utility;
             r.id = "chosen" + obj.item.Id;
             selected.forEach(function(div, e) {
                 var a = document.getElementsByClassName("chosen")
-                var b = document.getElementById(a[e].id)
-                //console.log(a[e].id);
-                //console.log(r.id);
-                if (r.id == a[e].id) {
+                var b = document.getElementById(div.id)
+                console.log(div.id);
+                console.log(r.id);
+                if (r.id == div.id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    
-                    //ALERT MESASGES
-                    //code from https://stackoverflow.com/questions/8965018/dynamically-creating-bootstrap-css-alert-messages
-
-                    showAlert("Vad fan gör du? Den komponenten är redan tillagd!", "warning", 5000);
-                    
-                    function showAlert(message, type, closeDelay) {
-                        var $cont = $("#alerts-container");
-                        if ($cont.length == 0) {
-                            // alerts-container does not exist, create it
-                            $cont = $('<div id="alerts-container">')
-                                .css({
-                                    //adjust message position
-                                     position: "fixed"
-                                    ,width: "50%"
-                                    ,left: "25%"
-                                    ,bottom: "0%"
-                                })
-                                .appendTo($("body"));
-                        }
-                        // default to alert-info; other options include success, warning, danger
-                        type = type || "info";    
-                        // create the alert div
-                        var alert = $('<div>')
-                            .addClass("fade in show alert alert-" + type)
-                            .append(
-                                $('<button type="button" class="close" data-dismiss="alert">')
-                                .append("&times;")
-                            )
-                            .append(message);
-                        // add the alert div to top of alerts-container, use append() to add to bottom
-                        $cont.prepend(alert);
-                        // if closeDelay was passed - set a timeout to close the alert
-                        if (closeDelay)
-                            window.setTimeout(function() { alert.alert("close") }, closeDelay);     
-                        }
-
-                    
+                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()   
                 }
             })
-            searchHistory.appendChild(r);
+            searchHistoryContainer.appendChild(r);
             r.appendChild(image);
             add();
         }
         function removebutton() {
             var selected = document.querySelectorAll(".chosen");
+            var placeholder = 0;
             selected.forEach(function(div, e) {
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(a[e].id);
                 try { b.parentNode.removeChild(b) } catch {};
+                placeholder++;
             })
+            if (placeholder > 0) {
+            showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
+            }
         }
         
         /*if (element_id !== sayhello().target && !element_id.contains(sayhello().target)) {    
@@ -199,6 +166,47 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         }*/
         console.log(obj.item.utility)
     });
+}
+
+/**
+ * The showAlert function displays an alert message in the browser.
+ * 
+ * @param message Display the message in the alert box
+ * @param type Set the alert type
+ * @param closeDelay Close the alert after a specified amount of time
+ * @return The alert div
+ * @docauthor Trelent
+ */
+function showAlert(message, type, closeDelay) {
+    var $cont = $("#alerts-container");
+    if ($cont.length == 0) {
+        // alerts-container does not exist, create it
+        $cont = $('<div id="alerts-container">')
+            .css({
+                //adjust message position
+                 position: "fixed"
+                ,width: "50%"
+                ,left: "25%"
+                ,bottom: "0%"
+            })
+            .appendTo($("body"));
+    }
+    // default to alert-info; other options include success, warning, danger
+    type = type || "info";    
+    // create the alert div
+    var alert = $('<div>')
+        .addClass("fade in show alert alert-" + type)
+        .append(
+            $('<button type="button" class="close" data-dismiss="alert">')
+            .append("&times;")
+        )
+        .append(message);
+    // add the alert div to top of alerts-container, use append() to add to bottom
+    $cont.prepend(alert);
+    // if closeDelay was passed - set a timeout to close the alert
+    if (closeDelay) {
+        window.setTimeout(function() { alert.alert("close") }, closeDelay);     
+    }
 }
 
 function add() {
