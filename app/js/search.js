@@ -79,6 +79,8 @@ function fuseSearch() {
         // 2. Set up the Fuse instance
 
         const fuse = new Fuse(books[i], {
+            threshold: 0.3,
+            shouldSort: true,
             keys: ['utility', 'keywords', 'description']
         })
         var afterbook = {};

@@ -62,6 +62,7 @@ body #navigation_database_con {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: var(--textTheme);
 }
 
 body #navigation_database_con #navigation_database_1 {
@@ -78,6 +79,7 @@ body #navigation_database_con #navigation_database_1 #navigation_database_arrow 
   height: auto;
   padding-right: 10px;
   padding-left: 5px;
+  color: var(--textTheme);
 }
 
 body #navigation_database_con #navigation_database_2 {
@@ -316,10 +318,44 @@ body #admin_s {
           column-gap: 16px;
   padding-left: 8px;
   padding-right: 8px;
+  color: var(--textTheme);
+}
+
+body #admin_s #placeholder_select_layout {
+  display: none;
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+body #admin_s #placeholder_select_layout #select_layout {
+  background-color: var(--backgroundTheme);
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 90%;
 }
 
 body #admin_s .skop {
-  background-color: white;
+  background-color: var(--backgroundTheme);
   border-radius: 5px;
   text-align: center;
   line-height: 34px;
@@ -335,27 +371,27 @@ body #admin_s #selected_cabinet #select_cabinet_change_name {
 }
 
 body #admin_s .layout {
-  background-color: white;
+  background-color: var(--backgroundTheme);
   margin-top: 5px;
   text-align: center;
   border-radius: 5px 5px 0px 0px;
 }
 
 body #admin_s .layout .layout1 {
-  background-color: white;
+  background-color: var(--backgroundTheme);
 }
 
 body #admin_s .layout .layout2 {
-  background-color: white;
+  background-color: var(--backgroundTheme);
 }
 
 body #admin_s .layout .layout3 {
-  background-color: white;
+  background-color: var(--backgroundTheme);
   border-radius: 0px 0px 5px 5px;
 }
 
 body #admin_s #new_cabinet {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: var(--backgroundTheme);
   border-radius: 5px;
   margin-top: 5px;
   text-align: center;
@@ -504,41 +540,9 @@ body #data #change_placeholder {
   /* Black w/ opacity */
 }
 
-body #explanation_placeholder {
-  display: none;
-  position: fixed;
-  /* Stay in place */
-  z-index: 2;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-body #explanation_placeholder #explanation {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px solid #888;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 90%;
-}
-
 body #data #change_placeholder #change {
-  background-color: #fefefe;
+  background-color: var(--backgroundTheme);
+  color: var(--textTheme);
   margin: auto;
   padding: 20px;
   border-radius: 5px;
@@ -547,6 +551,11 @@ body #data #change_placeholder #change {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   width: 90%;
+}
+
+body #image_float #element {
+  background-color: var(--backgroundTheme);
+  border-radius: 5px;
 }
 
 body .custom-switch > .custom-control-label {

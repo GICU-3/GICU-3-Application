@@ -48,6 +48,7 @@ body {
         margin: 10px;
         border-radius: 5px;
         justify-content: space-between;
+        color: var(--textTheme);
         #navigation_database_1 {
             display: flex;
             //align-items: flex-start;
@@ -61,6 +62,7 @@ body {
                 height: auto;
                 padding-right: 10px;
                 padding-left: 5px;
+                color: var(--textTheme);
             }
         }
         #navigation_database_2 {
@@ -239,9 +241,39 @@ body {
         column-gap: 16px;
         padding-left: 8px;
         padding-right: 8px;
+        color: var(--textTheme);
+        #placeholder_select_layout {
+            display: none;
+            position: fixed;
+            /* Stay in place */
+            z-index: 2;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            #select_layout {
+                background-color: var(--backgroundTheme);
+                margin: auto;
+                padding: 20px;
+                border-radius: 5px;
+                border: 1px solid #888;
+                justify-content: space-evenly;
+                width: 90%;
+            }
+        }
     }
     #admin_s .skop {
-        background-color: rgba(255, 255, 255, 1);
+        background-color: var(--backgroundTheme);
         border-radius: 5px;
         text-align: center;
         line-height: 34px;
@@ -254,23 +286,23 @@ body {
         width: 170px;
     }
     #admin_s .layout {
-        background-color: rgba(255, 255, 255, 1);
+        background-color: var(--backgroundTheme);
         margin-top: 5px;
         text-align: center;
         border-radius: 5px 5px 0px 0px;
         .layout1 {
-            background-color: rgba(255, 255, 255, 1);
+            background-color: var(--backgroundTheme);
         }
         .layout2 {
-            background-color: rgba(255, 255, 255, 1);
+            background-color: var(--backgroundTheme);
         }
         .layout3 {
-            background-color: rgba(255, 255, 255, 1);
+            background-color: var(--backgroundTheme);
             border-radius: 0px 0px 5px 5px;
         }
     }
     #admin_s #new_cabinet {
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: var(--backgroundTheme);
         border-radius: 5px;
         margin-top: 5px;
         text-align: center;
@@ -377,43 +409,21 @@ body {
         background-color: rgba(0, 0, 0, 0.4);
         /* Black w/ opacity */
     }
-    #explanation_placeholder {
-        display: none;
-        position: fixed;
-        /* Stay in place */
-        z-index: 2;
-        /* Sit on top */
-        padding-top: 100px;
-        /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4);
-        #explanation {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #888;
-            justify-content: space-evenly;
-            width: 90%;
-        }
-    }
     #data #change_placeholder #change {
-        background-color: #fefefe;
+        background-color: var(--backgroundTheme);
+        color: var(--textTheme);
         margin: auto;
         padding: 20px;
         border-radius: 5px;
         border: 1px solid #888;
         justify-content: space-evenly;
         width: 90%;
+    }
+    #image_float {
+        #element {
+            background-color: var(--backgroundTheme);
+            border-radius: 5px;
+        }
     }
     // Positioning the enlarged switch 
     .custom-switch>.custom-control-label {

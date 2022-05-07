@@ -49,37 +49,49 @@ function drag() {
         imgId = e.target
         console.log(imgId.id)
         var try_id = "" + Number(imgId.id)
-        if (try_id == "NaN") {
+        if (try_id != "NaN") {
             console.log("problem")
-            imgId = imgId.childNodes[0]
+            imgId = imgId.parentNode
             console.log(imgId)
-            let image = document.createElement("div"); // Create a new element
-            image.setAttribute("id", "image-float");
-            image.innerHTML = imgId.innerHTML
-            let left = e.touches[0].pageX;
-            let top = e.touches[0].pageY;
-            image.style.left = left + 'px';
-            image.style.top = top + 'px';
-            image.style.opacity = 0.5;
+            let tem_div = document.createElement("div"); // Create a new element
+            tem_div.setAttribute("id", "image-float");
+            tem_div.innerHTML = imgId.innerHTML
+            tem_div.style.display = "flex"
+            tem_div.style.backgroundColor = "var(--backgroundTheme)";
+            tem_div.style.color = "var(--textTheme)"
+            tem_div.style.borderRadius = "5px";
+            tem_div.style.width = "" + e.target.parentNode.offsetWidth + "px"
+            tem_div.style.justifyContent = "space-evenly"
+            let left = (e.touches[0].pageX - (e.target.parentNode.offsetWidth / 2));
+            let top = (e.touches[0].pageY - (e.target.parentNode.offsetHeight / 2));
+            tem_div.style.left = left + 'px';
+            tem_div.style.top = top + 'px';
+            tem_div.style.opacity = 1;
+            e.target.parentNode.style.opacity = 0.5;
 
 
-            document.body.appendChild(image);
+            document.body.appendChild(tem_div);
         } else {
+            console.log("problem")
+            imgId = imgId
+            console.log(imgId)
+            let tem_div = document.createElement("div"); // Create a new element
+            tem_div.setAttribute("id", "image-float");
+            tem_div.innerHTML = imgId.innerHTML
+            tem_div.style.display = "flex"
+            tem_div.style.backgroundColor = "var(--backgroundTheme)";
+            tem_div.style.color = "var(--textTheme)"
+            tem_div.style.borderRadius = "5px";
+            tem_div.style.width = "" + e.target.offsetWidth + "px"
+            tem_div.style.justifyContent = "space-evenly"
+            let left = (e.touches[0].pageX - (e.target.offsetWidth / 2));
+            let top = e.touches[0].pageY - (e.target.offsetHeight / 2);
+            tem_div.style.left = left + 'px';
+            tem_div.style.top = top + 'px';
+            tem_div.style.opacity = 1;
+            e.target.style.opacity = 0.5;
 
-            let image = document.createElement("div"); // Create a new element
-            image.setAttribute("id", "image-float");
-
-
-            // get the image from the stored reference
-            image.innerHTML = imgId.innerHTML
-            let left = e.touches[0].pageX;
-            let top = e.touches[0].pageY;
-            image.style.left = left + 'px';
-            image.style.top = top + 'px';
-            image.style.opacity = 0.5;
-
-
-            document.body.appendChild(image);
+            document.body.appendChild(tem_div);
         }
         // position the image to the touch, can be improve to detect the position of touch inside the image
 
@@ -89,15 +101,27 @@ function drag() {
         // on touch move or dragging, we get the newly created image element
         let image = document.getElementById('image-float')
             // this will give us the dragging feeling of the element while actually it's a different element
-        let left = e.touches[0].pageX;
-        let top = e.touches[0].pageY;
-        //image.style.position = 'absolute'
-        image.style.left = left + 'px';
-        image.style.top = top + 'px';
-        let touchX = e.touches[0].pageX
-        let touchY = e.touches[0].pageY
-            //apply touch enter fucntion inside touch move
-        dragTouchenter(e, touchX, touchY)
+        var try_id = "" + Number(imgId.id)
+        if (try_id != "NaN") {
+            let left = (e.touches[0].pageX - (e.target.parentNode.offsetWidth / 2));
+            let top = (e.touches[0].pageY - (e.target.parentNode.offsetHeight / 2));
+            image.style.left = left + 'px';
+            image.style.top = top + 'px';
+            let touchX = e.touches[0].pageX - (e.target.parentNode.offsetWidth / 2)
+            let touchY = e.touches[0].pageY - (e.target.parentNode.offsetHeight / 2)
+            dragTouchenter(e, touchX, touchY)
+        } else {
+            let left = (e.touches[0].pageX - (e.target.offsetWidth / 2));
+            let top = e.touches[0].pageY - (e.target.offsetHeight / 2);
+            image.style.left = left + 'px';
+            image.style.top = top + 'px';
+            let touchX = e.touches[0].pageX - (e.target.offsetWidth / 2)
+            let touchY = e.touches[0].pageY - (e.target.offsetHeight / 2)
+            dragTouchenter(e, touchX, touchY)
+        }
+
+        //apply touch enter fucntion inside touch move
+
     }
     var get = [];
     var statement = true
@@ -123,7 +147,8 @@ function drag() {
         //remove dragged image duplicate
         let image = document.getElementById('image-float')
         image.remove()
-
+        e.target.style.opacity = 1;
+        e.target.parentNode.style.opacity = 1;
         //dropZoneId.style.border = "1px solid #0b79d0";
         //if outside any dropzone, just do nothing
         if (dropZoneId == '') {
@@ -133,40 +158,61 @@ function drag() {
             if ("" + Number(dropZoneId) == "NaN") {
                 console.log(dropZoneId, imgId)
                 let toSwap = dropZoneId
-                let originDropzone = imgId.parentNode
+                let originDropzone = imgId
                 let all_components = document.querySelectorAll(".element")
-                database[z].forEach(function(object, i) {
-                    if (object.Id == imgId.id) {
-                        database[z].forEach(function(obj, x) {
-                            if (obj.Id == dropZoneId.childNodes[0].id) {
-                                console.log(database[z][i], database[z][x])
-                                database[z][i] = obj;
-                                database[z][x] = object;
-                                console.log(database[z][i], database[z][x])
-
-                            }
-                        })
+                console.log(imgId.id, dropZoneId.childNodes[0].id)
+                var statement = true
+                var temp_id = [];
+                for (let i = dropZoneId.childNodes.length; i > 0; i--) {
+                    console.log(i)
+                    temp_id[i - 1] = dropZoneId.childNodes[i - 1]
+                }
+                console.log(temp_id)
+                for (let i = imgId.childNodes.length; i > 0; i--) {
+                    console.log(i)
+                    dropZoneId.childNodes[i - 1] = imgId.childNodes[i - 1]
+                    originDropzone.appendChild(dropZoneId.childNodes[i - 1])
+                }
+                console.log(dropZoneId.childNodes[0])
+                for (let i = temp_id.length; i > 0; i--) {
+                    console.log(i)
+                    imgId.childNodes[i - 1] = temp_id[i - 1]
+                    toSwap.appendChild(imgId.childNodes[i - 1])
+                }
+                for (let i = dropZoneId.childNodes.length; i > 0; i--) {
+                    console.log(i)
+                    temp_id[i - 1] = dropZoneId.childNodes[i - 1].id
+                }
+                console.log(temp_id)
+                for (let i = imgId.childNodes.length; i > 0; i--) {
+                    console.log(i)
+                    dropZoneId.childNodes[i - 1].id = imgId.childNodes[i - 1].id
+                }
+                console.log(dropZoneId.childNodes[0])
+                for (let i = temp_id.length; i > 0; i--) {
+                    console.log(i)
+                    imgId.childNodes[i - 1].id = temp_id[i - 1]
+                }
+                database[z].forEach(function(obj, i) {
+                    if (obj.Id == imgId.childNodes[0].id) {
+                        obj.Id = dropZoneId.childNodes[0].id
+                    } else if (obj.Id == dropZoneId.childNodes[0].id) {
+                        obj.Id = imgId.childNodes[0].id
                     }
                 })
 
+                database[z].sort(function(a, b) {
+                    return a.Id - b.Id || a.utility.localeCompare(b.utility);
+                });
+                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
 
-                var temp_id = dropZoneId.childNodes[0].id
-                console.log(temp_id)
-                dropZoneId.childNodes[0].id = imgId.id
-                console.log(dropZoneId.childNodes[0].id)
-                imgId.id = temp_id;
-                console.log(imgId.id)
-
-                originDropzone.appendChild(dropZoneId.childNodes[0])
-                toSwap.appendChild(imgId)
-
-
-                console.log(imgId.id, dropZoneId.id)
-                    //let all_components = document.
-
+                document.getElementById("navigation_database_save").style.display = "block";
+                document.getElementById("navigation_database_undo").style.display = "block";
+                change_databas(z);
                 temp_id = ''
                 dropZoneId = ''
                 imgId = ''
+                try_id = null
 
             }
         }
@@ -195,23 +241,58 @@ function drag() {
         ev.preventDefault();
         var src = document.getElementById(ev.dataTransfer.getData("src"));
 
-        var srcParent = src.childNodes[0];
-        var tgt = ev.currentTarget.childNodes[0];
-        console.log(tgt, srcParent)
-        ev.currentTarget.replaceChild(srcParent, tgt);
-        src.appendChild(tgt);
+        /* var srcParent = src.childNodes;
+         var tgt = ev.currentTarget.childNodes;
+         console.log(tgt, srcParent)
+         ev.currentTarget.replaceChild(srcParent, tgt);
+         src.appendChild(tgt);*/
+        var temp_id = [];
+        for (let i = src.childNodes.length; i > 0; i--) {
+            console.log(i)
+            temp_id[i - 1] = src.childNodes[i - 1]
+        }
+        console.log(temp_id)
+        for (let i = ev.currentTarget.childNodes.length; i > 0; i--) {
+            console.log(i)
+            src.childNodes[i - 1] = ev.currentTarget.childNodes[i - 1]
+            ev.currentTarget.appendChild(src.childNodes[i - 1])
+        }
+        for (let i = temp_id.length; i > 0; i--) {
+            console.log(i)
+            ev.currentTarget.childNodes[i - 1] = temp_id[i - 1]
+            src.appendChild(ev.currentTarget.childNodes[i - 1])
+        }
+        var temp_id = [];
+        for (let i = src.childNodes.length; i > 0; i--) {
+            console.log(i)
+            temp_id[i - 1] = src.childNodes[i - 1].id
+        }
+        console.log(temp_id)
+        for (let i = ev.currentTarget.childNodes.length; i > 0; i--) {
+            console.log(i)
+            src.childNodes[i - 1].id = ev.currentTarget.childNodes[i - 1].id
+        }
+        for (let i = temp_id.length; i > 0; i--) {
+            console.log(i)
+            ev.currentTarget.childNodes[i - 1].id = temp_id[i - 1]
+        }
+        database[z].forEach(function(obj, i) {
+            if (obj.Id == ev.currentTarget.childNodes[0].id) {
+                obj.Id = src.childNodes[0].id
+            } else if (obj.Id == src.childNodes[0].id) {
+                obj.Id = ev.currentTarget.childNodes[0].id
+            }
+        })
 
-        //var temp_id = srcParent.id
-        //srcParent.id = tgt.id
-        //tgt.id = temp_id;
+        database[z].sort(function(a, b) {
+            return a.Id - b.Id || a.utility.localeCompare(b.utility);
+        });
+        fs.writeFileSync(fil, JSON.stringify(database, null, 3));
 
-        var number1 = srcParent.id.replace(/[^\d.]/g, '');
-        var number2 = ev.currentTarget.id.replace(/[^\d.]/g, '');
-
-        var element = document.getElementById(ev.target.id);
-        // element.style.border = "solid 1px #0b79d0";
-
-        var number = ev.target.id.replace(/[^\d.]/g, '');
+        document.getElementById("navigation_database_save").style.display = "block";
+        document.getElementById("navigation_database_undo").style.display = "block";
+        change_databas(z);
+        temp_id = ''
     }
 
 
@@ -527,246 +608,251 @@ function add_containers() {
     let cabinet_name = document.createElement("input")
     cabinet_name.id = "cabinet_name"
     cabinet_name.placeholder = "Name of cabinet"
+    let placeholder_select_layout_background = document.createElement("div")
     let placeholder_select_layout = document.createElement("div")
-    let explanation_layout_icon = document.createElement("div")
-    let placeholder_layout_1 = document.createElement("div");
-    let placeholder_layout_2 = document.createElement("div");
-    let placeholder_layout_3 = document.createElement("div");
+    let placeholder_layout_1 = document.createElement("img");
+    let placeholder_layout_2 = document.createElement("img");
+    let placeholder_layout_3 = document.createElement("img");
+    placeholder_select_layout_background.id = "placeholder_select_layout"
     placeholder_select_layout.className = "layout";
     placeholder_select_layout.id = "select_layout"
-    explanation_layout_icon.id = "explanation_layout_icon"
-    explanation_layout_icon.innerHTML = "   &#63;"
     placeholder_layout_1.className = "layout1";
     placeholder_layout_1.id = "layout_1";
-    placeholder_layout_1.innerHTML = "Layout 1"
+    placeholder_layout_1.src = "../app/img/layout_1.png"
+    placeholder_layout_1.style.width = "20%"
+    placeholder_layout_1.style.borderRadius = "5px";
+    placeholder_layout_1.style.marginLeft = "5px"
     placeholder_layout_2.className = "layout2";
     placeholder_layout_2.id = "layout_2";
-    placeholder_layout_2.innerHTML = "Layout 2"
+    placeholder_layout_2.src = "../app/img/layout_2.png"
+    placeholder_layout_2.style.width = "20%"
+    placeholder_layout_2.style.borderRadius = "5px";
+    placeholder_layout_2.style.marginLeft = "5px"
     placeholder_layout_3.className = "layout3";
     placeholder_layout_3.id = "layout_3";
-    placeholder_layout_3.innerHTML = "Layout 3"
+    placeholder_layout_3.src = "../app/img/layout_3.png"
+    placeholder_layout_3.style.width = "20%"
+    placeholder_layout_3.style.borderRadius = "5px";
+    placeholder_layout_3.style.marginLeft = "5px"
+
+
+    document.querySelector("#admin_s").appendChild(placeholder_select_layout_background);
+    placeholder_select_layout_background.appendChild(placeholder_select_layout);
     placeholder_select_layout.appendChild(cabinet_name);
-    placeholder_select_layout.appendChild(explanation_layout_icon)
     placeholder_select_layout.appendChild(placeholder_layout_1);
     placeholder_select_layout.appendChild(placeholder_layout_2);
     placeholder_select_layout.appendChild(placeholder_layout_3);
-    document.querySelector("#admin_s").appendChild(placeholder_select_layout);
-    document.getElementById("select_layout").style.display = "none";
 
     document.getElementById(new_skop.id).addEventListener("click", new_cabinet)
 
     function new_cabinet() {
-        document.getElementById("select_layout").style.display = "block";
-        document.getElementById("selected_cabinet").innerHTML = "";
-        document.getElementById("new_cabinet").parentNode.removeChild(document.getElementById("new_cabinet"))
-        let explanation_placeholder = document.createElement("div");
-        explanation_placeholder.id = "explanation_placeholder"
-        let explanation = document.createElement("div");
-        explanation.id = "explanation"
-        explanation.innerHTML = "test"
+        placeholder_select_layout_background.style.display = "block";
+        //document.getElementById("selected_cabinet").innerHTML = "";
 
-        document.querySelector("body").appendChild(explanation_placeholder)
-        explanation_placeholder.appendChild(explanation);
 
-        document.getElementById("explanation_layout_icon").onclick = function() {
-            console.log("fres")
-            document.getElementById("explanation_placeholder").style.display = "block";
+        window.onclick = function(event) {
+            if (event.target == placeholder_select_layout_background) {
+                placeholder_select_layout_background.style.display = "none";
+            }
         }
 
         document.getElementById("layout_1").onclick = function() {
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
 
-            if (amout_of_cabinet == 0) {
-                layout[0][amout_of_cabinet] = 1;
-                layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
-                var arr = Array.from(Array(1), () => new Array());
-                console.log("it happend")
-                amout_of_cabinet = -1;
-            } else {
-                layout[0][amout_of_cabinet + 1] = 1;
-                layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
-                var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
-            }
+            if (document.getElementById("cabinet_name").value == "") { showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000); } else {
 
-            fs.writeFileSync(test, JSON.stringify(layout, null, 3));
-
-            database.forEach(function(obj, i) {
-                arr[i] = database[i]
-                database[i].forEach(function(object, x) {
-                    latest_id = object.Id;
-                })
-            })
-
-            var latest_id = ((amout_of_cabinet + 1) * 60);
-
-            var newID;
-            for (let i = 0; i < 60; i++) {
-                arr[amout_of_cabinet + 1][i] = {
-                    "utility": "",
-                    "icon": "images\\template.jpg",
-                    "description": "",
-                    "keywords": "",
-                    "favourite": "false",
-                    "number": "1",
-                    "Id": ""
-
+                if (amout_of_cabinet == 0) {
+                    layout[0][amout_of_cabinet] = 1;
+                    layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
+                    var arr = Array.from(Array(1), () => new Array());
+                    console.log("it happend")
+                    amout_of_cabinet = -1;
+                } else {
+                    layout[0][amout_of_cabinet + 1] = 1;
+                    layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
+                    var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
                 }
 
+                fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
-                newID = (((amout_of_cabinet + 1) * 60) + 1) + i;
-                latest_id = newID
+                database.forEach(function(obj, i) {
+                    arr[i] = database[i]
+                    database[i].forEach(function(object, x) {
+                        latest_id = object.Id;
+                    })
+                })
+
+                var latest_id = ((amout_of_cabinet + 1) * 60);
+
+                var newID;
+                for (let i = 0; i < 60; i++) {
+                    arr[amout_of_cabinet + 1][i] = {
+                        "utility": "",
+                        "icon": "images\\template.jpg",
+                        "description": "",
+                        "keywords": "",
+                        "favourite": "false",
+                        "number": "1",
+                        "Id": ""
+
+                    }
 
 
-                arr[amout_of_cabinet + 1][i].Id = "" + newID;
-                arr[amout_of_cabinet + 1][i].utility = "­";
+                    newID = (((amout_of_cabinet + 1) * 60) + 1) + i;
+                    latest_id = newID
 
-                fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+
+                    arr[amout_of_cabinet + 1][i].Id = "" + newID;
+                    arr[amout_of_cabinet + 1][i].utility = "­";
+
+                    fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+                }
+                document.getElementById("select_layout").innerHTML = "";
+                document.getElementById("admin_s").innerHTML = "";
+
+                //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
+                add_containers();
+
             }
-            document.getElementById("select_layout").innerHTML = "";
-            document.getElementById("admin_s").innerHTML = "";
-            //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
-            add_containers();
-
-
         }
         document.getElementById("layout_2").onclick = function() {
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-
-            if (amout_of_cabinet == 0) {
-                layout[0][amout_of_cabinet] = 2;
-                layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
-                var arr = Array.from(Array(1), () => new Array());
-                console.log("it happend")
-                amout_of_cabinet = -1;
-            } else {
-                layout[0][amout_of_cabinet + 1] = 2;
-                layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
-                var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
-            }
-
-            fs.writeFileSync(test, JSON.stringify(layout, null, 3));
-
-            database.forEach(function(obj, i) {
-                arr[i] = database[i]
-                database[i].forEach(function(object, x) {
-                    latest_id = object.Id;
-                })
-            })
-            var first_change = ((amout_of_cabinet + 2) * 60) - 30;
-
-            var second_change = ((amout_of_cabinet + 2) * 60) - 10;
-
-            var latest_id = ((amout_of_cabinet + 1) * 60);
-
-            var newID;
-            for (let i = 0; i < 40; i++) {
-                arr[amout_of_cabinet + 1][i] = {
-                    "utility": "",
-                    "icon": "images\\template.jpg",
-                    "description": "",
-                    "keywords": "",
-                    "favourite": "false",
-                    "number": "1",
-                    "Id": ""
-
+            if (document.getElementById("cabinet_name").value == "") { showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000); } else {
+                if (amout_of_cabinet == 0) {
+                    layout[0][amout_of_cabinet] = 2;
+                    layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
+                    var arr = Array.from(Array(1), () => new Array());
+                    console.log("it happend")
+                    amout_of_cabinet = -1;
+                } else {
+                    layout[0][amout_of_cabinet + 1] = 2;
+                    layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
+                    var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
                 }
 
-                if (latest_id < first_change) {
-                    if (latest_id < first_change) { newID = (((amout_of_cabinet + 1) * 60) + 1) + i; }
-                    latest_id = newID
-                } else if (latest_id < second_change) {
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 30) { newID = (Number(latest_id)) + 1; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 29) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 27) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 25) { newID = (Number(latest_id)) + 6; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 19) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 17) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 15) { newID = (Number(latest_id)) + 1; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 14) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 12) { newID = (Number(latest_id)) + 2; }
-                    latest_id = newID
-                } else if (latest_id == second_change) { newID = (Number(latest_id)) + 8; }
-                latest_id = newID
+                fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
-                arr[amout_of_cabinet + 1][i].Id = "" + newID;
-                arr[amout_of_cabinet + 1][i].utility = "­";
+                database.forEach(function(obj, i) {
+                    arr[i] = database[i]
+                    database[i].forEach(function(object, x) {
+                        latest_id = object.Id;
+                    })
+                })
+                var first_change = ((amout_of_cabinet + 2) * 60) - 30;
 
-                fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+                var second_change = ((amout_of_cabinet + 2) * 60) - 10;
+
+                var latest_id = ((amout_of_cabinet + 1) * 60);
+
+                var newID;
+                for (let i = 0; i < 40; i++) {
+                    arr[amout_of_cabinet + 1][i] = {
+                        "utility": "",
+                        "icon": "images\\template.jpg",
+                        "description": "",
+                        "keywords": "",
+                        "favourite": "false",
+                        "number": "1",
+                        "Id": ""
+
+                    }
+
+                    if (latest_id < first_change) {
+                        if (latest_id < first_change) { newID = (((amout_of_cabinet + 1) * 60) + 1) + i; }
+                        latest_id = newID
+                    } else if (latest_id < second_change) {
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 30) { newID = (Number(latest_id)) + 1; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 29) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 27) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 25) { newID = (Number(latest_id)) + 6; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 19) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 17) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 15) { newID = (Number(latest_id)) + 1; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 14) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 12) { newID = (Number(latest_id)) + 2; }
+                        latest_id = newID
+                    } else if (latest_id == second_change) { newID = (Number(latest_id)) + 8; }
+                    latest_id = newID
+
+                    arr[amout_of_cabinet + 1][i].Id = "" + newID;
+                    arr[amout_of_cabinet + 1][i].utility = "­";
+
+                    fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+                }
+                document.getElementById("select_layout").innerHTML = "";
+                document.getElementById("admin_s").innerHTML = "";
+                //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
+                add_containers();
+
             }
-            document.getElementById("select_layout").innerHTML = "";
-            document.getElementById("admin_s").innerHTML = "";
-            //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
-            add_containers();
-
-
         }
         document.getElementById("layout_3").onclick = function() {
 
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
-
-            if (amout_of_cabinet == 0) {
-                layout[0][amout_of_cabinet] = 3;
-                layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
-                var arr = Array.from(Array(1), () => new Array());
-                console.log("it happend")
-                amout_of_cabinet = -1;
-            } else {
-                layout[0][amout_of_cabinet + 1] = 3;
-                layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
-                var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
-            }
-
-            fs.writeFileSync(test, JSON.stringify(layout, null, 3));
-
-            database.forEach(function(obj, i) {
-                arr[i] = database[i]
-                database[i].forEach(function(object, x) {
-                    latest_id = object.Id;
-                })
-            })
-
-            var first_change = ((amout_of_cabinet + 2) * 60) - 15;
-
-            var latest_id = ((amout_of_cabinet + 1) * 60);
-
-            var newID;
-            for (let i = 0; i < 51; i++) {
-                arr[amout_of_cabinet + 1][i] = {
-                    "utility": "",
-                    "icon": "images\\template.jpg",
-                    "description": "",
-                    "keywords": "",
-                    "favourite": "false",
-                    "number": "1",
-                    "Id": ""
-
-                }
-
-                if (latest_id < first_change) {
-                    if (latest_id < first_change) { newID = (((amout_of_cabinet + 1) * 60) + 1) + i; }
-                    latest_id = newID
+            if (document.getElementById("cabinet_name").value == "") { showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000); } else {
+                if (amout_of_cabinet == 0) {
+                    layout[0][amout_of_cabinet] = 3;
+                    layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
+                    var arr = Array.from(Array(1), () => new Array());
+                    console.log("it happend")
+                    amout_of_cabinet = -1;
                 } else {
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 15) { newID = (Number(latest_id)) + 1; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 14) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 12) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 10) { newID = (Number(latest_id)) + 6; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 4) { newID = (Number(latest_id)) + 2; }
-                    if (latest_id == ((amout_of_cabinet + 2) * 60) - 2) { newID = (Number(latest_id)) + 2; }
-
-                    latest_id = newID
+                    layout[0][amout_of_cabinet + 1] = 3;
+                    layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
+                    var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
                 }
-                latest_id = newID
 
-                arr[amout_of_cabinet + 1][i].Id = "" + newID;
-                arr[amout_of_cabinet + 1][i].utility = "­";
+                fs.writeFileSync(test, JSON.stringify(layout, null, 3));
 
-                fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+                database.forEach(function(obj, i) {
+                    arr[i] = database[i]
+                    database[i].forEach(function(object, x) {
+                        latest_id = object.Id;
+                    })
+                })
+
+                var first_change = ((amout_of_cabinet + 2) * 60) - 15;
+
+                var latest_id = ((amout_of_cabinet + 1) * 60);
+
+                var newID;
+                for (let i = 0; i < 51; i++) {
+                    arr[amout_of_cabinet + 1][i] = {
+                        "utility": "",
+                        "icon": "images\\template.jpg",
+                        "description": "",
+                        "keywords": "",
+                        "favourite": "false",
+                        "number": "1",
+                        "Id": ""
+
+                    }
+
+                    if (latest_id < first_change) {
+                        if (latest_id < first_change) { newID = (((amout_of_cabinet + 1) * 60) + 1) + i; }
+                        latest_id = newID
+                    } else {
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 15) { newID = (Number(latest_id)) + 1; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 14) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 12) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 10) { newID = (Number(latest_id)) + 6; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 4) { newID = (Number(latest_id)) + 2; }
+                        if (latest_id == ((amout_of_cabinet + 2) * 60) - 2) { newID = (Number(latest_id)) + 2; }
+
+                        latest_id = newID
+                    }
+                    latest_id = newID
+
+                    arr[amout_of_cabinet + 1][i].Id = "" + newID;
+                    arr[amout_of_cabinet + 1][i].utility = "­";
+
+                    fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
+                }
+                document.getElementById("select_layout").innerHTML = "";
+                document.getElementById("admin_s").innerHTML = "";
+                //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
+                add_containers();
             }
-            document.getElementById("select_layout").innerHTML = "";
-            document.getElementById("admin_s").innerHTML = "";
-            //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
-            add_containers();
-
         }
 
     }
@@ -898,16 +984,34 @@ function change_databas(q) {
                     chose_image.id = "chose_image"
                     let images = [{
                         "name": "Resistor",
-                        "icon": "images\\template_A.jpg"
+                        "icon": "../app/img/icons/resistor.jpg"
                     }, {
                         "name": "Led",
-                        "icon": "images\\template_B.jpg"
+                        "icon": "../app/img/icons/led.jpg"
                     }, {
                         "name": "Transistor",
-                        "icon": "images\\template_C.jpg"
+                        "icon": "../app/img/icons/transistor.jpg"
                     }, {
                         "name": "IC-krets",
-                        "icon": "images\\template_C.jpg"
+                        "icon": "../app/img/icons/ic.jpg"
+                    }, {
+                        "name": "Diod",
+                        "icon": "../app/img/icons/diode.jpg"
+                    }, {
+                        "name": "Kondensator",
+                        "icon": "../app/img/icons/kondensator.jpg"
+                    }, {
+                        "name": "Miscellaneous",
+                        "icon": "../app/img/icons/miscellaneous.jpg"
+                    }, {
+                        "name": "Motor",
+                        "icon": "../app/img/icons/motor.jpg"
+                    }, {
+                        "name": "Sensor",
+                        "icon": "../app/img/icons/sensor.jpg"
+                    }, {
+                        "name": "Speaker",
+                        "icon": "../app/img/icons/speker.jpg"
                     }];
                     let what_icon = null;
                     images.forEach(function(obj, i) {
