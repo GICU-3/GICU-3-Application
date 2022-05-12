@@ -81,9 +81,6 @@ function fuseSearch() {
     // 1. List of items to search in
 
     var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
-    const options = { //! VS Code flags this as unused? it this true?
-        threshold: 0.0
-    }
     var output = [];
 
     books.forEach(function(o, i) {
@@ -125,8 +122,6 @@ function summonBar(inputJson) {
         let componentCardDescription = document.createElement("div");
         let componentCardContainer = document.createElement("div");
 
-        var root = process.cwd(); // Grab application directory //! VS Code flags this as unused? it this true?
-
         newDiv.className = i;
         newElement = document.createElement("a");
         newElement.innerHTML = obj.item.utility;
@@ -138,8 +133,12 @@ function summonBar(inputJson) {
 
         newImage = document.createElement("img");
         newImage.src = obj.item.icon;
-        //newImage.style.filter = "invert(100%)"
-
+        if (localStorage.getItem('theme') == 'dark') {
+            newImage.style.filter = "invert(100%)"
+        }
+        if (localStorage.getItem('theme') == 'light') {
+            newImage.style.filter = "invert(0%)"
+        }
         componentCard.className = "componentCardHeader";
         componentCardDescription.className = "componentCardDescription";
         newDiv.className = "componentCard";

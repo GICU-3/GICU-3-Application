@@ -381,6 +381,7 @@ body {
         column-gap: 16px;
         padding-left: 8px;
         padding-right: 8px;
+        margin-left: 80px;
         color: var(--text);
         #placeholder_select_layout {
             display: none;
@@ -421,6 +422,7 @@ body {
     }
     #selected_cabinet {
         margin-top: 10px;
+        margin-left: 80px;
     }
     #admin_s #selected_cabinet #select_cabinet_change_name {
         width: 170px;
@@ -439,6 +441,13 @@ body {
         .layout3 {
             background-color: var(--backgroundTheme);
             border-radius: 0px 0px 5px 5px;
+        }
+        #cabinet_name {
+            background-color: var(--backgroundTheme);
+            color: var(--text);
+        }
+         ::placeholder {
+            color: var(--text);
         }
     }
     #admin_s #new_cabinet {

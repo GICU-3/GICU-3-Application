@@ -646,13 +646,13 @@ function add_containers() {
     placeholder_layout_2.style.width = "20%"
     placeholder_layout_2.style.borderRadius = "5px";
     placeholder_layout_2.style.marginLeft = "5px"
-        //placeholder_layout_2.style.filter = "invert(100%)"
     placeholder_layout_3.className = "layout3";
     placeholder_layout_3.id = "layout_3";
     placeholder_layout_3.src = "../app/img/layout_3.png"
     placeholder_layout_3.style.width = "20%"
     placeholder_layout_3.style.borderRadius = "5px";
     placeholder_layout_3.style.marginLeft = "5px"
+
 
 
     document.querySelector("#admin_s").appendChild(placeholder_select_layout_background);
@@ -667,7 +667,16 @@ function add_containers() {
     function new_cabinet() {
         placeholder_select_layout_background.style.display = "block";
         //document.getElementById("selected_cabinet").innerHTML = "";
-
+        if (localStorage.getItem('theme') == 'dark') {
+            placeholder_layout_1.style.filter = "invert(100%)"
+            placeholder_layout_2.style.filter = "invert(100%)"
+            placeholder_layout_3.style.filter = "invert(100%)"
+        }
+        if (localStorage.getItem('theme') == 'light') {
+            placeholder_layout_1.style.filter = "invert(0%)"
+            placeholder_layout_2.style.filter = "invert(0%)"
+            placeholder_layout_3.style.filter = "invert(0%)"
+        }
 
         window.onclick = function(event) {
             if (event.target == placeholder_select_layout_background) {
