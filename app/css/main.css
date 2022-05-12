@@ -368,6 +368,64 @@ body .bodySection #searchHistory .removeHistory {
           box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
+body .bodySection #searchHistoryLab {
+  display: none;
+}
+
+body .bodySection #searchHistoryLab #searchHistoryLabContainer {
+  background: none;
+  margin-left: 16px;
+  margin-top: 50px;
+  width: 240px;
+  height: 470px;
+  overflow-y: auto;
+  -webkit-backdrop-filter: blur(5px) grayscale(50%);
+          backdrop-filter: blur(5px) grayscale(50%);
+  -webkit-box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+body .bodySection #searchHistoryLab #searchHistoryLabContainer .searchHistoryLabTitle {
+  color: white;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: white 1px solid;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .bodySection #searchHistoryLab #searchHistoryLabContainer .chosenLab {
+  color: white;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+body .bodySection #searchHistoryLab .removeLabHistory {
+  margin-top: 10px;
+  margin-left: 16px;
+  background: none;
+  color: white;
+  border: none;
+  font-weight: 400;
+  width: 240px;
+  height: 40px;
+  -webkit-backdrop-filter: blur(10px) grayscale(50%);
+          backdrop-filter: blur(10px) grayscale(50%);
+  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
 body .custom-switch > .custom-control-label {
   padding-left: 1.75rem;
   padding-bottom: 0.5rem;

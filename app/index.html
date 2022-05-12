@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/startup.js"></script>
         <script src="js/adminlock.js"></script>
+        <script defer src="js/search.js"></script>
         <script src="js/navigation.js"></script>
         <script src="js/databas.js"></script>
         <script scr="js/jquery-3.6.0.js"></script>
-        <script defer src="js/search.js"></script>
         <!-- BOOTSTRAP MODAL -->
         <!-- Insert this line above script imports  -->
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}
@@ -120,6 +120,13 @@
             <div class="searchHistoryTitle">Active Searches</div>
           </div>
           <button id="removeHistory" class="removeHistory">Clear Searches</button>
+        </div>
+
+        <div id="searchHistoryLab">
+          <div id="searchHistoryLabContainer">
+            <div class="searchHistoryLabTitle">Chosen lab</div>
+          </div>
+          <button id="removeLabHistory" class="removeLabHistory">Clear lab</button>
         </div>
       </section>
 

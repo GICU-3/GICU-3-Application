@@ -253,6 +253,47 @@ body {
                 box-shadow: -2px 2px 2px rgba(0,0,0,.1);
             }
         }
+        #searchHistoryLab {
+            display: none;
+            #searchHistoryLabContainer { //styling of entire search history or "aktiva sökningar" div
+                background: none;
+                margin-left: 16px;
+                margin-top: 50px;
+                width: 240px;
+                height: 470px;
+                overflow-y: auto;
+                backdrop-filter: blur(5px) grayscale(50%);
+                box-shadow: -2px 2px 3px rgba(0,0,0,.1);
+                .searchHistoryLabTitle { //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
+                    color: white;
+                    margin-bottom: 15px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    border-bottom: white 1px solid;
+                    font-weight: 400;
+                    display: flex;
+                    justify-content: center;
+                }
+                .chosenLab { //styling of chosen search in "aktiva sökningar" list
+                    color: white;
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: right;
+                }
+            }
+            .removeLabHistory { //styling of "clear searches" button
+                margin-top: 10px;
+                margin-left: 16px;
+                background: none;
+                color: white;
+                border: none;
+                font-weight: 400;
+                width: 240px;
+                height: 40px;
+                backdrop-filter: blur(10px) grayscale(50%);
+                box-shadow: -2px 2px 2px rgba(0,0,0,.1);
+            }
+        }
     }
 
     // Positioning the enlarged switch 

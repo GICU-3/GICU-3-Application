@@ -1,4 +1,10 @@
-
+function removebutton() {
+    var selected = document.querySelectorAll(".chosen");
+    selected.forEach(function(div, e) {
+        var b = document.getElementById(div.id);
+        b.parentNode.removeChild(b)
+    })
+}
 /**
  * The labbar function is used to display the labbar interface.
  * 
@@ -19,6 +25,9 @@ function labbar() {
     document.getElementById("bookimg").style.filter="invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%)";
     document.getElementById("homeimg").style.filter="invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%)";
     document.getElementById("engineerimg").style.filter="invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%)";
+    document.getElementById("searchHistoryLab").style.display="block";
+    document.getElementById("searchHistory").style.display="none";
+    removebutton();
 }
 
 /**
@@ -41,6 +50,9 @@ function home() {
     document.getElementById("homeimg").style.filter="invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%)";
     document.getElementById("bookimg").style.filter="invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%)";
     document.getElementById("engineerimg").style.filter="invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%)";
+    document.getElementById("searchHistoryLab").style.display="none";
+    document.getElementById("searchHistory").style.display="block";
+    //removebuttonlab();
 }
 
 /**
@@ -57,4 +69,5 @@ function admin() {
     document.getElementById("homeimg").style.filter="invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%)";
     document.getElementById("bookimg").style.filter="invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%)";
     settings();
+    document.getElementById("searchHistoryLab").style.display="none";
 }
