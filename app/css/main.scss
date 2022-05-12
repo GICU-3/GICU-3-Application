@@ -2,13 +2,16 @@
     font-family: 'Inter';
     src: url('../font/Inter/Inter-VariableFont_slnt\,wght.ttf');
 }
+
 :root {
     --backgroundBlur: rgba(240, 240, 240, 0.25);
     --textHeader: #000000;
     --text: #1b1b1b;
     --backgroundTheme: #f0f0f0;
     --decorationTheme: #d5d5d5;
+    --background-admin: #1b1b1b80;
 }
+
 .dark-theme {
     --backgroundBlur: rgba(0, 0, 0, 0.25);
     --textHeader: #a3a3a3;
@@ -16,15 +19,22 @@
     --backgroundTheme: #2d2d2d;
     --decorationTheme: #1b1b1b;
     background-image: url('../img/main-background.jpg');
+    --background-admin: #f0f0f024;
 }
+
 * {
     font-family: 'Inter'; // Changes font for all elements
 }
+
+[draggable] {
+    user-select: none;
+}
+
 body {
-    .rotate { //rotation of loadingscreen image
+    .rotate {
+        //rotation of loadingscreen image
         animation: rotation 1s infinite linear;
         @keyframes rotation {
-
             from {
                 transform: rotate(0deg);
             }
@@ -33,8 +43,9 @@ body {
             }
         }
     }
-
-    input:focus {outline:none;} //removes highlightcolor of all input fields
+    input:focus {
+        outline: none;
+    } //removes highlightcolor of all input fields
     #loadingscreen {
         display: none;
         animation: fadeout 2s; //fadeout animation of loadingscreen
@@ -73,10 +84,17 @@ body {
             margin-top: -26px;
         }
     }
-    @keyframes fadeout {  //fadeout animation of loadingscreen
-        0% { opacity: 1; }
-        75% { opacity: 1; }
-        100% { opacity: 0; }
+    @keyframes fadeout {
+        //fadeout animation of loadingscreen
+        0% {
+            opacity: 1;
+        }
+        75% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
     }
     margin: 0;
     background-image: url('../img/light-background.jpg');
@@ -87,7 +105,6 @@ body {
             text-decoration: none;
         }
     }
-
     .navbar {
         display: none;
         position: fixed;
@@ -96,41 +113,47 @@ body {
         width: 80px;
         padding-bottom: 100%;
         backdrop-filter: blur(5px) grayscale(30%);
-        box-shadow: 1px 0px 3px rgba(0,0,0,.1);
+        box-shadow: 1px 0px 3px rgba(0, 0, 0, .1);
         .container {
             padding: 20px;
-            display: -webkit-box; /*! Overwritten by 'display: flex;' */
-            display: -ms-flexbox; /*! Overwritten by 'display: flex;' */
+            display: -webkit-box;
+            /*! Overwritten by 'display: flex;' */
+            display: -ms-flexbox;
+            /*! Overwritten by 'display: flex;' */
             display: flex;
-            -webkit-box-pack: space-evenly; /*! Unused */
-            -ms-flex-pack: space-evenly; /*! Unused */
+            -webkit-box-pack: space-evenly;
+            /*! Unused */
+            -ms-flex-pack: space-evenly;
+            /*! Unused */
             justify-content: space-evenly;
-            a { //styling of all "a" inside navbar
+            a {
+                //styling of all "a" inside navbar
                 text-decoration: 0;
                 color: white;
                 font-weight: bold;
             }
             img {
-                margin:20px;
+                margin: 20px;
                 width: 48px;
                 filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
             }
         }
     }
-
     #homeimg {
         filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
     }
-
-    .bodySection { //styling of both search history div and searchbar div. does NOT include navbar
+    .bodySection {
+        //styling of both search history div and searchbar div. does NOT include navbar
         display: none;
         height: 510px;
         .searchbar {
-            h1 { //styling of h1 inside searchbar div  ("GICU-3" logo) 
+            h1 {
+                //styling of h1 inside searchbar div  ("GICU-3" logo) 
                 color: white;
                 margin: 20px;
             }
-            span { //styling of GICU-3 logo (the span is the different color in the number 3)
+            span {
+                //styling of GICU-3 logo (the span is the different color in the number 3)
                 color: #a3c4cb;
             }
             margin-left: 256px;
@@ -141,7 +164,8 @@ body {
             text-align: center;
             background: none;
             font-size: 1.3em;
-            .search { //styling of search field
+            .search {
+                //styling of search field
                 background-color: var(--backgroundTheme);
                 color: var(--text);
                 display: inline;
@@ -151,63 +175,71 @@ body {
                 margin-bottom: 1em;
                 opacity: 90%;
                 border-bottom: 1px solid var(--decorationTheme);
-                box-shadow: 4px 4px 3px rgba(0,0,0,.2);
+                box-shadow: 4px 4px 3px rgba(0, 0, 0, .2);
                 padding-left: 5px;
             }
-            ::placeholder { //styling of placeholder text inside search field
+             ::placeholder {
+                //styling of placeholder text inside search field
                 color: var(--text);
                 font-size: smaller;
                 margin-left: 5px;
             }
-            #searchResult { //styling of "search result" div that contains all dynamically created divs. Essentially a container
+            #searchResult {
+                //styling of "search result" div that contains all dynamically created divs. Essentially a container
                 background: none;
                 height: 360px;
                 overflow-y: auto;
-                .componentCard { //styling of each dynamically created div
+                .componentCard {
+                    //styling of each dynamically created div
                     margin: 15px;
                     width: auto;
                     height: 127px;
                     background: var(--backgroundBlur);
                     box-shadow: -4px 4px 3px var(--backgroundBlur);
-                    backdrop-filter: blur( 20px );
-                    -webkit-backdrop-filter: blur( 10px );
+                    backdrop-filter: blur( 20px);
+                    -webkit-backdrop-filter: blur( 10px);
                     border-radius: 10px;
-                    border: 1px solid rgba( 255, 255, 255, 0.18 );
-                    .componentCardHeader { //styling of "header" for every dynamically created div containing title name for each component
+                    border: 1px solid rgba( 255, 255, 255, 0.18);
+                    .componentCardHeader {
+                        //styling of "header" for every dynamically created div containing title name for each component
                         color: var(--textHeader);
                         font-size: medium;
                         font-weight: medium;
-                        border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+                        border-bottom: 1px solid rgba( 255, 255, 255, 0.18);
                         padding: 5px;
                         a {
-                            margin-right: 128px;    
+                            margin-right: 128px;
                         }
-                    }    
-                    .container { //styling of container for "componentCardDescription" and "img"
+                    }
+                    .container {
+                        //styling of container for "componentCardDescription" and "img"
                         display: flex;
                         padding: 0px;
                         justify-content: space-between;
-                        img { //styling of image of components inside dynamically created div
+                        img {
+                            //styling of image of components inside dynamically created div
                             margin-top: -36px;
                             margin-right: 1px;
                             width: 127px;
                             height: 127px;
                             border-top-right-radius: 10px;
                             border-bottom-right-radius: 10px;
-                            box-shadow: -4px 4px 3px rgba(0,0,0,.2);
+                            box-shadow: -4px 4px 3px rgba(0, 0, 0, .2);
                         }
-                        .componentCardDescription { //styling of container for componentCardDescription
+                        .componentCardDescription {
+                            //styling of container for componentCardDescription
                             padding: 10px;
                             font-size: 12px;
                             color: var(--text);
-                            text-align: left;  
+                            text-align: left;
                         }
                     }
                 }
             }
         }
         #searchHistory {
-            #searchHistoryContainer { //styling of entire search history or "aktiva sökningar" div
+            #searchHistoryContainer {
+                //styling of entire search history or "aktiva sökningar" div
                 background: none;
                 margin-left: 16px;
                 margin-top: 50px;
@@ -215,8 +247,9 @@ body {
                 height: 470px;
                 overflow-y: auto;
                 backdrop-filter: blur(5px) grayscale(50%);
-                box-shadow: -2px 2px 3px rgba(0,0,0,.1);
-                .searchHistoryTitle { //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
+                box-shadow: -2px 2px 3px rgba(0, 0, 0, .1);
+                .searchHistoryTitle {
+                    //styling of the text "aktiva sökningar" that appears as heading for list of chosen components
                     color: white;
                     margin-bottom: 15px;
                     padding-top: 5px;
@@ -226,12 +259,14 @@ body {
                     display: flex;
                     justify-content: center;
                 }
-                .chosen { //styling of chosen search in "aktiva sökningar" list
+                .chosen {
+                    //styling of chosen search in "aktiva sökningar" list
                     color: white;
                     font-size: 14px;
                     display: flex;
                     justify-content: right;
-                    img { //styling of cross SVG-image shown beside the ".chosen" text
+                    img {
+                        //styling of cross SVG-image shown beside the ".chosen" text
                         height: 30px;
                         padding-left: 10px;
                         padding-right: 20px;
@@ -240,7 +275,8 @@ body {
                     }
                 }
             }
-            .removeHistory { //styling of "clear searches" button
+            .removeHistory {
+                //styling of "clear searches" button
                 margin-top: 10px;
                 margin-left: 16px;
                 background: none;
@@ -250,28 +286,27 @@ body {
                 width: 240px;
                 height: 40px;
                 backdrop-filter: blur(10px) grayscale(50%);
-                box-shadow: -2px 2px 2px rgba(0,0,0,.1);
+                box-shadow: -2px 2px 2px rgba(0, 0, 0, .1);
             }
         }
     }
-
     // Positioning the enlarged switch 
-    .custom-switch > .custom-control-label {
+    .custom-switch>.custom-control-label {
         padding-left: 1.75rem;
         padding-bottom: 0.5rem;
     }
     // Sync the animation for switch knob
-    .custom-switch > .custom-control-input:checked ~ .custom-control-label::after {
+    .custom-switch>.custom-control-input:checked~.custom-control-label::after {
         -webkit-transform: scale(2) translateX(0.75rem);
         transform: scale(2) translateX(0.75rem);
     }
     // Enlarge and position the switch knob 
-    .custom-switch > .custom-control-label::after {
+    .custom-switch>.custom-control-label::after {
         left: -1.75rem;
         transform: scale(2);
     }
     // Enlarge and position the switch socket 
-    .custom-switch > .custom-control-label::before {
+    .custom-switch>.custom-control-label::before {
         left: -1.50rem;
         transform: scale(2);
     }
@@ -279,4 +314,255 @@ body {
     .settingsPadding {
         padding-bottom: 15px;
     }
-} 
+    #image-float {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    #navigation_database_con {
+        background-color: var(--backgroundTheme);
+        display: flex;
+        margin: 10px;
+        border-radius: 5px;
+        justify-content: space-between;
+        color: var(--text);
+        #navigation_database_1 {
+            display: flex;
+            //align-items: flex-start;
+            max-height: 24px;
+            /* or whatever width you want. */
+            width: 1014px;
+            /* or whatever width you want. */
+            //margin-left: 60px;
+            //vertical-align: middle;
+            #navigation_database_arrow {
+                height: auto;
+                padding-right: 10px;
+                padding-left: 5px;
+                color: var(--text);
+            }
+        }
+        #navigation_database_2 {
+            display: flex;
+            //align-items: flex-start;
+            max-height: 24px;
+            /* or whatever width you want. */
+            max-width: 1024px;
+            padding-right: 5px;
+            /* or whatever width you want. */
+            //margin-left: 60px;
+            //vertical-align: middle;
+            #navigation_database_save {
+                background-color: green;
+                display: none;
+                font-size: 16px;
+                text-align: center;
+                align-self: flex-end;
+                margin-right: 5px;
+                border-radius: 5px;
+            }
+            #navigation_database_undo {
+                background-color: red;
+                display: none;
+                font-size: 16px;
+                text-align: center;
+                align-self: flex-end;
+                border-radius: 5px;
+            }
+        }
+    }
+    #admin_s {
+        background-color: rgba(45, 45, 45, 0.5);
+        display: none;
+        //grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40px 40px;
+        grid-auto-flow: column;
+        row-gap: 16px;
+        column-gap: 16px;
+        padding-left: 8px;
+        padding-right: 8px;
+        color: var(--text);
+        #placeholder_select_layout {
+            display: none;
+            position: fixed;
+            /* Stay in place */
+            z-index: 2;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            #select_layout {
+                background-color: var(--backgroundTheme);
+                margin: auto;
+                padding: 20px;
+                border-radius: 5px;
+                border: 1px solid #888;
+                justify-content: space-evenly;
+                width: 90%;
+            }
+        }
+    }
+    #admin_s .skop {
+        background-color: var(--backgroundTheme);
+        border-radius: 5px;
+        text-align: center;
+        line-height: 34px;
+        margin-top: 5px;
+    }
+    #selected_cabinet {
+        margin-top: 10px;
+    }
+    #admin_s #selected_cabinet #select_cabinet_change_name {
+        width: 170px;
+    }
+    #admin_s .layout {
+        background-color: var(--backgroundTheme);
+        margin-top: 5px;
+        text-align: center;
+        border-radius: 5px 5px 0px 0px;
+        .layout1 {
+            background-color: var(--backgroundTheme);
+        }
+        .layout2 {
+            background-color: var(--backgroundTheme);
+        }
+        .layout3 {
+            background-color: var(--backgroundTheme);
+            border-radius: 0px 0px 5px 5px;
+        }
+    }
+    #admin_s #new_cabinet {
+        background-color: var(--backgroundTheme);
+        border-radius: 5px;
+        margin-top: 5px;
+        text-align: center;
+        height: 35px;
+        line-height: 34px;
+    }
+    #data {
+        background-color: var(--background-admin);
+        //margin-left: 50px;
+    }
+    #data #standard_partern_layout .components {
+        display: flex;
+        overflow: hidden;
+        height: 24px;
+        justify-content: space-evenly;
+        background-color: var(--backgroundTheme);
+        border-radius: 5px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        color: var(--text);
+    }
+    #data .new_element {
+        text-align: center;
+        background-color: var(--backgroundTheme);
+        border-radius: 5px;
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 5px;
+    }
+    #data #standard_partern_layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        row-gap: 5px;
+        column-gap: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #data #diffrent_partern_layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 5px;
+        column-gap: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+    }
+    #data #diffrent_partern_layout .components {
+        display: flex;
+        overflow: hidden;
+        height: 24px;
+        justify-content: space-evenly;
+        background-color: var(--backgroundTheme);
+        border-radius: 5px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        color: var(--text);
+    }
+    #data #diffrent_partern_layout2 {
+        display: grid;
+        justify-content: space-evenly;
+        grid-template-columns: 1fr;
+        row-gap: 5px;
+        column-gap: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+        align-items: center;
+    }
+    #data #diffrent_partern_layout2 .components {
+        display: flex;
+        overflow: hidden;
+        height: 24px;
+        justify-content: space-evenly;
+        background-color: var(--backgroundTheme);
+        border-radius: 5px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        color: var(--text);
+    }
+    #data #change_placeholder {
+        /* Hidden by default */
+        display: none;
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    #data #change_placeholder #change {
+        background-color: var(--backgroundTheme);
+        color: var(--text);
+        margin: auto;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #888;
+        justify-content: space-evenly;
+        width: 90%;
+    }
+    #image_float {
+        #element {
+            background-color: var(--backgroundTheme);
+            border-radius: 5px;
+        }
+    }
+}
