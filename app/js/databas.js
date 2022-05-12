@@ -628,6 +628,7 @@ function add_containers() {
     placeholder_layout_2.style.width = "20%"
     placeholder_layout_2.style.borderRadius = "5px";
     placeholder_layout_2.style.marginLeft = "5px"
+        //placeholder_layout_2.style.filter = "invert(100%)"
     placeholder_layout_3.className = "layout3";
     placeholder_layout_3.id = "layout_3";
     placeholder_layout_3.src = "../app/img/layout_3.png"
@@ -871,6 +872,7 @@ function change_databas(q) {
     change.id = "change"
     change.role = "dialog"
     document.getElementById("data").insertBefore(change_placeholder, document.getElementById("data").firstChild);
+
     change_placeholder.appendChild(change);
 
     var clas = document.querySelectorAll(".components")

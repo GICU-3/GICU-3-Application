@@ -5,8 +5,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "10 ohm resistor",
          "keywords": "10 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "1"
       },
       {
@@ -14,8 +12,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "12 ohm resistor",
          "keywords": "12 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "2"
       },
       {
@@ -23,8 +19,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "15 ohm resistor",
          "keywords": "15 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "3"
       },
       {
@@ -32,8 +26,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "18 ohm resistor",
          "keywords": "18 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "4"
       },
       {
@@ -41,8 +33,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "22 ohm resistor",
          "keywords": "22 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "5"
       },
       {
@@ -50,8 +40,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "27 ohm resistor",
          "keywords": "27 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "6"
       },
       {
@@ -59,8 +47,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "33 ohm resistor",
          "keywords": "­33 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "7"
       },
       {
@@ -68,8 +54,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "39 ohm resistor",
          "keywords": "39 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "8"
       },
       {
@@ -77,8 +61,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "47 ohm resistor",
          "keywords": "­47 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "9"
       },
       {
@@ -86,8 +68,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "56 ohm resistor",
          "keywords": "­56 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "10"
       },
       {
@@ -95,8 +75,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "68 ohm resistor",
          "keywords": "­68 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "11"
       },
       {
@@ -104,8 +82,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "",
          "keywords": "­82 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "12"
       },
       {
@@ -113,8 +89,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "100 ohm resistor",
          "keywords": "­100ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "13"
       },
       {
@@ -122,8 +96,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "120 ohm resistor",
          "keywords": "120 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "14"
       },
       {
@@ -131,8 +103,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "150 ohm resistor",
          "keywords": "150 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "15"
       },
       {
@@ -140,8 +110,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "180 ohm resistor",
          "keywords": "180 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "16"
       },
       {
@@ -149,8 +117,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "220 ohm resistor",
          "keywords": "220 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "17"
       },
       {
@@ -158,8 +124,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­270 ohm resistor",
          "keywords": "­270 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "18"
       },
       {
@@ -167,8 +131,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­330 ohm resistor",
          "keywords": "­330 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "19"
       },
       {
@@ -176,8 +138,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­390 ohm resistor",
          "keywords": "­390 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "20"
       },
       {
@@ -185,8 +145,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­470 ohm resistor",
          "keywords": "­470 ohm ",
-         "favourite": "false",
-         "number": "1",
          "Id": "21"
       },
       {
@@ -194,8 +152,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­560 ohm resistor",
          "keywords": "­560 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "22"
       },
       {
@@ -203,8 +159,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­680 ohm resistor",
          "keywords": "­680 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "23"
       },
       {
@@ -212,8 +166,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­­820 ohm resistor",
          "keywords": "­­820 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "24"
       },
       {
@@ -221,8 +173,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­1k ohm resistor",
          "keywords": "­1k 1000 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "25"
       },
       {
@@ -230,8 +180,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­1.2 ohm resistor",
          "keywords": "­1.2k 1200 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "26"
       },
       {
@@ -239,8 +187,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­1.5k ohm resistor",
          "keywords": "­1.5k 1500 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "27"
       },
       {
@@ -248,8 +194,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­1.8k ohm resistor",
          "keywords": "­1.8k 1800 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "28"
       },
       {
@@ -257,8 +201,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­2.2k ohm resistor",
          "keywords": "­2.2k 2200 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "29"
       },
       {
@@ -266,8 +208,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­2.7k ohm resistor",
          "keywords": "­2.7k 2700 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "30"
       },
       {
@@ -275,8 +215,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­3.3k ohm resistor",
          "keywords": "­3.3k 3300 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "31"
       },
       {
@@ -284,8 +222,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­3.9k ohm resistor",
          "keywords": "­3.9k 3900 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "32"
       },
       {
@@ -293,8 +229,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­4.7k ohm resistor",
          "keywords": "­4.7k 4700 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "33"
       },
       {
@@ -302,8 +236,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­­5.6k ohm resistor",
          "keywords": "­­5.6k 5600 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "34"
       },
       {
@@ -311,8 +243,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­6.8k ohm resistor",
          "keywords": "­6.8k 6800 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "35"
       },
       {
@@ -320,8 +250,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­8.2k ohm resistor",
          "keywords": "­8.2k 8200 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "36"
       },
       {
@@ -329,8 +257,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­­10k ohm resistor",
          "keywords": "­10k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "37"
       },
       {
@@ -338,8 +264,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­12k ohm resistor",
          "keywords": "­12k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "38"
       },
       {
@@ -347,8 +271,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­­15k ohm resistor",
          "keywords": "­­15k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "39"
       },
       {
@@ -356,8 +278,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­18k ohm resistor",
          "keywords": "­18k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "40"
       },
       {
@@ -365,8 +285,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­22k ohm resistor",
          "keywords": "­22k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "41"
       },
       {
@@ -374,8 +292,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­27k ohm resistor",
          "keywords": "­27k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "42"
       },
       {
@@ -383,8 +299,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­33k ohm resistor",
          "keywords": "­33k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "43"
       },
       {
@@ -392,8 +306,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­39k ohm resistor",
          "keywords": "­39k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "44"
       },
       {
@@ -401,8 +313,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­47k ohm resistor",
          "keywords": "­47k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "45"
       },
       {
@@ -410,8 +320,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­56k ohm resistor",
          "keywords": "­56k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "46"
       },
       {
@@ -419,8 +327,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­68k ohm resistor",
          "keywords": "­68k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "47"
       },
       {
@@ -428,8 +334,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­82k ohm resistor ",
          "keywords": "­82k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "48"
       },
       {
@@ -437,8 +341,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­100k ohm resistor",
          "keywords": "­100k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "49"
       },
       {
@@ -446,8 +348,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­120k ohm resistor",
          "keywords": "­120k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "50"
       },
       {
@@ -455,8 +355,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­150k ohm resistor",
          "keywords": "­150k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "51"
       },
       {
@@ -464,8 +362,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­180k ohm resistor",
          "keywords": "­180k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "52"
       },
       {
@@ -473,8 +369,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­220k ohm resistor",
          "keywords": "­220k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "53"
       },
       {
@@ -482,8 +376,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­270k ohm resistor",
          "keywords": "­270k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "54"
       },
       {
@@ -491,8 +383,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­330 ohm resistor",
          "keywords": "­330 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "55"
       },
       {
@@ -500,8 +390,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­390k ohm resistor",
          "keywords": "­390k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "56"
       },
       {
@@ -509,8 +397,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­470k ohm resistor",
          "keywords": "­470k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "57"
       },
       {
@@ -518,8 +404,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "560k ohm resistor",
          "keywords": "560k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "58"
       },
       {
@@ -527,8 +411,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­680k ohm resistor",
          "keywords": "­680k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "59"
       },
       {
@@ -536,8 +418,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­820k ohm resistor",
          "keywords": "­820k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "60"
       }
    ],
@@ -547,8 +427,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­1M ohm resistor",
          "keywords": "­1M ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "61"
       },
       {
@@ -556,8 +434,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "62"
       },
       {
@@ -565,8 +441,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­SIL 2.2k ohm resistor",
          "keywords": "­SIL 2.2k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "63"
       },
       {
@@ -574,8 +448,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­SIL 6.8k ohm resistor ",
          "keywords": "­SIL 6.8k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "64"
       },
       {
@@ -583,8 +455,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­­SIL 68k ohm resistor",
          "keywords": "­­SIL 68k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "65"
       },
       {
@@ -592,8 +462,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­10pF",
          "keywords": "­10pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "66"
       },
       {
@@ -601,8 +469,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­27pF",
          "keywords": "­27pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "66"
       },
       {
@@ -610,8 +476,6 @@
          "icon": "images\\template.jpg",
          "description": "­­33pF",
          "keywords": "­­33pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "67"
       },
       {
@@ -619,8 +483,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "47pF",
          "keywords": "47pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "67"
       },
       {
@@ -628,8 +490,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­100pF",
          "keywords": "­­­100pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "68"
       },
       {
@@ -637,8 +497,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "150pF",
          "keywords": "150pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "68"
       },
       {
@@ -646,8 +504,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­220pF",
          "keywords": "­­­­220pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "69"
       },
       {
@@ -655,8 +511,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­470pF",
          "keywords": "­­­­470pF",
-         "favourite": "false",
-         "number": "1",
          "Id": "69"
       },
       {
@@ -664,8 +518,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­1nF",
          "keywords": "­1nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "70"
       },
       {
@@ -673,8 +525,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "2.2nF",
          "keywords": "2.2nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "70"
       },
       {
@@ -682,8 +532,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "10nF",
          "keywords": "10nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "71"
       },
       {
@@ -691,8 +539,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "3.3nF",
          "keywords": "3.3nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "71"
       },
       {
@@ -700,8 +546,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­22nF",
          "keywords": "­22nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "72"
       },
       {
@@ -709,8 +553,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­47nF",
          "keywords": "­47nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "72"
       },
       {
@@ -718,8 +560,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­100nF",
          "keywords": "­100nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "73"
       },
       {
@@ -727,8 +567,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­220nF",
          "keywords": "­220nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "74"
       },
       {
@@ -736,8 +574,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­330nF",
          "keywords": "­330nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "75"
       },
       {
@@ -745,8 +581,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "470nF",
          "keywords": "470nF",
-         "favourite": "false",
-         "number": "1",
          "Id": "75"
       },
       {
@@ -754,8 +588,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­1µF",
          "keywords": "­uF 1",
-         "favourite": "false",
-         "number": "1",
          "Id": "76"
       },
       {
@@ -763,8 +595,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­2.2µF",
          "keywords": "­­2.2uF",
-         "favourite": "false",
-         "number": "1",
          "Id": "77"
       },
       {
@@ -772,8 +602,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­3.3­­µF",
          "keywords": "­3.3­­uF",
-         "favourite": "false",
-         "number": "1",
          "Id": "78"
       },
       {
@@ -781,8 +609,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­4.7µF",
          "keywords": "­4.7µF",
-         "favourite": "false",
-         "number": "1",
          "Id": "78"
       },
       {
@@ -790,8 +616,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­10µF/40v",
          "keywords": "­­10uF/40v",
-         "favourite": "false",
-         "number": "1",
          "Id": "79"
       },
       {
@@ -799,8 +623,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­10µF/63v",
          "keywords": "­­10uF/63v",
-         "favourite": "false",
-         "number": "1",
          "Id": "79"
       },
       {
@@ -808,8 +630,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­22µF/16v",
          "keywords": "­­­­­22µF/16v",
-         "favourite": "false",
-         "number": "1",
          "Id": "80"
       },
       {
@@ -817,8 +637,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­22µF/25v",
          "keywords": "­­­­­­22uF/25v",
-         "favourite": "false",
-         "number": "1",
          "Id": "81"
       },
       {
@@ -826,8 +644,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "description",
          "keywords": "keyword",
-         "favourite": "false",
-         "number": "1",
          "Id": "82"
       },
       {
@@ -835,8 +651,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­82µF/50v",
          "keywords": "­­­­­­­82uF/50v",
-         "favourite": "false",
-         "number": "1",
          "Id": "82"
       },
       {
@@ -844,8 +658,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­33µF",
          "keywords": "­­­­­­­­33uF",
-         "favourite": "false",
-         "number": "1",
          "Id": "83"
       },
       {
@@ -853,8 +665,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­47µF",
          "keywords": "­­­­­­­­47uF",
-         "favourite": "false",
-         "number": "1",
          "Id": "83"
       },
       {
@@ -862,8 +672,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­100µF/16v",
          "keywords": "­­­­­­­­­100uF/16v",
-         "favourite": "false",
-         "number": "1",
          "Id": "84"
       },
       {
@@ -871,8 +679,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­100µF/25v",
          "keywords": "­­­­­­­­­100uF/25v",
-         "favourite": "false",
-         "number": "1",
          "Id": "84"
       },
       {
@@ -880,8 +686,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­100µF/35v",
          "keywords": "­­­­­­­­­­100uF/35v",
-         "favourite": "false",
-         "number": "1",
          "Id": "85"
       },
       {
@@ -889,8 +693,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­100µF/63v",
          "keywords": "100uff",
-         "favourite": "false",
-         "number": "1",
          "Id": "86"
       },
       {
@@ -898,8 +700,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­­220µF/16v",
          "keywords": "­­­­­­­­­­­­220µF/16v",
-         "favourite": "false",
-         "number": "1",
          "Id": "87"
       },
       {
@@ -907,8 +707,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­­­220µF/25v",
          "keywords": "­­­­­­­­­­­­­220uF",
-         "favourite": "false",
-         "number": "1",
          "Id": "88"
       },
       {
@@ -916,8 +714,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­­­­470µF",
          "keywords": "­­­­­­­­­­­­­­470uF",
-         "favourite": "false",
-         "number": "1",
          "Id": "89"
       },
       {
@@ -925,8 +721,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­­­­­1000µF/16v",
          "keywords": "­­­­­­­­­­­­­­­1000uF/16v",
-         "favourite": "false",
-         "number": "1",
          "Id": "90"
       },
       {
@@ -934,8 +728,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­­­­­­1000µF/25v",
          "keywords": "­­­­­­­­­­­­­­­­1000uF/25v",
-         "favourite": "false",
-         "number": "1",
          "Id": "91"
       },
       {
@@ -943,8 +735,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­­­­­­­1000µF/35v",
          "keywords": "­­­­­­­­­­­­­­­­­1000uF/35v",
-         "favourite": "false",
-         "number": "1",
          "Id": "92"
       },
       {
@@ -952,8 +742,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­­­­­­­­­­­­­­­­­­1000µF/50v",
          "keywords": "­­­­­­­­­­­­­­­­­­1000uF/50v",
-         "favourite": "false",
-         "number": "1",
          "Id": "93"
       },
       {
@@ -961,8 +749,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "94"
       },
       {
@@ -970,8 +756,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "95"
       },
       {
@@ -979,8 +763,6 @@
          "icon": "../app/img/icons/kondensator.jpg",
          "description": "­Trimmkond.",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "96"
       },
       {
@@ -988,8 +770,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "97"
       },
       {
@@ -997,8 +777,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "98"
       },
       {
@@ -1006,8 +784,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "99"
       },
       {
@@ -1015,8 +791,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "100"
       },
       {
@@ -1024,8 +798,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­POT 220 ohm",
          "keywords": "­POT 220 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "101"
       },
       {
@@ -1033,8 +805,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­­POT 10k ohm",
          "keywords": "­­POT 10k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "102"
       },
       {
@@ -1042,8 +812,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­­­POT 100k ohm",
          "keywords": "­­­POT 100k ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "103"
       },
       {
@@ -1051,8 +819,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "­­­­­POT 1M ohm",
          "keywords": "­­­­­POT 1M ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "104"
       },
       {
@@ -1060,8 +826,6 @@
          "icon": "../app/img/icons/resistor.jpg",
          "description": "­DIL 8x300 ohm",
          "keywords": "­DIL 8x300 ohm",
-         "favourite": "false",
-         "number": "1",
          "Id": "105"
       },
       {
@@ -1069,8 +833,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "­NTC-sensor",
          "keywords": "­NTC-sensor",
-         "favourite": "false",
-         "number": "1",
          "Id": "106"
       },
       {
@@ -1078,8 +840,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "R.fuktsensor",
          "keywords": "R.fuktsensor",
-         "favourite": "false",
-         "number": "1",
          "Id": "107"
       },
       {
@@ -1087,8 +847,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "­LDR-sensor",
          "keywords": "­LDR-sensor",
-         "favourite": "false",
-         "number": "1",
          "Id": "108"
       },
       {
@@ -1096,8 +854,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Shock Sensor",
          "keywords": "­801S-sensor Shock Sensor",
-         "favourite": "false",
-         "number": "1",
          "Id": "109"
       },
       {
@@ -1105,8 +861,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "Temperatursensor",
          "keywords": "­KTY84-sensor Temperatursensor",
-         "favourite": "false",
-         "number": "1",
          "Id": "110"
       },
       {
@@ -1114,8 +868,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "­PTC-resistor B598 (120 ohm/35mA) ",
          "keywords": "­PTC-resistor B598 120 ohm/35mA ",
-         "favourite": "false",
-         "number": "1",
          "Id": "111"
       },
       {
@@ -1123,8 +875,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "112"
       },
       {
@@ -1132,8 +882,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Element PVM",
          "keywords": "­Kond.Mikrofon",
-         "favourite": "false",
-         "number": "1",
          "Id": "113"
       },
       {
@@ -1141,8 +889,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "114"
       },
       {
@@ -1150,8 +896,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "115"
       },
       {
@@ -1159,8 +903,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "­­­­­­­­­­­­­­­­­100µH/370mA",
          "keywords": "­­­­­­­­­­­­­­­­­Ferritdrosser 100µH/370mA",
-         "favourite": "false",
-         "number": "1",
          "Id": "116"
       },
       {
@@ -1168,8 +910,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "­­­­­­­­­­­­­­­­­­100µH/1.1A",
          "keywords": "Effektrossel ­­­­­­­­­­­­­­­­­­100µH/1.1A",
-         "favourite": "false",
-         "number": "1",
          "Id": "117"
       },
       {
@@ -1177,8 +917,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "­­­­­­­­­­­­­­­­­100µH/20mA",
          "keywords": "­Ferritdrossel ­­­­­­­­­­­­­­­­­100µH/20mA",
-         "favourite": "false",
-         "number": "1",
          "Id": "118"
       },
       {
@@ -1186,8 +924,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "119"
       },
       {
@@ -1195,8 +931,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "120"
       }
    ],
@@ -1206,8 +940,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "NPN Transistor",
          "keywords": "­BC337/40 NPN",
-         "favourite": "false",
-         "number": "1",
          "Id": "121"
       },
       {
@@ -1215,8 +947,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "PNP Transistor",
          "keywords": "­BC327/16 PNP",
-         "favourite": "false",
-         "number": "1",
          "Id": "122"
       },
       {
@@ -1224,8 +954,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "­­BC337/25",
          "keywords": "­­BC337/25",
-         "favourite": "false",
-         "number": "1",
          "Id": "123"
       },
       {
@@ -1233,8 +961,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "124"
       },
       {
@@ -1242,8 +968,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "125"
       },
       {
@@ -1251,8 +975,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Darlingtontransistor",
          "keywords": "­BD680G Darlingtontransistor",
-         "favourite": "false",
-         "number": "1",
          "Id": "126"
       },
       {
@@ -1260,8 +982,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Effekttransistor",
          "keywords": "­BD139/16 Effekttransistor",
-         "favourite": "false",
-         "number": "1",
          "Id": "127"
       },
       {
@@ -1269,8 +989,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Effekttransistor",
          "keywords": "­2N3055G Effekttransistor",
-         "favourite": "false",
-         "number": "1",
          "Id": "128"
       },
       {
@@ -1278,8 +996,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Effekttransistor",
          "keywords": "­BD178 Effekttransistor",
-         "favourite": "false",
-         "number": "1",
          "Id": "129"
       },
       {
@@ -1287,8 +1003,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Darlingtontransistor",
          "keywords": "­BD649",
-         "favourite": "false",
-         "number": "1",
          "Id": "130"
       },
       {
@@ -1296,8 +1010,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "BD137/16",
          "keywords": "BD137/16",
-         "favourite": "false",
-         "number": "1",
          "Id": "131"
       },
       {
@@ -1305,8 +1017,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "PNP transistor",
          "keywords": "­BD138/16 PNP",
-         "favourite": "false",
-         "number": "1",
          "Id": "131"
       },
       {
@@ -1314,8 +1024,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Mosfet-n",
          "keywords": "­IRL3502 Mosfet-n",
-         "favourite": "false",
-         "number": "1",
          "Id": "132"
       },
       {
@@ -1323,8 +1031,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "133"
       },
       {
@@ -1332,8 +1038,6 @@
          "icon": "../app/img/icons/ic.jpg",
          "description": "OP-förstärkare",
          "keywords": "­LM358N",
-         "favourite": "false",
-         "number": "1",
          "Id": "134"
       },
       {
@@ -1341,8 +1045,6 @@
          "icon": "../app/img/icons/ic.jpg",
          "description": "OP-förstärkare",
          "keywords": "­NE5534P",
-         "favourite": "false",
-         "number": "1",
          "Id": "135"
       },
       {
@@ -1350,8 +1052,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Voltage regulator",
          "keywords": "­L7805ACV",
-         "favourite": "false",
-         "number": "1",
          "Id": "136"
       },
       {
@@ -1359,8 +1059,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Voltage regulator",
          "keywords": "­L7809ACV",
-         "favourite": "false",
-         "number": "1",
          "Id": "136"
       },
       {
@@ -1368,8 +1066,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Voltage regulator",
          "keywords": "­MC7905C",
-         "favourite": "false",
-         "number": "1",
          "Id": "137"
       },
       {
@@ -1377,8 +1073,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Voltage regulator",
          "keywords": "­LM317T",
-         "favourite": "false",
-         "number": "1",
          "Id": "138"
       },
       {
@@ -1386,8 +1080,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Voltage regulator",
          "keywords": "­LM7824",
-         "favourite": "false",
-         "number": "1",
          "Id": "138"
       },
       {
@@ -1395,8 +1087,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Voltage regulator",
          "keywords": "­MC7812CT",
-         "favourite": "false",
-         "number": "1",
          "Id": "139"
       },
       {
@@ -1404,8 +1094,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "140"
       },
       {
@@ -1413,8 +1101,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Tyristor",
          "keywords": "­TIC105A",
-         "favourite": "false",
-         "number": "1",
          "Id": "141"
       },
       {
@@ -1422,8 +1108,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Tyristor",
          "keywords": "­TIC106D",
-         "favourite": "false",
-         "number": "1",
          "Id": "141"
       },
       {
@@ -1431,8 +1115,6 @@
          "icon": "../app/img/icons/transistor.jpg",
          "description": "Tyristor",
          "keywords": "­2N5060/0.8",
-         "favourite": "false",
-         "number": "1",
          "Id": "142"
       },
       {
@@ -1440,8 +1122,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "143"
       },
       {
@@ -1449,8 +1129,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "144"
       },
       {
@@ -1458,8 +1136,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "145"
       },
       {
@@ -1467,8 +1143,6 @@
          "icon": "../app/img/icons/diode.jpg",
          "description": "Diod",
          "keywords": "­IN5822",
-         "favourite": "false",
-         "number": "1",
          "Id": "146"
       },
       {
@@ -1476,8 +1150,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "147"
       },
       {
@@ -1485,8 +1157,6 @@
          "icon": "../app/img/icons/diode.jpg",
          "description": "Diod",
          "keywords": "­IN4148",
-         "favourite": "false",
-         "number": "1",
          "Id": "148"
       },
       {
@@ -1494,8 +1164,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "149"
       },
       {
@@ -1503,8 +1171,6 @@
          "icon": "../app/img/icons/diode.jpg",
          "description": "­Zenerdiod 5.1v",
          "keywords": "­Zenerdiod 5.1v",
-         "favourite": "false",
-         "number": "1",
          "Id": "150"
       },
       {
@@ -1512,8 +1178,6 @@
          "icon": "../app/img/icons/diode.jpg",
          "description": "­­Zenerdiod 3-24v",
          "keywords": "­­Zenerdiod 3-24v",
-         "favourite": "false",
-         "number": "1",
          "Id": "151"
       },
       {
@@ -1521,8 +1185,6 @@
          "icon": "../app/img/icons/diode.jpg",
          "description": "­­­Zenerdiod 2.4-11v",
          "keywords": "­­­Zenerdiod 2.4-11v",
-         "favourite": "false",
-         "number": "1",
          "Id": "153"
       },
       {
@@ -1530,8 +1192,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "155"
       },
       {
@@ -1539,8 +1199,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "161"
       },
       {
@@ -1548,8 +1206,6 @@
          "icon": "../app/img/icons/led.jpg",
          "description": "Display 13.2mm",
          "keywords": "Display 13.2mm",
-         "favourite": "false",
-         "number": "1",
          "Id": "163"
       },
       {
@@ -1557,8 +1213,6 @@
          "icon": "../app/img/icons/led.jpg",
          "description": "­LED red",
          "keywords": "­LED red",
-         "favourite": "false",
-         "number": "1",
          "Id": "163"
       },
       {
@@ -1566,8 +1220,6 @@
          "icon": "../app/img/icons/led.jpg",
          "description": "Display 14.2mm",
          "keywords": "Display 14.2mm",
-         "favourite": "false",
-         "number": "1",
          "Id": "165"
       },
       {
@@ -1575,8 +1227,6 @@
          "icon": "../app/img/icons/led.jpg",
          "description": "­­LED Green",
          "keywords": "­­LED Green",
-         "favourite": "false",
-         "number": "1",
          "Id": "165"
       },
       {
@@ -1584,8 +1234,6 @@
          "icon": "../app/img/icons/led.jpg",
          "description": "­3 Display 14mm",
          "keywords": "­3 Display 14mm",
-         "favourite": "false",
-         "number": "1",
          "Id": "166"
       },
       {
@@ -1593,8 +1241,6 @@
          "icon": "../app/img/icons/led.jpg",
          "description": "­­4 Display 14mm",
          "keywords": "­­4 Display 14mm",
-         "favourite": "false",
-         "number": "1",
          "Id": "168"
       },
       {
@@ -1602,8 +1248,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "170"
       },
       {
@@ -1611,8 +1255,6 @@
          "icon": "../app/img/icons/diode.jpg",
          "description": "­Fiberoptik kablage",
          "keywords": "­Fiberoptik kablage",
-         "favourite": "false",
-         "number": "1",
          "Id": "178"
       }
    ],
@@ -1622,8 +1264,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Fiberoptik kontaktdon",
          "keywords": "­TOCP155",
-         "favourite": "false",
-         "number": "1",
          "Id": "181"
       },
       {
@@ -1631,8 +1271,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "182"
       },
       {
@@ -1640,8 +1278,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Opto-link transmitter",
          "keywords": "­TOTX173",
-         "favourite": "false",
-         "number": "1",
          "Id": "183"
       },
       {
@@ -1649,8 +1285,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Opto-link transmitter",
          "keywords": "­TOTX141",
-         "favourite": "false",
-         "number": "1",
          "Id": "184"
       },
       {
@@ -1658,8 +1292,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "185"
       },
       {
@@ -1667,8 +1299,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Opto-link transmitter",
          "keywords": "­TOTX179/P",
-         "favourite": "false",
-         "number": "1",
          "Id": "186"
       },
       {
@@ -1676,8 +1306,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "187"
       },
       {
@@ -1685,8 +1313,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Opto-link mottagare",
          "keywords": "­TORX173",
-         "favourite": "false",
-         "number": "1",
          "Id": "188"
       },
       {
@@ -1694,8 +1320,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Opto-link mottagare",
          "keywords": "­TORX141",
-         "favourite": "false",
-         "number": "1",
          "Id": "189"
       },
       {
@@ -1703,8 +1327,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Opto-link mottagare",
          "keywords": "­TORX179",
-         "favourite": "false",
-         "number": "1",
          "Id": "190"
       },
       {
@@ -1712,8 +1334,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "191"
       },
       {
@@ -1721,8 +1341,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "IR-fotodiod 850nm",
          "keywords": "BPW 34 IR-fotodiod 850nm",
-         "favourite": "false",
-         "number": "1",
          "Id": "192"
       },
       {
@@ -1730,8 +1348,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "IR-fotodiod 850nm",
          "keywords": "­BWP41N IR-fotodiod 850nm",
-         "favourite": "false",
-         "number": "1",
          "Id": "192"
       },
       {
@@ -1739,8 +1355,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "IR-fotodiod 950nm",
          "keywords": "BP 104F",
-         "favourite": "false",
-         "number": "1",
          "Id": "193"
       },
       {
@@ -1748,8 +1362,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "IR-fotodiod 950nm",
          "keywords": "S1337-66BR",
-         "favourite": "false",
-         "number": "1",
          "Id": "193"
       },
       {
@@ -1757,8 +1369,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "194"
       },
       {
@@ -1766,8 +1376,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "IR-fototransistor 5nm",
          "keywords": "­PT5529B",
-         "favourite": "false",
-         "number": "1",
          "Id": "195"
       },
       {
@@ -1775,8 +1383,6 @@
          "icon": "../app/img/icons/sensor.jpg",
          "description": "IR-fototransistor 5nm",
          "keywords": "SFH300",
-         "favourite": "false",
-         "number": "1",
          "Id": "195"
       },
       {
@@ -1784,8 +1390,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "196"
       },
       {
@@ -1793,8 +1397,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Optokopplare DIL-4",
          "keywords": "­PC817",
-         "favourite": "false",
-         "number": "1",
          "Id": "197"
       },
       {
@@ -1802,8 +1404,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Optokopplare DIL-4",
          "keywords": "SFH 617A-3",
-         "favourite": "false",
-         "number": "1",
          "Id": "197"
       },
       {
@@ -1811,8 +1411,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "Optokopplare DIL-16",
          "keywords": "­PC 845",
-         "favourite": "false",
-         "number": "1",
          "Id": "198"
       },
       {
@@ -1820,8 +1418,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "199"
       },
       {
@@ -1829,8 +1425,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "200"
       },
       {
@@ -1838,8 +1432,6 @@
          "icon": "../app/img/icons/miscellaneous.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "201"
       },
       {
@@ -1847,8 +1439,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "202"
       },
       {
@@ -1856,8 +1446,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "203"
       },
       {
@@ -1865,8 +1453,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "204"
       },
       {
@@ -1874,8 +1460,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "205"
       },
       {
@@ -1883,8 +1467,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "206"
       },
       {
@@ -1892,8 +1474,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "207"
       },
       {
@@ -1901,8 +1481,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "208"
       },
       {
@@ -1910,8 +1488,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "209"
       },
       {
@@ -1919,8 +1495,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "210"
       },
       {
@@ -1928,8 +1502,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "211"
       },
       {
@@ -1937,8 +1509,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "212"
       },
       {
@@ -1946,8 +1516,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "213"
       },
       {
@@ -1955,8 +1523,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "214"
       },
       {
@@ -1964,8 +1530,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "215"
       },
       {
@@ -1973,8 +1537,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "216"
       },
       {
@@ -1982,8 +1544,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "217"
       },
       {
@@ -1991,8 +1551,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "218"
       },
       {
@@ -2000,8 +1558,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "219"
       },
       {
@@ -2009,8 +1565,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "220"
       },
       {
@@ -2018,8 +1572,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "221"
       },
       {
@@ -2027,8 +1579,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "222"
       },
       {
@@ -2036,8 +1586,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "223"
       },
       {
@@ -2045,8 +1593,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "224"
       },
       {
@@ -2054,8 +1600,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "225"
       },
       {
@@ -2063,8 +1607,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "226"
       },
       {
@@ -2072,8 +1614,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "228"
       },
       {
@@ -2081,8 +1621,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "230"
       },
       {
@@ -2090,8 +1628,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "236"
       },
       {
@@ -2099,8 +1635,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "238"
       },
       {
@@ -2108,8 +1642,6 @@
          "icon": "images\\template.jpg",
          "description": "",
          "keywords": "",
-         "favourite": "false",
-         "number": "1",
          "Id": "240"
       }
    ]
