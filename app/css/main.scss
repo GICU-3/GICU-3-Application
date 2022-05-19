@@ -31,6 +31,7 @@
 }
 
 body {
+    overflow: hidden;
     .rotate {
         //rotation of loadingscreen image
         animation: rotation 1s infinite linear;
@@ -374,6 +375,7 @@ body {
     #admin_s {
         background-color: rgba(45, 45, 45, 0.5);
         display: none;
+        overflow: hidden;
         //grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 40px 40px;
         grid-auto-flow: column;

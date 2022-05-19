@@ -34,6 +34,7 @@
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   background-image: url("../img/light-background.jpg");
   background-size: cover;
@@ -474,6 +475,7 @@ body #navigation_database_con #navigation_database_2 #navigation_database_undo {
 body #admin_s {
   background-color: rgba(45, 45, 45, 0.5);
   display: none;
+  overflow: hidden;
   -ms-grid-rows: 40px 40px;
       grid-template-rows: 40px 40px;
   grid-auto-flow: column;
