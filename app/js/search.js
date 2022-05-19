@@ -35,13 +35,13 @@ document.getElementById("search").onkeyup = function() {
 };
 
 document.getElementById("search").onfocus = async function() {
-
+    var list = document.getElementsByClassName("componentCard")
     if (document.getElementById("search").value.length > 0) {
+        console.log(document.getElementById("search"))
         fuseSearch();
 
         document.getElementById("searchResult").style.display = "block";
     } else {
-        var list = document.getElementsByClassName("aaaa")
 
         while (list.length > 0) {
             list[0].parentNode.removeChild(list[0])
@@ -53,18 +53,20 @@ document.getElementById("search").onfocus = async function() {
 document.getElementById("search").onblur = async function() {
     await sleep(100);
 
-    var search_elements = document.getElementById("searchResult")
-
-    //hom();
     document.getElementById("searchResult").style.display = "block";
     if (document.getElementById("search").value == 0) {
         document.getElementById("searchResult").style.display = "none";
 
         document.addEventListener("keypress", function(e) {
-            document.getElementById("search").focus();
-
+            if (e.keyCode != 46 || e.keyCode == 8) {
+                document.getElementById("search").focus();
+            }
         })
+        var list = document.getElementsByClassName("componentCard")
 
+        while (list.length > 0) {
+            list[0].parentNode.removeChild(list[0])
+        }
     }
 
 
@@ -214,7 +216,7 @@ function summonBar(inputJson) {
                 showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
             }
         }
-        console.log(obj.item.utility)
+        //console.log(obj.item.utility)
     });
 }
 
