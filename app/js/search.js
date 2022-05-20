@@ -1,7 +1,19 @@
 const Fuse = require('fuse.js')
 const fs = require('fs');
+var dgram = require('dgram');
 const { runInContext } = require('vm'); //! VS Code flags this as unused? it this true?
 const { DefaultDeserializer } = require('v8'); //! VS Code flags this as unused? it this true?
+var led = [];
+/**  Function to send data to pcb
+ * var dgram = require('dgram');
+ * // Create a udp socket client object
+ *  var client = dgram.createSocket("udp4");
+ * // Set command line input character encoding to utf-8
+ *  process.stdin.setEncoding('utf-8');
+ * // message variable to send
+ * var message = "MESSAGE";
+ * client.send(message, 0, message.length, 8089, "127.0.0.1");
+ */
 
 /**
  * The sleep function takes a number of milliseconds as its argument, and returns a promise that resolves after the given duration.
@@ -16,6 +28,7 @@ function sleep(ms) {
     });
 }
 document.getElementById("search").focus();
+
 document.getElementById("search").onkeyup = function() {
 
     if (document.getElementById("search").value.length > 0) {
@@ -58,9 +71,8 @@ document.getElementById("search").onblur = async function() {
         document.getElementById("searchResult").style.display = "none";
 
         document.addEventListener("keypress", function(e) {
-            if (e.keyCode != 46 || e.keyCode == 8) {
-                document.getElementById("search").focus();
-            }
+            console.log(e)
+            document.getElementById("search").focus();
         })
         var list = document.getElementsByClassName("componentCard")
 
@@ -101,8 +113,9 @@ function fuseSearch() {
 
 
         output = output.concat(afterbook)
-
+        console.log(output)
     });
+
     summonBar(output);
     add();
 
@@ -172,6 +185,10 @@ function summonBar(inputJson) {
          * @docauthor Trelent
          */
         function sayhello() {
+            var client = dgram.createSocket("udp4");
+            process.stdin.setEncoding('utf-8');
+            var message = "array([";
+            // message variable to send
             var selected = document.querySelectorAll(".chosen");
             let r = document.createElement("div");
             let image = document.createElement("img");
@@ -180,18 +197,32 @@ function summonBar(inputJson) {
             document.querySelector("#searchHistoryContainer").appendChild(r);
             r.innerHTML = obj.item.utility;
             r.id = "chosen" + obj.item.Id;
-            selected.forEach(function(div, _e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
+            led.push(obj.item.Id);
+            searchHistoryContainer.appendChild(r);
+            r.appendChild(image);
+            selected.forEach(function(div, e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(div.id)
                 console.log(div.id);
                 console.log(r.id);
                 if (r.id == div.id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
+                    led.splice(e, 1)
                     showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()   
                 }
             })
-            searchHistoryContainer.appendChild(r);
-            r.appendChild(image);
+            for (var amount = 0; amount < led.length; amount++) {
+                if (amount + 1 == led.length) { message = message + ("" + led[amount]) } else { message = message + ("" + led[amount]) + "," }
+            }
+            message = message + "],0xFFFFFF)"
+            if (led.length > 0) {
+                console.log(message);
+                //client.send(message, 0, message.length, 8089, "127.0.0.1");
+            } else {
+                message = "clear()";
+                console.log(message);
+                //client.send(message, 0, message.length, 8089, "127.0.0.1");
+            }
             add();
 
             /**
@@ -206,15 +237,21 @@ function summonBar(inputJson) {
         function removebutton() {
             var selected = document.querySelectorAll(".chosen");
             var placeholder = 0;
-            selected.forEach(function(_div, e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
+            var message = "clear()"
+            selected.forEach(function(div, e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
                 var a = document.getElementsByClassName("chosen")
-                var b = document.getElementById(a[e].id);
+                var b = document.getElementById(div.id);
                 try { b.parentNode.removeChild(b) } catch {};
                 placeholder++;
             })
             if (placeholder > 0) {
                 showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
+                led = [];
+                console.log(led)
+                console.log(message);
+                //client.send(message, 0, message.length, 8089, "127.0.0.1");
             }
+
         }
         //console.log(obj.item.utility)
     });
@@ -268,17 +305,40 @@ function showAlert(message, type, closeDelay) {
  * @docauthor Trelent
  */
 function add() {
+    var client = dgram.createSocket("udp4");
+    process.stdin.setEncoding('utf-8');
     var selected = document.querySelectorAll(".chosen");
 
     selected.forEach(function(_div, i) {
         var a = document.getElementsByClassName("chosen")
         var b = document.getElementById(a[i].id)
             //let parent = document.querySelector(".chosen");
-        b.addEventListener("click", remove);
-        console.log(selected[i]);
-
-        function remove() {
+        b.onclick = function remove() {
+            var message = "array([";
             try { b.parentNode.removeChild(b) } catch {};
+            //console.log(selected[i]);
+            led.splice(i, 1)
+                /* led.forEach(function(_value, e) {
+                     message = made_change + led[e] + ","
+                 })
+                 */
+            for (var amount = 0; amount < led.length; amount++) {
+                if (amount + 1 == led.length) { message = message + ("" + led[amount]) } else { message = message + ("" + led[amount]) + "," }
+            }
+            message = message + "],0xFFFFFF)"
+            if (led.length > 0) {
+                console.log(message);
+                //client.send(message, 0, message.length, 8089, "127.0.0.1");
+            } else {
+                var message = "clear()"
+                console.log(message);
+                //client.send(message, 0, message.length, 8089, "127.0.0.1");
+            }
+            add()
+
+
         }
+
+
     })
 }

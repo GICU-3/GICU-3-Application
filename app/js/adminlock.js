@@ -13,5 +13,10 @@ function admin_panel() { //TODO rename to adminPanel()
         document.getElementById("admin").style.display = "block";
     } else {
         document.getElementById("admin").style.display = "none";
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && e.keyCode == 82) { //Ctrl+r will also be disabled.
+                return false;
+            }
+        };
     }
 }
