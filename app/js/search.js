@@ -224,7 +224,9 @@ function summonBar(inputJson) {
                 console.log(r.id);
                 if (r.id == div.id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()   
+                    try { document.getElementById("alerts-container").innerHTML = "" } catch {};
+                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()  
+                    console.log()
                 }
             })
             message = message + ("" + (obj.item.Id - 1) + ",0xFFFFFF)")
