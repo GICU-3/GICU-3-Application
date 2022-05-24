@@ -1,8 +1,9 @@
 const Fuse = require('fuse.js')
 const fs = require('fs');
 var dgram = require('dgram');
-const { runInContext } = require('vm'); //! VS Code flags this as unused? it this true?
-const { DefaultDeserializer } = require('v8'); //! VS Code flags this as unused? it this true?
+//const { runInContext } = require('vm'); //! VS Code flags this as unused? it this true?
+//const { DefaultDeserializer } = require('v8'); //! VS Code flags this as unused? it this true?
+//const console = require('console');
 /**  Function to send data to pcb
  * var dgram = require('dgram');
  * // Create a udp socket client object
@@ -26,8 +27,7 @@ function sleep(ms) {
         setTimeout(resolve, ms);
     });
 }
-document.getElementById("search").focus();
-
+document.getElementById("search").blur();
 document.getElementById("search").onkeyup = function() {
 
     if (document.getElementById("search").value.length > 0) {
@@ -36,7 +36,7 @@ document.getElementById("search").onkeyup = function() {
         document.getElementById("searchResult").style.display = "block";
     } else {
         var list = document.getElementsByClassName("aaaa")
-        console.log("test")
+
         while (list.length > 0) {
             list[0].parentNode.removeChild(list[0])
         }
@@ -46,10 +46,9 @@ document.getElementById("search").onkeyup = function() {
 
 };
 
-document.getElementById("search").onfocus = async function() {
+document.getElementById("search").onfocus = function() {
     var list = document.getElementsByClassName("componentCard")
     if (document.getElementById("search").value.length > 0) {
-        console.log(document.getElementById("search"))
         fuseSearch();
 
         document.getElementById("searchResult").style.display = "block";
@@ -62,15 +61,13 @@ document.getElementById("search").onfocus = async function() {
     }
 };
 
-document.getElementById("search").onblur = async function() {
-    await sleep(100);
+document.getElementById("search").onblur = function() {
 
     document.getElementById("searchResult").style.display = "block";
     if (document.getElementById("search").value == 0) {
         document.getElementById("searchResult").style.display = "none";
 
         document.addEventListener("keypress", function(e) {
-            console.log(e)
             document.getElementById("search").focus();
         })
         var list = document.getElementsByClassName("componentCard")
@@ -79,9 +76,6 @@ document.getElementById("search").onblur = async function() {
             list[0].parentNode.removeChild(list[0])
         }
     }
-
-
-
 };
 
 /**
@@ -96,23 +90,23 @@ function fuseSearch() {
     var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
     var output = [];
 
-    books.forEach(function(o, i) {
+    books.forEach(function(o) {
 
         // 2. Set up the Fuse instance
 
-        const fuse = new Fuse(books[i], {
+        var fuse = new Fuse(o, {
             threshold: 0.3,
             shouldSort: true,
             keys: ['utility', 'keywords', 'description']
+
         })
         var afterbook = {};
         // 3. Now search!
 
         afterbook = fuse.search(document.getElementById("search").value)
 
-
+        console.log(output.length)
         output = output.concat(afterbook)
-        console.log(output)
     });
 
     summonBar(output);
@@ -130,7 +124,7 @@ function fuseSearch() {
 function summonBar(inputJson) {
     document.getElementById("searchResult").innerHTML = "";
     inputJson.forEach(function(obj, i) {
-
+        if (i > 10) return false;
         let newDiv = document.createElement("div");
         let componentCard = document.createElement("div");
         let componentCardDescription = document.createElement("div");
@@ -191,7 +185,6 @@ function summonBar(inputJson) {
                 showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
 
             }
-            console.log(message);
             client.send(message, 0, message.length, 8089, "192.168.1.7");
 
         }
@@ -220,17 +213,13 @@ function summonBar(inputJson) {
             selected.forEach(function(div, e) {
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(div.id)
-                console.log(div.id);
-                console.log(r.id);
                 if (r.id == div.id) {
                     try { b.parentNode.removeChild(b) } catch {}; //ignores an error
                     try { document.getElementById("alerts-container").innerHTML = "" } catch {};
                     showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()  
-                    console.log()
                 }
             })
             message = message + ("" + (obj.item.Id - 1) + ",0xFFFFFF)")
-            console.log(message);
             client.send(message, 0, message.length, 8089, "192.168.1.7");
             add();
 
@@ -245,6 +234,7 @@ function summonBar(inputJson) {
 
 
         //console.log(obj.item.utility)
+
     });
 }
 
@@ -309,7 +299,6 @@ function add() {
             var remove_id = a[i].id.replace(/^\D+/g, ''); // replace all leading non-digits with nothing
             try { b.parentNode.removeChild(b) } catch {};
             message = message + ("" + (remove_id - 1) + ",0x000000)")
-            console.log(message);
             client.send(message, 0, message.length, 8089, "192.168.1.7");
             add()
         }

@@ -1,18 +1,27 @@
 {
-  "name": "testhtmlcss",
-  "version": "1.0.0",
-  "description": "",
-  "main": "js\\index.js",
-  "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^5.1.3",
-    "bootstrap-electron": "^1.4.0",
-    "electron": "^18.0.4",
-    "fuse.js": "^6.5.3"
-  }
+    "name": "testhtmlcss",
+    "version": "1.0.0",
+    "description": "",
+    "main": "js\\index.js",
+    "build": {
+        "appId": "GICU-3.id",
+        "mac": {
+            "category": "GICU-3.Rhea"
+        }
+    },
+    "scripts": {
+        "start": "electron .",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder",
+        "make-linux": "npx @electron-forge/cli make --platform linux --targets deb"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bootstrap": "^5.1.3",
+        "bootstrap-electron": "^1.4.0",
+        "electron": "^18.0.4",
+        "fuse.js": "^6.5.3"
+    }
 }
