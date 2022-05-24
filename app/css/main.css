@@ -188,6 +188,10 @@ body .navbar .container img {
           filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
 }
 
+body .navbar .container .admin {
+  display: none;
+}
+
 body #homeimg {
   -webkit-filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
           filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
