@@ -124,7 +124,7 @@ function fuseSearch() {
 function summonBar(inputJson) {
     document.getElementById("searchResult").innerHTML = "";
     inputJson.forEach(function(obj, i) {
-        if (i > 10) return false;
+        if (i > 15) return false;
         let newDiv = document.createElement("div");
         let componentCard = document.createElement("div");
         let componentCardDescription = document.createElement("div");
@@ -164,9 +164,45 @@ function summonBar(inputJson) {
         var class_id = document.getElementsByClassName('componentCard');
         class_id[i].id = obj.item.Id; //Assigns an ID to every searchable element
 
-        var element_id = document.getElementById(class_id[i].id);
+        var element_id = document.getElementById(obj.item.Id);
 
-        element_id.addEventListener("click", sayhello); //säger vilket id div tillhör
+        element_id.addEventListener("click", function sayhello() {
+            var client = dgram.createSocket("udp4");
+            process.stdin.setEncoding('utf-8');
+            var message = "pixel(";
+            // message variable to send
+            var selected = document.querySelectorAll(".chosen");
+            let r = document.createElement("div");
+            let image = document.createElement("img");
+            image.src = "img/cross.svg";
+            r.className = "chosen"
+            document.querySelector("#searchHistoryContainer").appendChild(r);
+            r.innerHTML = obj.item.utility;
+            r.id = "chosen" + obj.item.Id;
+            searchHistoryContainer.appendChild(r);
+            r.appendChild(image);
+            selected.forEach(function(div, e) {
+                var a = document.getElementsByClassName("chosen")
+                var b = document.getElementById(div.id)
+                r.id = "chosen" + obj.item.Id;
+                if (r.id == div.id) {
+                    try { b.parentNode.removeChild(b) } catch {}; //ignores an error
+                    try { document.getElementById("alerts-container").innerHTML = "" } catch {};
+                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()  
+                }
+            })
+            message = message + ("" + (obj.item.Id - 1) + ",0xFFFFFF)")
+            client.send(message, 0, message.length, 8089, "192.168.1.7");
+            add();
+
+            /**
+             * The removebutton function removes all components from the page.
+             * 
+             * @return Removes selected components, success message
+             * @docauthor Simon Hellsing, Emil Lindén
+             * @docmodifier Emil Lindén
+             */
+        }); //säger vilket id div tillhör
 
         var del_history = document.getElementById("removeHistory");
         del_history.onclick = function removebutton() {
@@ -195,42 +231,7 @@ function summonBar(inputJson) {
          * @return A div with the text &quot;hello world!&quot;
          * @docauthor Trelent
          */
-        function sayhello() {
-            var client = dgram.createSocket("udp4");
-            process.stdin.setEncoding('utf-8');
-            var message = "pixel(";
-            // message variable to send
-            var selected = document.querySelectorAll(".chosen");
-            let r = document.createElement("div");
-            let image = document.createElement("img");
-            image.src = "img/cross.svg";
-            r.className = "chosen"
-            document.querySelector("#searchHistoryContainer").appendChild(r);
-            r.innerHTML = obj.item.utility;
-            r.id = "chosen" + obj.item.Id;
-            searchHistoryContainer.appendChild(r);
-            r.appendChild(image);
-            selected.forEach(function(div, e) {
-                var a = document.getElementsByClassName("chosen")
-                var b = document.getElementById(div.id)
-                if (r.id == div.id) {
-                    try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    try { document.getElementById("alerts-container").innerHTML = "" } catch {};
-                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()  
-                }
-            })
-            message = message + ("" + (obj.item.Id - 1) + ",0xFFFFFF)")
-            client.send(message, 0, message.length, 8089, "192.168.1.7");
-            add();
 
-            /**
-             * The removebutton function removes all components from the page.
-             * 
-             * @return Removes selected components, success message
-             * @docauthor Simon Hellsing, Emil Lindén
-             * @docmodifier Emil Lindén
-             */
-        }
 
 
         //console.log(obj.item.utility)

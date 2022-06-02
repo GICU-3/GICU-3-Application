@@ -264,11 +264,12 @@ body .bodySection .searchbar #searchResult {
   background: none;
   height: 360px;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 body .bodySection .searchbar #searchResult .componentCard {
   margin: 15px;
-  width: auto;
+  width: 512px;
   height: 127px;
   background: var(--backgroundBlur);
   -webkit-box-shadow: -4px 4px 3px var(--backgroundBlur);
