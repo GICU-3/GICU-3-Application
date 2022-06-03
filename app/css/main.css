@@ -269,7 +269,7 @@ body .bodySection .searchbar #searchResult {
 
 body .bodySection .searchbar #searchResult .componentCard {
   margin: 15px;
-  width: 512px;
+  width: 464px;
   height: 127px;
   background: var(--backgroundBlur);
   -webkit-box-shadow: -4px 4px 3px var(--backgroundBlur);
