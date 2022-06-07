@@ -93,7 +93,14 @@ nggyu.id="nevergonnegiveyouup"
 document.body.appendChild(nggyu)
 document.getElementById("nevergonnagiveyouup").style.display = "block";
 document.getElementById("nevergonnagiveyouup").style.zIndex = "1";
+}
 
-
-
+//runs neverGonnaGiveYouUp()
+document.getElementById("activation").onclick = function() {
+    document.getElementById("activation").onclick = function() {
+        document.getElementById("activation").onclick = function() {
+            // function
+            neverGonnaGiveYouUp();
+        }
+    }
 }
