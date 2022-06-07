@@ -2,7 +2,7 @@
     "name": "testhtmlcss",
     "version": "1.0.0",
     "description": "",
-    "main": "js\\index.js",
+    "main": "js/index.js",
     "build": {
         "appId": "GICU-3.id",
         "mac": {

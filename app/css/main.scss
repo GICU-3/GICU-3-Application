@@ -193,7 +193,7 @@ body {
                 background: none;
                 height: 360px;
                 overflow-y: auto;
-                scroll-behavior: smooth;
+                touch-action: pan-y;
                 .componentCard {
                     //styling of each dynamically created div
                     margin: 15px;
@@ -201,8 +201,8 @@ body {
                     height: 127px;
                     background: var(--backgroundBlur);
                     box-shadow: -4px 4px 3px var(--backgroundBlur);
-                    backdrop-filter: blur( 20px);
-                    -webkit-backdrop-filter: blur( 10px);
+                    //backdrop-filter: blur( 20px);
+                    //-webkit-backdrop-filter: blur( 10px);
                     border-radius: 10px;
                     border: 1px solid rgba( 255, 255, 255, 0.18);
                     .componentCardHeader {
