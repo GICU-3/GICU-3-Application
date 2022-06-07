@@ -104,7 +104,12 @@ function fuseSearch() {
         })
         var afterbook = {};
         // 3. Now search!
-
+        if (document.getElementById("search").value == "joelpe") {
+            document.getElementById("navbar").style.display = "none";
+            document.getElementById("bodySection").style.display = "none";
+            loadingscreen();
+            document.getElementById("search").value = null;
+        }
         afterbook = fuse.search(document.getElementById("search").value)
 
         console.log(output.length)
