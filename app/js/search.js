@@ -1,91 +1,126 @@
 const Fuse = require('fuse.js')
 const fs = require('fs');
-const { runInContext } = require('vm');
-const { DefaultDeserializer } = require('v8');
+const { runInContext } = require('vm'); //! VS Code flags this as unused? it this true?
+const { DefaultDeserializer } = require('v8'); //! VS Code flags this as unused? it this true?
 
+/**
+ * The sleep function takes a number of milliseconds as its argument, and returns a promise that resolves after the given duration.
+ *
+ * @param ms Specify the time in milliseconds to wait before executing the next line of code
+ * @return A promise
+ * @docauthor Trelent
+ */
 function sleep(ms) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms);
     });
 }
-
+document.getElementById("search").focus();
 document.getElementById("search").onkeyup = function() {
-    fuseSearch()
-    if (!document.getElementById("search").value) {
-        summonAllEmpty();
+
+    if (document.getElementById("search").value.length > 0) {
+        fuseSearch();
+
+        document.getElementById("searchResult").style.display = "block";
+    } else {
+        var list = document.getElementsByClassName("aaaa")
+        console.log("test")
+        while (list.length > 0) {
+            list[0].parentNode.removeChild(list[0])
+        }
+        document.getElementById("searchResult").style.display = "none";
     }
+
+
 };
 
 document.getElementById("search").onfocus = async function() {
-    document.getElementById("searchResult").style.display = "block";
-    //console.log("focused");
 
-    if (!document.getElementById("search").value) {
-        summonAllEmpty();
+    if (document.getElementById("search").value.length > 0) {
+        fuseSearch();
+
+        document.getElementById("searchResult").style.display = "block";
+    } else {
+        var list = document.getElementsByClassName("aaaa")
+
+        while (list.length > 0) {
+            list[0].parentNode.removeChild(list[0])
+        }
+        document.getElementById("searchResult").style.display = "none";
     }
 };
+
 document.getElementById("search").onblur = async function() {
     await sleep(100);
-    add();
+
+    var search_elements = document.getElementById("searchResult")
+
+    //hom();
     document.getElementById("searchResult").style.display = "block";
     if (document.getElementById("search").value == 0) {
         document.getElementById("searchResult").style.display = "none";
-        console.log("offfocused");
-    }
-};
 
-function fuseSearch() {
-    // 1. List of items to search in
-    add();
-    var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
+        document.addEventListener("keypress", function(e) {
+            document.getElementById("search").focus();
 
-    const options = {
-        threshold: 0.0
-    }
-    books.forEach(function(o, i) {
-        // 2. Set up the Fuse instance
-        const fuse = new Fuse(books[i], {
-            keys: ['utility', 'keywords', 'description']
         })
 
+    }
+
+
+
+};
+
+/**
+ * The fuseSearch function searches through the JSON file for a specific search term.
+ * 
+ * @return The output of the fuse search
+ * @docauthor Trelent
+ */
+function fuseSearch() {
+    // 1. List of items to search in
+
+    var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
+    var output = [];
+
+    books.forEach(function(o, i) {
+
+        // 2. Set up the Fuse instance
+
+        const fuse = new Fuse(books[i], {
+            threshold: 0.3,
+            shouldSort: true,
+            keys: ['utility', 'keywords', 'description']
+        })
+        var afterbook = {};
         // 3. Now search!
 
-        var outputJson = fuse.search(document.getElementById("search").value);
-        //console.log(outputJson
+        afterbook = fuse.search(document.getElementById("search").value)
 
-        summonBar(outputJson);
+
+        output = output.concat(afterbook)
+
     });
+    summonBar(output);
     add();
+
 }
 
-function summonAllEmpty() {
-    var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
-    let booksOutput = [];
-    books.forEach(function(element, i) {
-        books[i].forEach(function(obj) {
-            let booksAfter = {};
-            booksAfter.item = obj;
-
-            booksOutput.push(booksAfter);
-        });
-    });
-    //console.log(booksOutput);
-    summonBar(booksOutput);
-    add();
-}
-
-function summonBar(inputJson) { // Reads the JSONdata and makes it magically appear under Search
+/**
+ * The summonBar function reads the JSONdata and makes it magically appear under Search.
+ *
+ * @param inputJson Read the json data and make it appear under search
+ * @return A div with the text &quot;hello world!&quot;
+ * @docauthor Trelent
+ */
+function summonBar(inputJson) {
     document.getElementById("searchResult").innerHTML = "";
     inputJson.forEach(function(obj, i) {
-        //console.log(obj);
 
         let newDiv = document.createElement("div");
         let componentCard = document.createElement("div");
         let componentCardDescription = document.createElement("div");
         let componentCardContainer = document.createElement("div");
-        //newDiv.className = "menubarAContainer";
-
-        var root = process.cwd(); // Grab application directory
 
         newDiv.className = i;
         newElement = document.createElement("a");
@@ -98,7 +133,12 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
 
         newImage = document.createElement("img");
         newImage.src = obj.item.icon;
-
+        if (localStorage.getItem('theme') == 'dark') {
+            newImage.style.filter = "invert(100%)"
+        }
+        if (localStorage.getItem('theme') == 'light') {
+            newImage.style.filter = "invert(0%)"
+        }
         componentCard.className = "componentCardHeader";
         componentCardDescription.className = "componentCardDescription";
         newDiv.className = "componentCard";
@@ -114,7 +154,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
         componentCard.appendChild(newElement);
         componentCardDescription.appendChild(newElementDescription);
         var class_id = document.getElementsByClassName('componentCard');
-        class_id[i].id = obj.item.Id; //Ger ett id för varje sökbara element
+        class_id[i].id = obj.item.Id; //Assigns an ID to every searchable element
 
         var element_id = document.getElementById(class_id[i].id);
 
@@ -122,7 +162,13 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
 
         var del_history = document.getElementById("removeHistory");
         del_history.addEventListener("click", removebutton);
-        
+
+        /**
+         * The sayhello function says hello to the world.
+         * 
+         * @return A div with the text &quot;hello world!&quot;
+         * @docauthor Trelent
+         */
         function sayhello() {
             var selected = document.querySelectorAll(".chosen");
             let r = document.createElement("div");
@@ -132,7 +178,7 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
             document.querySelector("#searchHistoryContainer").appendChild(r);
             r.innerHTML = obj.item.utility;
             r.id = "chosen" + obj.item.Id;
-            selected.forEach(function(div, e) {
+            selected.forEach(function(div, _e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(div.id)
                 console.log(div.id);
@@ -145,25 +191,29 @@ function summonBar(inputJson) { // Reads the JSONdata and makes it magically app
             searchHistoryContainer.appendChild(r);
             r.appendChild(image);
             add();
+
+            /**
+             * The removebutton function removes all components from the page.
+             * 
+             * @return Removes selected components, success message
+             * @docauthor Simon Hellsing, Emil Lindén
+             * @docmodifier Emil Lindén
+             */
         }
+
         function removebutton() {
             var selected = document.querySelectorAll(".chosen");
             var placeholder = 0;
-            selected.forEach(function(div, e) {
+            selected.forEach(function(_div, e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
                 var a = document.getElementsByClassName("chosen")
                 var b = document.getElementById(a[e].id);
                 try { b.parentNode.removeChild(b) } catch {};
                 placeholder++;
             })
             if (placeholder > 0) {
-            showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
+                showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
             }
         }
-        
-        /*if (element_id !== sayhello().target && !element_id.contains(sayhello().target)) {    
-            console.log('clicking outside the div');
-            element_id.style.height == "160px";
-        }*/
         console.log(obj.item.utility)
     });
 }
@@ -184,15 +234,15 @@ function showAlert(message, type, closeDelay) {
         $cont = $('<div id="alerts-container">')
             .css({
                 //adjust message position
-                 position: "fixed"
-                ,width: "50%"
-                ,left: "25%"
-                ,bottom: "0%"
+                position: "fixed",
+                width: "50%",
+                left: "25%",
+                bottom: "0%"
             })
             .appendTo($("body"));
     }
     // default to alert-info; other options include success, warning, danger
-    type = type || "info";    
+    type = type || "info";
     // create the alert div
     var alert = $('<div>')
         .addClass("fade in show alert alert-" + type)
@@ -205,22 +255,28 @@ function showAlert(message, type, closeDelay) {
     $cont.prepend(alert);
     // if closeDelay was passed - set a timeout to close the alert
     if (closeDelay) {
-        window.setTimeout(function() { alert.alert("close") }, closeDelay);     
+        window.setTimeout(function() { alert.alert("close") }, closeDelay);
     }
 }
 
+/**
+ * The add function adds a chosen class to the selected elements.
+ * 
+ * @return The selected element
+ * @docauthor Trelent
+ */
 function add() {
     var selected = document.querySelectorAll(".chosen");
 
-    selected.forEach(function(div, i) {
+    selected.forEach(function(_div, i) {
         var a = document.getElementsByClassName("chosen")
         var b = document.getElementById(a[i].id)
-        //let parent = document.querySelector(".chosen");
+            //let parent = document.querySelector(".chosen");
         b.addEventListener("click", remove);
         console.log(selected[i]);
 
         function remove() {
-            try { b.parentNode.removeChild(b)} catch {};
+            try { b.parentNode.removeChild(b) } catch {};
         }
     })
-} 
+}

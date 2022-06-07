@@ -1,467 +1,1648 @@
 [
-    [{
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "1"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "2"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "3"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "4"
-        },
-        {
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "5"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "6"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "7"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "8"
-        }, {
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "9"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "10"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "11"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "12"
-        }, {
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "13"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "14"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "15"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "16"
-        }, {
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "17"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "18"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "19"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "20"
-        }, {
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "21"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "22"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "23"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "24"
-        }, {
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "25"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "26"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "27"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "28"
-        }, {
-            "utility": "JSON Array Sorter",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Sorts json arrays alphabetically",
-            "keywords": "json sort array alphabetically",
-            "favourite": "false",
-            "number": "10",
-            "Id": "29"
-        },
-        {
-            "utility": "LOW",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "color wifi control",
-            "favourite": "false",
-            "number": "1",
-            "Id": "30"
-        },
-        {
-            "utility": "Template",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "template testing",
-            "favourite": "false",
-            "number": "1",
-            "Id": "31"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "32"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "33"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "34"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "35"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "36"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "37"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "38"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "39"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "40"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "41"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "42"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "43"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "44"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "45"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "46"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "47"
-        },
-        {
-            "utility": "Discord RPC",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "discord rpc images text information",
-            "favourite": "false",
-            "number": "1",
-            "Id": "48"
-        }
-    ],
-
-    [{
-            "utility": "100ohm",
-            "icon": "\\utility\\json-sorter\\icon.png",
-            "description": "Resistor",
-            "keywords": "Resistor",
-            "favourite": "false",
-            "number": "10",
-            "Id": "33"
-        },
-        {
-            "utility": "POT 1k ohm",
-            "icon": "\\utility\\LOW\\icon.png",
-            "description": "Light Over WIFI, Controls RGB lights over wifi",
-            "keywords": "POT",
-            "favourite": "false",
-            "number": "1",
-            "Id": "34"
-        },
-        {
-            "utility": "Pic886",
-            "icon": "img\\template.jpg",
-            "description": "A template",
-            "keywords": "Pic",
-            "favourite": "false",
-            "number": "1",
-            "Id": "35"
-        },
-        {
-            "utility": "Led red",
-            "icon": "img\\discord-icon.png",
-            "description": "Custom discord rich presence images, text and information",
-            "keywords": "Led red ",
-            "favourite": "false",
-            "number": "1",
-            "Id": "36"
-        }
-    ]
+   [
+      {
+         "utility": "­10 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "10 ohm resistor",
+         "keywords": "10 ohm",
+         "Id": "1"
+      },
+      {
+         "utility": "­12 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "12 ohm resistor",
+         "keywords": "12 ohm",
+         "Id": "2"
+      },
+      {
+         "utility": "­15 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "15 ohm resistor",
+         "keywords": "15 ohm",
+         "Id": "3"
+      },
+      {
+         "utility": "­18 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "18 ohm resistor",
+         "keywords": "18 ohm",
+         "Id": "4"
+      },
+      {
+         "utility": "­22 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "22 ohm resistor",
+         "keywords": "22 ohm",
+         "Id": "5"
+      },
+      {
+         "utility": "­27 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "27 ohm resistor",
+         "keywords": "27 ohm",
+         "Id": "6"
+      },
+      {
+         "utility": "­33 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "33 ohm resistor",
+         "keywords": "­33 ohm",
+         "Id": "7"
+      },
+      {
+         "utility": "39 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "39 ohm resistor",
+         "keywords": "39 ohm",
+         "Id": "8"
+      },
+      {
+         "utility": "­47 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "47 ohm resistor",
+         "keywords": "­47 ohm",
+         "Id": "9"
+      },
+      {
+         "utility": "­56 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "56 ohm resistor",
+         "keywords": "­56 ohm",
+         "Id": "10"
+      },
+      {
+         "utility": "­68 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "68 ohm resistor",
+         "keywords": "­68 ohm",
+         "Id": "11"
+      },
+      {
+         "utility": "­82 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "",
+         "keywords": "­82 ohm",
+         "Id": "12"
+      },
+      {
+         "utility": "­100 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "100 ohm resistor",
+         "keywords": "­100ohm",
+         "Id": "13"
+      },
+      {
+         "utility": "­120 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "120 ohm resistor",
+         "keywords": "120 ohm",
+         "Id": "14"
+      },
+      {
+         "utility": "­150 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "150 ohm resistor",
+         "keywords": "150 ohm",
+         "Id": "15"
+      },
+      {
+         "utility": "­180 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "180 ohm resistor",
+         "keywords": "180 ohm",
+         "Id": "16"
+      },
+      {
+         "utility": "220 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "220 ohm resistor",
+         "keywords": "220 ohm",
+         "Id": "17"
+      },
+      {
+         "utility": "­270 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­270 ohm resistor",
+         "keywords": "­270 ohm",
+         "Id": "18"
+      },
+      {
+         "utility": "­330 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­330 ohm resistor",
+         "keywords": "­330 ohm",
+         "Id": "19"
+      },
+      {
+         "utility": "­390 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­390 ohm resistor",
+         "keywords": "­390 ohm",
+         "Id": "20"
+      },
+      {
+         "utility": "­470 ohm ",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­470 ohm resistor",
+         "keywords": "­470 ohm ",
+         "Id": "21"
+      },
+      {
+         "utility": "­560 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­560 ohm resistor",
+         "keywords": "­560 ohm",
+         "Id": "22"
+      },
+      {
+         "utility": "­680 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­680 ohm resistor",
+         "keywords": "­680 ohm",
+         "Id": "23"
+      },
+      {
+         "utility": "­­820 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­­820 ohm resistor",
+         "keywords": "­­820 ohm",
+         "Id": "24"
+      },
+      {
+         "utility": "­1k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­1k ohm resistor",
+         "keywords": "­1k 1000 ohm",
+         "Id": "25"
+      },
+      {
+         "utility": "­1.2k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­1.2 ohm resistor",
+         "keywords": "­1.2k 1200 ohm",
+         "Id": "26"
+      },
+      {
+         "utility": "­1.5k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­1.5k ohm resistor",
+         "keywords": "­1.5k 1500 ohm",
+         "Id": "27"
+      },
+      {
+         "utility": "­1.8k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­1.8k ohm resistor",
+         "keywords": "­1.8k 1800 ohm",
+         "Id": "28"
+      },
+      {
+         "utility": "­2.2k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­2.2k ohm resistor",
+         "keywords": "­2.2k 2200 ohm",
+         "Id": "29"
+      },
+      {
+         "utility": "­2.7k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­2.7k ohm resistor",
+         "keywords": "­2.7k 2700 ohm",
+         "Id": "30"
+      },
+      {
+         "utility": "­3.3k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­3.3k ohm resistor",
+         "keywords": "­3.3k 3300 ohm",
+         "Id": "31"
+      },
+      {
+         "utility": "­3.9k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­3.9k ohm resistor",
+         "keywords": "­3.9k 3900 ohm",
+         "Id": "32"
+      },
+      {
+         "utility": "­4.7k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­4.7k ohm resistor",
+         "keywords": "­4.7k 4700 ohm",
+         "Id": "33"
+      },
+      {
+         "utility": "­­5.6k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­­5.6k ohm resistor",
+         "keywords": "­­5.6k 5600 ohm",
+         "Id": "34"
+      },
+      {
+         "utility": "­6.8k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­6.8k ohm resistor",
+         "keywords": "­6.8k 6800 ohm",
+         "Id": "35"
+      },
+      {
+         "utility": "­8.2k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­8.2k ohm resistor",
+         "keywords": "­8.2k 8200 ohm",
+         "Id": "36"
+      },
+      {
+         "utility": "­10k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­­10k ohm resistor",
+         "keywords": "­10k ohm",
+         "Id": "37"
+      },
+      {
+         "utility": "­12k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­12k ohm resistor",
+         "keywords": "­12k ohm",
+         "Id": "38"
+      },
+      {
+         "utility": "­­15k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­­15k ohm resistor",
+         "keywords": "­­15k ohm",
+         "Id": "39"
+      },
+      {
+         "utility": "­18k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­18k ohm resistor",
+         "keywords": "­18k ohm",
+         "Id": "40"
+      },
+      {
+         "utility": "­22k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­22k ohm resistor",
+         "keywords": "­22k ohm",
+         "Id": "41"
+      },
+      {
+         "utility": "­27k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­27k ohm resistor",
+         "keywords": "­27k ohm",
+         "Id": "42"
+      },
+      {
+         "utility": "­33k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­33k ohm resistor",
+         "keywords": "­33k ohm",
+         "Id": "43"
+      },
+      {
+         "utility": "­39k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­39k ohm resistor",
+         "keywords": "­39k ohm",
+         "Id": "44"
+      },
+      {
+         "utility": "­47k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­47k ohm resistor",
+         "keywords": "­47k ohm",
+         "Id": "45"
+      },
+      {
+         "utility": "­56k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­56k ohm resistor",
+         "keywords": "­56k ohm",
+         "Id": "46"
+      },
+      {
+         "utility": "­68k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­68k ohm resistor",
+         "keywords": "­68k ohm",
+         "Id": "47"
+      },
+      {
+         "utility": "­82k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­82k ohm resistor ",
+         "keywords": "­82k ohm",
+         "Id": "48"
+      },
+      {
+         "utility": "­100k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­100k ohm resistor",
+         "keywords": "­100k ohm",
+         "Id": "49"
+      },
+      {
+         "utility": "­120k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­120k ohm resistor",
+         "keywords": "­120k ohm",
+         "Id": "50"
+      },
+      {
+         "utility": "­150k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­150k ohm resistor",
+         "keywords": "­150k ohm",
+         "Id": "51"
+      },
+      {
+         "utility": "­180k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­180k ohm resistor",
+         "keywords": "­180k ohm",
+         "Id": "52"
+      },
+      {
+         "utility": "­220k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­220k ohm resistor",
+         "keywords": "­220k ohm",
+         "Id": "53"
+      },
+      {
+         "utility": "­270k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­270k ohm resistor",
+         "keywords": "­270k ohm",
+         "Id": "54"
+      },
+      {
+         "utility": "­330 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­330 ohm resistor",
+         "keywords": "­330 ohm",
+         "Id": "55"
+      },
+      {
+         "utility": "­390k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­390k ohm resistor",
+         "keywords": "­390k ohm",
+         "Id": "56"
+      },
+      {
+         "utility": "­470k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­470k ohm resistor",
+         "keywords": "­470k ohm",
+         "Id": "57"
+      },
+      {
+         "utility": "560k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "560k ohm resistor",
+         "keywords": "560k ohm",
+         "Id": "58"
+      },
+      {
+         "utility": "­680k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­680k ohm resistor",
+         "keywords": "­680k ohm",
+         "Id": "59"
+      },
+      {
+         "utility": "­820k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­820k ohm resistor",
+         "keywords": "­820k ohm",
+         "Id": "60"
+      }
+   ],
+   [
+      {
+         "utility": "­1M ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­1M ohm resistor",
+         "keywords": "­1M ohm",
+         "Id": "61"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "62"
+      },
+      {
+         "utility": "­SIL 2.2k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­SIL 2.2k ohm resistor",
+         "keywords": "­SIL 2.2k ohm",
+         "Id": "63"
+      },
+      {
+         "utility": "­­SIL 6.8k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­SIL 6.8k ohm resistor ",
+         "keywords": "­SIL 6.8k ohm",
+         "Id": "64"
+      },
+      {
+         "utility": "­­SIL 68k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­­SIL 68k ohm resistor",
+         "keywords": "­­SIL 68k ohm",
+         "Id": "65"
+      },
+      {
+         "utility": "­10pF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­10pF",
+         "keywords": "­10pF",
+         "Id": "66"
+      },
+      {
+         "utility": "­27pF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­27pF",
+         "keywords": "­27pF",
+         "Id": "66"
+      },
+      {
+         "utility": "­­33pF",
+         "icon": "images\\template.jpg",
+         "description": "­­33pF",
+         "keywords": "­­33pF",
+         "Id": "67"
+      },
+      {
+         "utility": "47pF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "47pF",
+         "keywords": "47pF",
+         "Id": "67"
+      },
+      {
+         "utility": "­­­100pF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­100pF",
+         "keywords": "­­­100pF",
+         "Id": "68"
+      },
+      {
+         "utility": "150pF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "150pF",
+         "keywords": "150pF",
+         "Id": "68"
+      },
+      {
+         "utility": "­­­­220pF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­220pF",
+         "keywords": "­­­­220pF",
+         "Id": "69"
+      },
+      {
+         "utility": "­­­­470pF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­470pF",
+         "keywords": "­­­­470pF",
+         "Id": "69"
+      },
+      {
+         "utility": "­1nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­1nF",
+         "keywords": "­1nF",
+         "Id": "70"
+      },
+      {
+         "utility": "2.2nF",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "2.2nF",
+         "keywords": "2.2nF",
+         "Id": "70"
+      },
+      {
+         "utility": "10nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "10nF",
+         "keywords": "10nF",
+         "Id": "71"
+      },
+      {
+         "utility": "3.3nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "3.3nF",
+         "keywords": "3.3nF",
+         "Id": "71"
+      },
+      {
+         "utility": "­22nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­22nF",
+         "keywords": "­22nF",
+         "Id": "72"
+      },
+      {
+         "utility": "­47nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­47nF",
+         "keywords": "­47nF",
+         "Id": "72"
+      },
+      {
+         "utility": "­100nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­100nF",
+         "keywords": "­100nF",
+         "Id": "73"
+      },
+      {
+         "utility": "­220nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­220nF",
+         "keywords": "­220nF",
+         "Id": "74"
+      },
+      {
+         "utility": "­330nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­330nF",
+         "keywords": "­330nF",
+         "Id": "75"
+      },
+      {
+         "utility": "470nF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "470nF",
+         "keywords": "470nF",
+         "Id": "75"
+      },
+      {
+         "utility": "­1µF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­1µF",
+         "keywords": "­uF 1",
+         "Id": "76"
+      },
+      {
+         "utility": "­­2.2µF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­2.2µF",
+         "keywords": "­­2.2uF",
+         "Id": "77"
+      },
+      {
+         "utility": "­3.3­­µF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­3.3­­µF",
+         "keywords": "­3.3­­uF",
+         "Id": "78"
+      },
+      {
+         "utility": "­4.7µF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­4.7µF",
+         "keywords": "­4.7µF",
+         "Id": "78"
+      },
+      {
+         "utility": "­­10µF/40v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­10µF/40v",
+         "keywords": "­­10uF/40v",
+         "Id": "79"
+      },
+      {
+         "utility": "­­10µF/63v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­10µF/63v",
+         "keywords": "­­10uF/63v",
+         "Id": "79"
+      },
+      {
+         "utility": "­­­­­22µF/16v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­22µF/16v",
+         "keywords": "­­­­­22µF/16v",
+         "Id": "80"
+      },
+      {
+         "utility": "­­­­­­22µF/25v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­22µF/25v",
+         "keywords": "­­­­­­22uF/25v",
+         "Id": "81"
+      },
+      {
+         "utility": "­­­­­­­82µF/100v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "description",
+         "keywords": "keyword",
+         "Id": "82"
+      },
+      {
+         "utility": "­­­­­­­82µF/50v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­82µF/50v",
+         "keywords": "­­­­­­­82uF/50v",
+         "Id": "82"
+      },
+      {
+         "utility": "­­­­­­­­33µF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­33µF",
+         "keywords": "­­­­­­­­33uF",
+         "Id": "83"
+      },
+      {
+         "utility": "­­­­­­­­47µF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­47µF",
+         "keywords": "­­­­­­­­47uF",
+         "Id": "83"
+      },
+      {
+         "utility": "­­­­­­­­­100µF/16v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­100µF/16v",
+         "keywords": "­­­­­­­­­100uF/16v",
+         "Id": "84"
+      },
+      {
+         "utility": "­­­­­­­­­100µF/25v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­100µF/25v",
+         "keywords": "­­­­­­­­­100uF/25v",
+         "Id": "84"
+      },
+      {
+         "utility": "­­­­­­­­­­100µF/35v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­100µF/35v",
+         "keywords": "­­­­­­­­­­100uF/35v",
+         "Id": "85"
+      },
+      {
+         "utility": "­­­­­­­­­­­100µF/63v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­100µF/63v",
+         "keywords": "100uff",
+         "Id": "86"
+      },
+      {
+         "utility": "­­­­­­­­­­­­220µF/16v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­­220µF/16v",
+         "keywords": "­­­­­­­­­­­­220µF/16v",
+         "Id": "87"
+      },
+      {
+         "utility": "­­­­­­­­­­­­­220µF/25v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­­­220µF/25v",
+         "keywords": "­­­­­­­­­­­­­220uF",
+         "Id": "88"
+      },
+      {
+         "utility": "­­­­­­­­­­­­­­470µF",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­­­­470µF",
+         "keywords": "­­­­­­­­­­­­­­470uF",
+         "Id": "89"
+      },
+      {
+         "utility": "­­­­­­­­­­­­­­­1000µF/16v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­­­­­1000µF/16v",
+         "keywords": "­­­­­­­­­­­­­­­1000uF/16v",
+         "Id": "90"
+      },
+      {
+         "utility": "­­­­­­­­­­­­­­­­1000µF/25v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­­­­­­1000µF/25v",
+         "keywords": "­­­­­­­­­­­­­­­­1000uF/25v",
+         "Id": "91"
+      },
+      {
+         "utility": "­­­­­­­­­­­­­­­­­1000µF/35v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­­­­­­­1000µF/35v",
+         "keywords": "­­­­­­­­­­­­­­­­­1000uF/35v",
+         "Id": "92"
+      },
+      {
+         "utility": "­­­­­­­­­­­­­­­­­­1000µF/50v",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­­­­­­­­­­­­­­­­­­1000µF/50v",
+         "keywords": "­­­­­­­­­­­­­­­­­­1000uF/50v",
+         "Id": "93"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "94"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "95"
+      },
+      {
+         "utility": "­­Trimmkond.",
+         "icon": "../app/img/icons/kondensator.jpg",
+         "description": "­Trimmkond.",
+         "keywords": "",
+         "Id": "96"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "97"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "98"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "99"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "100"
+      },
+      {
+         "utility": "­POT 220 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­POT 220 ohm",
+         "keywords": "­POT 220 ohm",
+         "Id": "101"
+      },
+      {
+         "utility": "­­POT 10k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­­POT 10k ohm",
+         "keywords": "­­POT 10k ohm",
+         "Id": "102"
+      },
+      {
+         "utility": "­­­POT 100k ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­­­POT 100k ohm",
+         "keywords": "­­­POT 100k ohm",
+         "Id": "103"
+      },
+      {
+         "utility": "­­­­­POT 1M ohm",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "­­­­­POT 1M ohm",
+         "keywords": "­­­­­POT 1M ohm",
+         "Id": "104"
+      },
+      {
+         "utility": "­DIL 8x300 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "­DIL 8x300 ohm",
+         "keywords": "­DIL 8x300 ohm",
+         "Id": "105"
+      },
+      {
+         "utility": "­NTC-sensor",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "­NTC-sensor",
+         "keywords": "­NTC-sensor",
+         "Id": "106"
+      },
+      {
+         "utility": "R.fuktsensor",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "R.fuktsensor",
+         "keywords": "R.fuktsensor",
+         "Id": "107"
+      },
+      {
+         "utility": "­LDR-sensor",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "­LDR-sensor",
+         "keywords": "­LDR-sensor",
+         "Id": "108"
+      },
+      {
+         "utility": "­801S-sensor",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Shock Sensor",
+         "keywords": "­801S-sensor Shock Sensor",
+         "Id": "109"
+      },
+      {
+         "utility": "­­KTY84-sensor",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "Temperatursensor",
+         "keywords": "­KTY84-sensor Temperatursensor",
+         "Id": "110"
+      },
+      {
+         "utility": "PTC-resistor B598",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "­PTC-resistor B598 (120 ohm/35mA) ",
+         "keywords": "­PTC-resistor B598 120 ohm/35mA ",
+         "Id": "111"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "112"
+      },
+      {
+         "utility": "­Kond.Mikrofon",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Element PVM",
+         "keywords": "­Kond.Mikrofon",
+         "Id": "113"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "114"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "115"
+      },
+      {
+         "utility": "Ferritdrosser",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "­­­­­­­­­­­­­­­­­100µH/370mA",
+         "keywords": "­­­­­­­­­­­­­­­­­Ferritdrosser 100µH/370mA",
+         "Id": "116"
+      },
+      {
+         "utility": "Effektrossel",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "­­­­­­­­­­­­­­­­­­100µH/1.1A",
+         "keywords": "Effektrossel ­­­­­­­­­­­­­­­­­­100µH/1.1A",
+         "Id": "117"
+      },
+      {
+         "utility": "­Ferritdrossel",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "­­­­­­­­­­­­­­­­­100µH/20mA",
+         "keywords": "­Ferritdrossel ­­­­­­­­­­­­­­­­­100µH/20mA",
+         "Id": "118"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "119"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "120"
+      }
+   ],
+   [
+      {
+         "utility": "­BC337/40",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "NPN Transistor",
+         "keywords": "­BC337/40 NPN",
+         "Id": "121"
+      },
+      {
+         "utility": "­BC327/16",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "PNP Transistor",
+         "keywords": "­BC327/16 PNP",
+         "Id": "122"
+      },
+      {
+         "utility": "­­BC337/25",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "­­BC337/25",
+         "keywords": "­­BC337/25",
+         "Id": "123"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "124"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "125"
+      },
+      {
+         "utility": "­BD680G",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Darlingtontransistor",
+         "keywords": "­BD680G Darlingtontransistor",
+         "Id": "126"
+      },
+      {
+         "utility": "­BD139/16",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Effekttransistor",
+         "keywords": "­BD139/16 Effekttransistor",
+         "Id": "127"
+      },
+      {
+         "utility": "­2N3055G",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Effekttransistor",
+         "keywords": "­2N3055G Effekttransistor",
+         "Id": "128"
+      },
+      {
+         "utility": "­­BD178",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Effekttransistor",
+         "keywords": "­BD178 Effekttransistor",
+         "Id": "129"
+      },
+      {
+         "utility": "­BD649",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Darlingtontransistor",
+         "keywords": "­BD649",
+         "Id": "130"
+      },
+      {
+         "utility": "BD137/16",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "BD137/16",
+         "keywords": "BD137/16",
+         "Id": "131"
+      },
+      {
+         "utility": "­BD138/16",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "PNP transistor",
+         "keywords": "­BD138/16 PNP",
+         "Id": "131"
+      },
+      {
+         "utility": "­IRL3502",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Mosfet-n",
+         "keywords": "­IRL3502 Mosfet-n",
+         "Id": "132"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "133"
+      },
+      {
+         "utility": "­LM358N",
+         "icon": "../app/img/icons/ic.jpg",
+         "description": "OP-förstärkare",
+         "keywords": "­LM358N",
+         "Id": "134"
+      },
+      {
+         "utility": "­NE5534P",
+         "icon": "../app/img/icons/ic.jpg",
+         "description": "OP-förstärkare",
+         "keywords": "­NE5534P",
+         "Id": "135"
+      },
+      {
+         "utility": "­L7805ACV",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Voltage regulator",
+         "keywords": "­L7805ACV",
+         "Id": "136"
+      },
+      {
+         "utility": "­L7809ACV",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Voltage regulator",
+         "keywords": "­L7809ACV",
+         "Id": "136"
+      },
+      {
+         "utility": "­MC7905C",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Voltage regulator",
+         "keywords": "­MC7905C",
+         "Id": "137"
+      },
+      {
+         "utility": "­LM317T",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Voltage regulator",
+         "keywords": "­LM317T",
+         "Id": "138"
+      },
+      {
+         "utility": "­LM7824",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Voltage regulator",
+         "keywords": "­LM7824",
+         "Id": "138"
+      },
+      {
+         "utility": "­MC7812CT",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Voltage regulator",
+         "keywords": "­MC7812CT",
+         "Id": "139"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "140"
+      },
+      {
+         "utility": "­TIC105A",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Tyristor",
+         "keywords": "­TIC105A",
+         "Id": "141"
+      },
+      {
+         "utility": "­TIC106D",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Tyristor",
+         "keywords": "­TIC106D",
+         "Id": "141"
+      },
+      {
+         "utility": "­2N5060/0.8",
+         "icon": "../app/img/icons/transistor.jpg",
+         "description": "Tyristor",
+         "keywords": "­2N5060/0.8",
+         "Id": "142"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "143"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "144"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "145"
+      },
+      {
+         "utility": "­IN5822",
+         "icon": "../app/img/icons/diode.jpg",
+         "description": "Diod",
+         "keywords": "­IN5822",
+         "Id": "146"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "147"
+      },
+      {
+         "utility": "­IN4148",
+         "icon": "../app/img/icons/diode.jpg",
+         "description": "Diod",
+         "keywords": "­IN4148",
+         "Id": "148"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "149"
+      },
+      {
+         "utility": "­Zenerdiod",
+         "icon": "../app/img/icons/diode.jpg",
+         "description": "­Zenerdiod 5.1v",
+         "keywords": "­Zenerdiod 5.1v",
+         "Id": "150"
+      },
+      {
+         "utility": "­­Zenerdiod 3-24v",
+         "icon": "../app/img/icons/diode.jpg",
+         "description": "­­Zenerdiod 3-24v",
+         "keywords": "­­Zenerdiod 3-24v",
+         "Id": "151"
+      },
+      {
+         "utility": "­­­Zenerdiod 2.4-11v",
+         "icon": "../app/img/icons/diode.jpg",
+         "description": "­­­Zenerdiod 2.4-11v",
+         "keywords": "­­­Zenerdiod 2.4-11v",
+         "Id": "153"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "155"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "161"
+      },
+      {
+         "utility": "Display 13.2mm",
+         "icon": "../app/img/icons/led.jpg",
+         "description": "Display 13.2mm",
+         "keywords": "Display 13.2mm",
+         "Id": "163"
+      },
+      {
+         "utility": "­LED red",
+         "icon": "../app/img/icons/led.jpg",
+         "description": "­LED red",
+         "keywords": "­LED red",
+         "Id": "163"
+      },
+      {
+         "utility": "Display 14.2mm",
+         "icon": "../app/img/icons/led.jpg",
+         "description": "Display 14.2mm",
+         "keywords": "Display 14.2mm",
+         "Id": "165"
+      },
+      {
+         "utility": "­­LED Green",
+         "icon": "../app/img/icons/led.jpg",
+         "description": "­­LED Green",
+         "keywords": "­­LED Green",
+         "Id": "165"
+      },
+      {
+         "utility": "­3 Display 14mm",
+         "icon": "../app/img/icons/led.jpg",
+         "description": "­3 Display 14mm",
+         "keywords": "­3 Display 14mm",
+         "Id": "166"
+      },
+      {
+         "utility": "­­4 Display 14mm",
+         "icon": "../app/img/icons/led.jpg",
+         "description": "­­4 Display 14mm",
+         "keywords": "­­4 Display 14mm",
+         "Id": "168"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "170"
+      },
+      {
+         "utility": "­Fiberoptik kablage",
+         "icon": "../app/img/icons/diode.jpg",
+         "description": "­Fiberoptik kablage",
+         "keywords": "­Fiberoptik kablage",
+         "Id": "178"
+      }
+   ],
+   [
+      {
+         "utility": "­TOCP155",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Fiberoptik kontaktdon",
+         "keywords": "­TOCP155",
+         "Id": "181"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "182"
+      },
+      {
+         "utility": "­TOTX173",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Opto-link transmitter",
+         "keywords": "­TOTX173",
+         "Id": "183"
+      },
+      {
+         "utility": "­TOTX141",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Opto-link transmitter",
+         "keywords": "­TOTX141",
+         "Id": "184"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "185"
+      },
+      {
+         "utility": "­TOTX179/P",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Opto-link transmitter",
+         "keywords": "­TOTX179/P",
+         "Id": "186"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "187"
+      },
+      {
+         "utility": "­TORX173",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Opto-link mottagare",
+         "keywords": "­TORX173",
+         "Id": "188"
+      },
+      {
+         "utility": "­TORX141",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Opto-link mottagare",
+         "keywords": "­TORX141",
+         "Id": "189"
+      },
+      {
+         "utility": "­TORX179",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Opto-link mottagare",
+         "keywords": "­TORX179",
+         "Id": "190"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "191"
+      },
+      {
+         "utility": "BPW 34",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "IR-fotodiod 850nm",
+         "keywords": "BPW 34 IR-fotodiod 850nm",
+         "Id": "192"
+      },
+      {
+         "utility": "­BWP41N",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "IR-fotodiod 850nm",
+         "keywords": "­BWP41N IR-fotodiod 850nm",
+         "Id": "192"
+      },
+      {
+         "utility": "BP 104F",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "IR-fotodiod 950nm",
+         "keywords": "BP 104F",
+         "Id": "193"
+      },
+      {
+         "utility": "S1337-66BR",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "IR-fotodiod 950nm",
+         "keywords": "S1337-66BR",
+         "Id": "193"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "194"
+      },
+      {
+         "utility": "­PT5529B",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "IR-fototransistor 5nm",
+         "keywords": "­PT5529B",
+         "Id": "195"
+      },
+      {
+         "utility": "SFH300",
+         "icon": "../app/img/icons/sensor.jpg",
+         "description": "IR-fototransistor 5nm",
+         "keywords": "SFH300",
+         "Id": "195"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "196"
+      },
+      {
+         "utility": "­PC817",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Optokopplare DIL-4",
+         "keywords": "­PC817",
+         "Id": "197"
+      },
+      {
+         "utility": "SFH 617A-3",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Optokopplare DIL-4",
+         "keywords": "SFH 617A-3",
+         "Id": "197"
+      },
+      {
+         "utility": "­PC 845",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "Optokopplare DIL-16",
+         "keywords": "­PC 845",
+         "Id": "198"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "199"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "200"
+      },
+      {
+         "utility": "­ITP",
+         "icon": "../app/img/icons/miscellaneous.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "201"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "202"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "203"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "204"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "205"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "206"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "207"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "208"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "209"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "210"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "211"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "212"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "213"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "214"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "215"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "216"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "217"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "218"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "219"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "220"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "221"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "222"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "223"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "224"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "225"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "226"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "228"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "230"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "236"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "238"
+      },
+      {
+         "utility": "­",
+         "icon": "images\\template.jpg",
+         "description": "",
+         "keywords": "",
+         "Id": "240"
+      }
+   ]
 ]
