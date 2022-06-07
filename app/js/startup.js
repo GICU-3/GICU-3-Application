@@ -11,67 +11,66 @@
  * @docmodifier Emil Lindén
  */
 function startup() {
-  //savestate darkmode
-  const themeSwitch = document.querySelector('#switchDarkmode');
-  console.log(localStorage.getItem('theme'));
-  if (localStorage.getItem('theme') == 'dark') {
-    console.log("logged darkmode from memory");
-    document.body.classList.toggle('dark-theme');
-    themeSwitch.checked = true;
-  }
-  themeSwitch.addEventListener('change', () => {
-    document.body.classList.toggle('dark-theme');
-    console.log(checkedValueDarkmode);
-    if (checkedValueDarkmode) {
-      localStorage.setItem('theme', 'dark'); //localStorage
-      console.log("logged dark");
-    } else {
-      localStorage.setItem('theme', 'light');
-      console.log("logged light");
+    //savestate darkmode
+    const themeSwitch = document.querySelector('#switchDarkmode');
+    console.log(localStorage.getItem('theme'));
+    if (localStorage.getItem('theme') == 'dark') {
+        console.log("logged darkmode from memory");
+        document.body.classList.toggle('dark-theme');
+        themeSwitch.checked = true;
     }
-  });
-  //savestate loading screen
-  const lsSwitch = document.querySelector('#switchLoadingscreen');
-  if(localStorage.getItem('loadingscreen') == 'active') {
-    lsSwitch.checked = true;
-  }
-  lsSwitch.addEventListener('change', () => {
-    console.log(checkedValueLoadingscreen);
-    if (checkedValueLoadingscreen) {
-      localStorage.setItem('loadingscreen', 'active'); //localStorage
-      console.log("logged active ls");
-    } else {
-      localStorage.setItem('loadingscreen', 'inactive');
-      console.log("logged inactive ls");
+    themeSwitch.addEventListener('change', () => {
+        document.body.classList.toggle('dark-theme');
+        console.log(checkedValueDarkmode);
+        if (checkedValueDarkmode) {
+            localStorage.setItem('theme', 'dark'); //localStorage
+            console.log("logged dark");
+        } else {
+            localStorage.setItem('theme', 'light');
+            console.log("logged light");
+        }
+    });
+    //savestate loading screen
+    const lsSwitch = document.querySelector('#switchLoadingscreen');
+    if (localStorage.getItem('loadingscreen') == 'active') {
+        lsSwitch.checked = true;
     }
-  });
+    lsSwitch.addEventListener('change', () => {
+        console.log(checkedValueLoadingscreen);
+        if (checkedValueLoadingscreen) {
+            localStorage.setItem('loadingscreen', 'active'); //localStorage
+            console.log("logged active ls");
+        } else {
+            localStorage.setItem('loadingscreen', 'inactive');
+            console.log("logged inactive ls");
+        }
+    });
 
-// Part 2
+    // Part 2
 
-  if (localStorage.getItem('loadingscreen') == 'active') {
-    document.getElementById("loadingscreen").style.display = "block";
-    setTimeout(() => {
-      document.getElementById("loadingscreentext1").style.opacity = "0%";
-      document.getElementById("loadingscreentext2").style.opacity = "100%";
-    }, 500);
-    setTimeout(() => {
-      document.getElementById("loadingscreentext2").style.opacity = "0%";
-      document.getElementById("loadingscreentext3").style.opacity = "100%";
-    }, 1000);
-    setTimeout(() => {
-      document.getElementById("loadingscreentext3").style.opacity = "0%";
-      document.getElementById("loadingscreentext4").style.opacity = "100%";
-    }, 1500);
-    setTimeout(() => {
-      document.getElementById("loadingscreentext4").style.opacity = "0%";
-      document.getElementById("navbar").style.display = "flex";
-      document.getElementById("bodySection").style.display = "flex";
-      document.getElementById("loadingscreen").style.display = "none";
-    }, 2000);
-  }
-  else {
-    document.getElementById("navbar").style.display = "flex";
-    document.getElementById("bodySection").style.display = "flex";
-  }
-  
+    if (localStorage.getItem('loadingscreen') == 'active') {
+        document.getElementById("loadingscreen").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("loadingscreentext1").style.opacity = "0%";
+            document.getElementById("loadingscreentext2").style.opacity = "100%";
+        }, 500);
+        setTimeout(() => {
+            document.getElementById("loadingscreentext2").style.opacity = "0%";
+            document.getElementById("loadingscreentext3").style.opacity = "100%";
+        }, 1000);
+        setTimeout(() => {
+            document.getElementById("loadingscreentext3").style.opacity = "0%";
+            document.getElementById("loadingscreentext4").style.opacity = "100%";
+        }, 1500);
+        setTimeout(() => {
+            document.getElementById("loadingscreentext4").style.opacity = "0%";
+            document.getElementById("navbar").style.display = "flex";
+            document.getElementById("bodySection").style.display = "flex";
+            document.getElementById("loadingscreen").style.display = "none";
+        }, 2000);
+    } else {
+        document.getElementById("navbar").style.display = "flex";
+        document.getElementById("bodySection").style.display = "flex";
+    }
+
 }

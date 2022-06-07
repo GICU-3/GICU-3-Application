@@ -1,7 +1,19 @@
 const Fuse = require('fuse.js')
 const fs = require('fs');
-const { runInContext } = require('vm'); //! VS Code flags this as unused? it this true?
-const { DefaultDeserializer } = require('v8'); //! VS Code flags this as unused? it this true?
+var dgram = require('dgram');
+//const { runInContext } = require('vm'); //! VS Code flags this as unused? it this true?
+//const { DefaultDeserializer } = require('v8'); //! VS Code flags this as unused? it this true?
+//const console = require('console');
+/**  Function to send data to pcb
+ * var dgram = require('dgram');
+ * // Create a udp socket client object
+ *  var client = dgram.createSocket("udp4");
+ * // Set command line input character encoding to utf-8
+ *  process.stdin.setEncoding('utf-8');
+ * // message variable to send
+ * var message = "MESSAGE";
+ * client.send(message, 0, message.length, 8089, "192.168.1.7");
+ */
 
 /**
  * The sleep function takes a number of milliseconds as its argument, and returns a promise that resolves after the given duration.
@@ -15,7 +27,7 @@ function sleep(ms) {
         setTimeout(resolve, ms);
     });
 }
-document.getElementById("search").focus();
+document.getElementById("search").blur();
 document.getElementById("search").onkeyup = function() {
 
     if (document.getElementById("search").value.length > 0) {
@@ -24,7 +36,7 @@ document.getElementById("search").onkeyup = function() {
         document.getElementById("searchResult").style.display = "block";
     } else {
         var list = document.getElementsByClassName("aaaa")
-        console.log("test")
+
         while (list.length > 0) {
             list[0].parentNode.removeChild(list[0])
         }
@@ -34,14 +46,13 @@ document.getElementById("search").onkeyup = function() {
 
 };
 
-document.getElementById("search").onfocus = async function() {
-
+document.getElementById("search").onfocus = function() {
+    var list = document.getElementsByClassName("componentCard")
     if (document.getElementById("search").value.length > 0) {
         fuseSearch();
 
         document.getElementById("searchResult").style.display = "block";
     } else {
-        var list = document.getElementsByClassName("aaaa")
 
         while (list.length > 0) {
             list[0].parentNode.removeChild(list[0])
@@ -50,25 +61,21 @@ document.getElementById("search").onfocus = async function() {
     }
 };
 
-document.getElementById("search").onblur = async function() {
-    await sleep(100);
+document.getElementById("search").onblur = function() {
 
-    var search_elements = document.getElementById("searchResult")
-
-    //hom();
     document.getElementById("searchResult").style.display = "block";
     if (document.getElementById("search").value == 0) {
         document.getElementById("searchResult").style.display = "none";
 
         document.addEventListener("keypress", function(e) {
             document.getElementById("search").focus();
-
         })
+        var list = document.getElementsByClassName("componentCard")
 
+        while (list.length > 0) {
+            list[0].parentNode.removeChild(list[0])
+        }
     }
-
-
-
 };
 
 /**
@@ -83,24 +90,25 @@ function fuseSearch() {
     var books = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
     var output = [];
 
-    books.forEach(function(o, i) {
+    books.forEach(function(o) {
 
         // 2. Set up the Fuse instance
 
-        const fuse = new Fuse(books[i], {
+        var fuse = new Fuse(o, {
             threshold: 0.3,
             shouldSort: true,
             keys: ['utility', 'keywords', 'description']
+
         })
         var afterbook = {};
         // 3. Now search!
 
         afterbook = fuse.search(document.getElementById("search").value)
 
-
+        console.log(output.length)
         output = output.concat(afterbook)
-
     });
+
     summonBar(output);
     add();
 
@@ -116,7 +124,7 @@ function fuseSearch() {
 function summonBar(inputJson) {
     document.getElementById("searchResult").innerHTML = "";
     inputJson.forEach(function(obj, i) {
-
+        if (i > 15) return false;
         let newDiv = document.createElement("div");
         let componentCard = document.createElement("div");
         let componentCardDescription = document.createElement("div");
@@ -156,20 +164,13 @@ function summonBar(inputJson) {
         var class_id = document.getElementsByClassName('componentCard');
         class_id[i].id = obj.item.Id; //Assigns an ID to every searchable element
 
-        var element_id = document.getElementById(class_id[i].id);
+        var element_id = document.getElementById(obj.item.Id);
 
-        element_id.addEventListener("click", sayhello); //säger vilket id div tillhör
-
-        var del_history = document.getElementById("removeHistory");
-        del_history.addEventListener("click", removebutton);
-
-        /**
-         * The sayhello function says hello to the world.
-         * 
-         * @return A div with the text &quot;hello world!&quot;
-         * @docauthor Trelent
-         */
-        function sayhello() {
+        element_id.addEventListener("click", function sayhello() {
+            var client = dgram.createSocket("udp4");
+            process.stdin.setEncoding('utf-8');
+            var message = "pixel(";
+            // message variable to send
             var selected = document.querySelectorAll(".chosen");
             let r = document.createElement("div");
             let image = document.createElement("img");
@@ -178,18 +179,20 @@ function summonBar(inputJson) {
             document.querySelector("#searchHistoryContainer").appendChild(r);
             r.innerHTML = obj.item.utility;
             r.id = "chosen" + obj.item.Id;
-            selected.forEach(function(div, _e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
-                var a = document.getElementsByClassName("chosen")
-                var b = document.getElementById(div.id)
-                console.log(div.id);
-                console.log(r.id);
-                if (r.id == div.id) {
-                    try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()   
-                }
-            })
             searchHistoryContainer.appendChild(r);
             r.appendChild(image);
+            selected.forEach(function(div, e) {
+                var a = document.getElementsByClassName("chosen")
+                var b = document.getElementById(div.id)
+                r.id = "chosen" + obj.item.Id;
+                if (r.id == div.id) {
+                    try { b.parentNode.removeChild(b) } catch {}; //ignores an error
+                    try { document.getElementById("alerts-container").innerHTML = "" } catch {};
+                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()  
+                }
+            })
+            message = message + ("" + (obj.item.Id - 1) + ",0xFFFFFF)")
+            client.send(message, 0, message.length, 8089, "192.168.1.7");
             add();
 
             /**
@@ -199,22 +202,40 @@ function summonBar(inputJson) {
              * @docauthor Simon Hellsing, Emil Lindén
              * @docmodifier Emil Lindén
              */
-        }
+        }); //säger vilket id div tillhör
 
-        function removebutton() {
+        var del_history = document.getElementById("removeHistory");
+        del_history.onclick = function removebutton() {
+            var client = dgram.createSocket("udp4");
+            process.stdin.setEncoding('utf-8');
             var selected = document.querySelectorAll(".chosen");
             var placeholder = 0;
-            selected.forEach(function(_div, e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
+            var message = "clear()"
+            selected.forEach(function(div, _e) { //*'_' is used to inform future readers that the parameter isn't used. This is according to convention.
                 var a = document.getElementsByClassName("chosen")
-                var b = document.getElementById(a[e].id);
+                var b = document.getElementById(div.id);
                 try { b.parentNode.removeChild(b) } catch {};
                 placeholder++;
             })
             if (placeholder > 0) {
                 showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
+
             }
+            client.send(message, 0, message.length, 8089, "192.168.1.7");
+
         }
-        console.log(obj.item.utility)
+
+        /**
+         * The sayhello function says hello to the world.
+         * 
+         * @return A div with the text &quot;hello world!&quot;
+         * @docauthor Trelent
+         */
+
+
+
+        //console.log(obj.item.utility)
+
     });
 }
 
@@ -266,17 +287,23 @@ function showAlert(message, type, closeDelay) {
  * @docauthor Trelent
  */
 function add() {
+    var client = dgram.createSocket("udp4");
+    process.stdin.setEncoding('utf-8');
     var selected = document.querySelectorAll(".chosen");
 
     selected.forEach(function(_div, i) {
         var a = document.getElementsByClassName("chosen")
         var b = document.getElementById(a[i].id)
             //let parent = document.querySelector(".chosen");
-        b.addEventListener("click", remove);
-        console.log(selected[i]);
-
-        function remove() {
+        b.onclick = function remove() {
+            var message = "pixel(";
+            var remove_id = a[i].id.replace(/^\D+/g, ''); // replace all leading non-digits with nothing
             try { b.parentNode.removeChild(b) } catch {};
+            message = message + ("" + (remove_id - 1) + ",0x000000)")
+            client.send(message, 0, message.length, 8089, "192.168.1.7");
+            add()
         }
+
+
     })
 }

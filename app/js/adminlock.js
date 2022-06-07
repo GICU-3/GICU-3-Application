@@ -1,6 +1,6 @@
 var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 var admin_key = new Gpio(4, 'in'); //use GPIO pin 4, and specify that it is output
-var lock_checkstatus = setInterval(admin_panel, 250); //use clearInterval(lock_checkstatus) if you want to stop the checking for some reason
+setInterval(admin_panel, 250); //use clearInterval(lock_checkstatus) if you want to stop the checking for some reason
 
 /**
  * The admin_panel function is used to display the admin panel when the pin is turned on.
@@ -13,5 +13,10 @@ function admin_panel() { //TODO rename to adminPanel()
         document.getElementById("admin").style.display = "block";
     } else {
         document.getElementById("admin").style.display = "none";
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && e.keyCode == 82) { //Ctrl+r will also be disabled.
+                return false;
+            }
+        };
     }
 }

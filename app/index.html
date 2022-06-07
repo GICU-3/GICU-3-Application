@@ -78,7 +78,7 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <a class="home" id="home" onclick="home()" href="#"><img id="homeimg" src="./img/home.svg" /></a>
-            <a class="labbar" id="labbar" onclick="labbar()" href="#"><img id="bookimg" src="./img/book.svg" /></a>
+            <!--<a class="labbar" id="labbar" onclick="labbar()" href="#"><img id="bookimg" src="./img/book.svg" /></a> Labbar commented away, feature not done --> 
             <a class="inställningar" id="inställningar" data-toggle="modal" data-target="#myModal"><img id="gearimg" src="./img/gear.svg" /></a>
             <a class="admin" id="admin" onclick="admin()" href="#"><img id="engineerimg" src="./img/engineer.svg" /></a>
         </div>
@@ -86,27 +86,29 @@
 
     <!-- BOOTSTRAP MODAL -->
     <div class="modal-container">
-
+    
         <!-- The Modal -->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-
+    
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Settings</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-
+    
                     <!-- Modal body -->
                     <div class="modal-body">
                         <!-- Default switch -->
                         <div class="custom-control custom-switch settingsPadding">
-                            <input type="checkbox" class="custom-control-input" id="switchDarkmode" onchange="checkedValueDarkmode=this.checked">
+                            <input type="checkbox" class="custom-control-input" id="switchDarkmode"
+                                onchange="checkedValueDarkmode=this.checked">
                             <label class="custom-control-label settingsControlLabel" for="switchDarkmode">Darkmode</label>
                         </div>
                         <div class="custom-control custom-switch settingsPadding">
-                            <input type="checkbox" class="custom-control-input" id="switchLoadingscreen" onchange="checkedValueLoadingscreen=this.checked">
+                            <input type="checkbox" class="custom-control-input" id="switchLoadingscreen"
+                                onchange="checkedValueLoadingscreen=this.checked">
                             <label class="custom-control-label" for="switchLoadingscreen">Joelpe loading screen</label>
                         </div>
                     </div>
@@ -128,15 +130,15 @@
                 <button id="removeHistory" class="removeHistory">Clear Searches</button>
             </div>
         </section>
-
+    
         <div id="admin_s"></div>
         <div id="data"></div>
         <div id="selected_cabinet"></div>
         <div id="labbarInterface" class="labbarInterface">
-            <!-- ALERT DIV -->
-            <div id="alert"></div>
         </div>
-
+        <!-- ALERT DIV -->
+         <div id="alert"></div>
+    </div>
 </body>
 
 </html>

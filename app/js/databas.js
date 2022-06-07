@@ -56,7 +56,7 @@ function remove_change() {
 
 function drag() {
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-    var imgId = 'test'
+    var imgId;
     var dropZoneId = ''
 
     function allowDrop(ev) {
@@ -76,7 +76,7 @@ function drag() {
             tem_div.innerHTML = imgId.innerHTML
             tem_div.style.display = "flex"
             tem_div.style.backgroundColor = "var(--backgroundTheme)";
-            tem_div.style.color = "var(--textTheme)"
+            tem_div.style.color = "var(--text)"
             tem_div.style.borderRadius = "5px";
             tem_div.style.width = "" + e.target.parentNode.offsetWidth + "px"
             tem_div.style.justifyContent = "space-evenly"
@@ -98,7 +98,7 @@ function drag() {
             tem_div.innerHTML = imgId.innerHTML
             tem_div.style.display = "flex"
             tem_div.style.backgroundColor = "var(--backgroundTheme)";
-            tem_div.style.color = "var(--textTheme)"
+            tem_div.style.color = "var(--text)"
             tem_div.style.borderRadius = "5px";
             tem_div.style.width = "" + e.target.offsetWidth + "px"
             tem_div.style.justifyContent = "space-evenly"
@@ -119,8 +119,9 @@ function drag() {
         // on touch move or dragging, we get the newly created image element
         let image = document.getElementById('image-float')
             // this will give us the dragging feeling of the element while actually it's a different element
-        var try_id = "" + Number(imgId.id)
+        var try_id = "" + Number(e.target.id)
         if (try_id != "NaN") {
+            console.log("out")
             let left = (e.touches[0].pageX - (e.target.parentNode.offsetWidth / 2));
             let top = (e.touches[0].pageY - (e.target.parentNode.offsetHeight / 2));
             image.style.left = left + 'px';
@@ -129,8 +130,9 @@ function drag() {
             let touchY = e.touches[0].pageY - (e.target.parentNode.offsetHeight / 2)
             dragTouchenter(e, touchX, touchY)
         } else {
+            console.log("in")
             let left = (e.touches[0].pageX - (e.target.offsetWidth / 2));
-            let top = e.touches[0].pageY - (e.target.offsetHeight / 2);
+            let top = (e.touches[0].pageY - (e.target.offsetHeight / 2));
             image.style.left = left + 'px';
             image.style.top = top + 'px';
             let touchX = e.touches[0].pageX - (e.target.offsetWidth / 2)

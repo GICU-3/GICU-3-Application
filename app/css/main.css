@@ -34,6 +34,7 @@
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   background-image: url("../img/light-background.jpg");
   background-size: cover;
@@ -187,6 +188,10 @@ body .navbar .container img {
           filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
 }
 
+body .navbar .container .admin {
+  display: none;
+}
+
 body #homeimg {
   -webkit-filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
           filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(91%) contrast(90%);
@@ -259,11 +264,12 @@ body .bodySection .searchbar #searchResult {
   background: none;
   height: 360px;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 body .bodySection .searchbar #searchResult .componentCard {
   margin: 15px;
-  width: auto;
+  width: 512px;
   height: 127px;
   background: var(--backgroundBlur);
   -webkit-box-shadow: -4px 4px 3px var(--backgroundBlur);
@@ -474,6 +480,7 @@ body #navigation_database_con #navigation_database_2 #navigation_database_undo {
 body #admin_s {
   background-color: rgba(45, 45, 45, 0.5);
   display: none;
+  overflow: hidden;
   -ms-grid-rows: 40px 40px;
       grid-template-rows: 40px 40px;
   grid-auto-flow: column;

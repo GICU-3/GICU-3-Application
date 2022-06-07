@@ -36,17 +36,17 @@
          "Id": "5"
       },
       {
-         "utility": "­27 ohm",
-         "icon": "../app/img/icons/resistor.jpg",
-         "description": "27 ohm resistor",
-         "keywords": "27 ohm",
-         "Id": "6"
-      },
-      {
          "utility": "­33 ohm",
          "icon": "../app/img/icons/resistor.jpg",
          "description": "33 ohm resistor",
          "keywords": "­33 ohm",
+         "Id": "6"
+      },
+      {
+         "utility": "­27 ohm",
+         "icon": "../app/img/icons/resistor.jpg",
+         "description": "27 ohm resistor",
+         "keywords": "27 ohm",
          "Id": "7"
       },
       {
