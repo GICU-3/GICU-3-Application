@@ -87,7 +87,6 @@ function drag() {
             tem_div.style.opacity = 1;
             e.target.parentNode.style.opacity = 0.5;
 
-
             document.body.appendChild(tem_div);
         } else {
             console.log("problem")
@@ -112,7 +111,6 @@ function drag() {
             document.body.appendChild(tem_div);
         }
         // position the image to the touch, can be improve to detect the position of touch inside the image
-
     }
 
     function dragTouchmove(e) {
@@ -139,9 +137,7 @@ function drag() {
             let touchY = e.touches[0].pageY - (e.target.offsetHeight / 2)
             dragTouchenter(e, touchX, touchY)
         }
-
         //apply touch enter fucntion inside touch move
-
     }
     var get = [];
     var statement = true
@@ -160,7 +156,6 @@ function drag() {
                 }
             }
         })
-
     }
 
     function dragTouchend(e) {
@@ -233,22 +228,16 @@ function drag() {
                 dropZoneId = ''
                 imgId = ''
                 try_id = null
-
             }
         }
-
-
     }
 
     function dragEnter(ev) {
         var element = document.getElementById(ev.target.id);
-        /* element.style.border = "dotted";
-         element.style.borderColor = "#0b79d0";*/
     }
 
     function dragLeave(ev) {
         var element = document.getElementById(ev.target.id);
-        //element.style.border = "1px solid #0b79d0";
     }
 
     function dragStart(ev) {
@@ -261,11 +250,6 @@ function drag() {
         ev.preventDefault();
         var src = document.getElementById(ev.dataTransfer.getData("src"));
 
-        /* var srcParent = src.childNodes;
-         var tgt = ev.currentTarget.childNodes;
-         console.log(tgt, srcParent)
-         ev.currentTarget.replaceChild(srcParent, tgt);
-         src.appendChild(tgt);*/
         var temp_id = [];
         for (let i = src.childNodes.length; i > 0; i--) {
             console.log(i)
@@ -314,7 +298,6 @@ function drag() {
         change_databas(z);
         temp_id = ''
     }
-
 
     let items = document.querySelectorAll('.components');
     items.forEach(function(item) {
@@ -404,7 +387,6 @@ function drag_cabinets() {
             dragSrcEl.innerHTML = this.innerHTML;
             this.innerHTML = e.dataTransfer.getData('text/html');
         }
-
         return false;
     }
 
@@ -416,13 +398,9 @@ function drag_cabinets() {
             item.classList.remove('over');
         });
 
-
         fs.writeFileSync(fil, JSON.stringify(database, null, 3))
         fs.writeFileSync(test, JSON.stringify(layout, null, 3))
-
-
     }
-
 
     let items = document.querySelectorAll('.skop');
     items.forEach(function(item) {
@@ -434,8 +412,6 @@ function drag_cabinets() {
         item.addEventListener('drop', handleDrop, false);
         item.addEventListener('dragend', handleDragEnd, false);
     });
-
-
 }
 
 function add_element(q) {
@@ -503,29 +479,24 @@ function add_element(q) {
         if (layout[0][q] == 3) { display_layout3(obj, w, standard_partern_layout, diffrent_partern_layout, diffrent_partern_layout2); }
     })
     change_databas(q);
-    window.onclick = function(event) {
-            if (event.target == navigation_database_arrow) {
-                var check_save_undo = document.getElementById("navigation_database_save").style.display;
-                console.log(check_save_undo)
-                if (check_save_undo == "") {
-                    navigation_database_con.parentNode.removeChild(navigation_database_con)
-                    remove_element();
-                    add_containers();
-                    document.querySelector(".navbar").style.display = "flex";
-                    document.getElementById("admin_s").style.display = "grid";
-                } else { showAlert_db("Vad fan gör du? Spara databasen!", "warning", 5000); }
-            }
+    window.onclick = function (event) {
+        if (event.target == navigation_database_arrow) {
+            var check_save_undo = document.getElementById("navigation_database_save").style.display;
+            console.log(check_save_undo)
+            if (check_save_undo == "") {
+                navigation_database_con.parentNode.removeChild(navigation_database_con)
+                remove_element();
+                add_containers();
+                document.querySelector(".navbar").style.display = "flex";
+                document.getElementById("admin_s").style.display = "grid";
+            } else { showAlert_db("Vad fan gör du? Spara databasen!", "warning", 5000); }
         }
-        /*console.log(undo_database, database)
-        if (database == undo_database) {
-            console.log("Change has been made")
-        }*/
+    }
 }
 
 function add_containers() {
     layout = JSON.parse(fs.readFileSync(test, 'utf8'));
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
-
 
     database.forEach(function(array, q) {
         let skop = document.createElement("div");
@@ -538,7 +509,6 @@ function add_containers() {
         there_is_skop = true;
         skop.draggable = true;
         drag_cabinets();
-
 
         document.getElementById(cl[q].id).addEventListener("click", select_cabinet)
 
@@ -577,8 +547,6 @@ function add_containers() {
                     showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000);
                 }
             }
-
-
             document.getElementById("select_cabinet_open_button").onclick = function() {
                 document.getElementById("admin_s").innerHTML = "";
                 document.getElementById("selected_cabinet").innerHTML = "";
@@ -613,15 +581,12 @@ function add_containers() {
             }
             drag_cabinets();
         }
-
         function chose() {
             undo_database = JSON.parse(fs.readFileSync(fil, 'utf8'));
             add_element(q);
             drag();
         }
-
         amout_of_cabinet = q;
-
     })
 
     let new_skop = document.createElement("div");
@@ -630,7 +595,6 @@ function add_containers() {
     document.querySelector("#admin_s").appendChild(new_skop);
     var cl = document.getElementsByClassName('new_cabinet');
     document.getElementById("new_cabinet").innerHTML = "New cabinet"
-
 
     let cabinet_name = document.createElement("input")
     cabinet_name.id = "cabinet_name"
@@ -662,8 +626,6 @@ function add_containers() {
     placeholder_layout_3.style.borderRadius = "5px";
     placeholder_layout_3.style.marginLeft = "5px"
 
-
-
     document.querySelector("#admin_s").appendChild(placeholder_select_layout_background);
     placeholder_select_layout_background.appendChild(placeholder_select_layout);
     placeholder_select_layout.appendChild(cabinet_name);
@@ -675,7 +637,6 @@ function add_containers() {
 
     function new_cabinet() {
         placeholder_select_layout_background.style.display = "block";
-        //document.getElementById("selected_cabinet").innerHTML = "";
         if (localStorage.getItem('theme') == 'dark') {
             placeholder_layout_1.style.filter = "invert(100%)"
             placeholder_layout_2.style.filter = "invert(100%)"
@@ -710,9 +671,7 @@ function add_containers() {
                     layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
                     var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
                 }
-
                 fs.writeFileSync(test, JSON.stringify(layout, null, 3));
-
                 database.forEach(function(obj, i) {
                     arr[i] = database[i]
                     database[i].forEach(function(object, x) {
@@ -732,17 +691,11 @@ function add_containers() {
                         "favourite": "false",
                         "number": "1",
                         "Id": ""
-
                     }
-
-
                     newID = (((amout_of_cabinet + 1) * 60) + 1) + i;
                     latest_id = newID
-
-
                     arr[amout_of_cabinet + 1][i].Id = "" + newID;
                     arr[amout_of_cabinet + 1][i].utility = "­";
-
                     fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
                 }
                 message = message + latest_id + ")";
@@ -750,10 +703,7 @@ function add_containers() {
                 client.send(message, 0, message.length, 8089, "0.0.0.0");
                 document.getElementById("select_layout").innerHTML = "";
                 document.getElementById("admin_s").innerHTML = "";
-
-                //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
                 add_containers();
-
             }
         }
         document.getElementById("layout_2").onclick = function() {
@@ -773,9 +723,7 @@ function add_containers() {
                     layout[1][amout_of_cabinet + 1] = document.getElementById("cabinet_name").value;
                     var arr = Array.from(Array(amout_of_cabinet + 2), () => new Array());
                 }
-
                 fs.writeFileSync(test, JSON.stringify(layout, null, 3));
-
                 database.forEach(function(obj, i) {
                     arr[i] = database[i]
                     database[i].forEach(function(object, x) {
@@ -784,9 +732,7 @@ function add_containers() {
                 })
                                 
                 var first_change = ((amout_of_cabinet + 2) * 60) - 30;
-
                 var second_change = ((amout_of_cabinet + 2) * 60) - 10;
-
                 var latest_id = ((amout_of_cabinet + 1) * 60);
 
                 
@@ -799,7 +745,6 @@ function add_containers() {
                         "favourite": "false",
                         "number": "1",
                         "Id": ""
-
                     }
 
                     if (latest_id < first_change) {
@@ -832,7 +777,6 @@ function add_containers() {
                 document.getElementById("admin_s").innerHTML = "";
                 //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
                 add_containers();
-
             }
         }
         document.getElementById("layout_3").onclick = function() {
@@ -1032,7 +976,6 @@ function change_databas(q) {
                             document.getElementById(input_key.id).value = database[q][g].keywords;
                         }
                     }
-
 
                     chose_image.id = "chose_image"
                     let images = [{

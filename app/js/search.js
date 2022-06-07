@@ -253,10 +253,15 @@ function summonBar(inputJson) {
                 showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
 
             }
+<<<<<<< HEAD
+            client.send(message, 0, message.length, 8089, "192.168.1.7");
+        }
+=======
             client.send(message, 0, message.length, 8089, "0.0.0.0");
 
         }
 
+>>>>>>> feature/database-fix
     });
 }
 
@@ -325,7 +330,22 @@ function remove_component() {
                 }
             })
 
+<<<<<<< HEAD
+    selected.forEach(function(_div, i) {
+        var a = document.getElementsByClassName("chosen")
+        var b = document.getElementById(a[i].id)
+            //let parent = document.querySelector(".chosen");
+        b.onclick = function remove() {
+            var message = "pixel(";
+            var remove_id = a[i].id.replace(/^\D+/g, ''); // replace all leading non-digits with nothing
+            try { b.parentNode.removeChild(b) } catch {};
+            message = message + ("" + (remove_id - 1) + ",0x000000)")
+            client.send(message, 0, message.length, 8089, "192.168.1.7");
+            add()
+        }
+=======
         })
+>>>>>>> feature/database-fix
     })
 
 }
