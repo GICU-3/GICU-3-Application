@@ -139,7 +139,7 @@ body {
                 filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(157deg) brightness(100%) contrast(100%);
             }
             .admin {
-                display: none;
+                display: block;
             }
         }
     }

@@ -189,7 +189,7 @@ body .navbar .container img {
 }
 
 body .navbar .container .admin {
-  display: none;
+  display: block;
 }
 
 body #homeimg {
