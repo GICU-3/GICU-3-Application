@@ -222,20 +222,7 @@ function summonBar(inputJson) {
 
             }
             client.send(message, 0, message.length, 8089, "192.168.1.7");
-
         }
-
-        /**
-         * The sayhello function says hello to the world.
-         * 
-         * @return A div with the text &quot;hello world!&quot;
-         * @docauthor Trelent
-         */
-
-
-
-        //console.log(obj.item.utility)
-
     });
 }
 
@@ -303,7 +290,5 @@ function add() {
             client.send(message, 0, message.length, 8089, "192.168.1.7");
             add()
         }
-
-
     })
 }
