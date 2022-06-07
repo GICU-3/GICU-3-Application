@@ -79,3 +79,10 @@ function loadingscreen() {
         document.getElementById("loadingscreen").style.display = "none";
     }, 2000);
 }
+document.getElementById("activation").onclick = function() {
+    document.getElementById("activation").onclick = function() {
+        document.getElementById("activation").onclick = function() {
+            // function
+        }
+    }
+}
