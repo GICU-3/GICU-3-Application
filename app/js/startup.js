@@ -57,6 +57,12 @@ function startup() {
 
 }
 
+/**
+ * The loadingscreen function is used to display a loading screen while the application is being loaded.
+ * @return The loading screen
+ *
+ * @docauthor Trelent
+ */
 function loadingscreen() {
     document.getElementById("loadingscreen").style.display = "block";
     document.getElementById("loadingscreen").style.zIndex = "1";
@@ -78,4 +84,16 @@ function loadingscreen() {
         document.getElementById("bodySection").style.display = "flex";
         document.getElementById("loadingscreen").style.display = "none";
     }, 2000);
+}
+
+function neverGonnaGiveYouUp(){
+//never gonna let you down
+var nggyu = document.createElement("div")
+nggyu.id="nevergonnegiveyouup"
+document.body.appendChild(nggyu)
+document.getElementById("nevergonnagiveyouup").style.display = "block";
+document.getElementById("nevergonnagiveyouup").style.zIndex = "1";
+
+
+
 }

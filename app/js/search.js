@@ -44,8 +44,6 @@ document.getElementById("search").onkeyup = function() {
         }
         document.getElementById("searchResult").style.display = "none";
     }
-
-
 };
 
 document.getElementById("search").onfocus = async function() {

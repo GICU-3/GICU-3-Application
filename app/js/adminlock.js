@@ -12,7 +12,7 @@ setInterval(admin_panel, 1000); //use clearInterval(lock_checkstatus) if you wan
  * @return The state of the pin, if it is on or off
  * @docauthor Trelent, Simon
  */
-function admin_panel() { //TODO rename to adminPanel()
+function admin_panel() { //TODO rename to adminPanel(). MUST BE CHANGED IN A SHITTONNE OF PLACES, DO IT BUT BE CAREFUL /Warm regards, Emil
     client.send(admin_function, 0, admin_function.length, 8091, "0.0.0.0");
     console.log(admin_lock_value)
     if (admin_lock_value == '1') { //check the pin state, if the state is 0 (or off)
@@ -23,9 +23,6 @@ function admin_panel() { //TODO rename to adminPanel()
             document.querySelector(".navbar").style.display = "block";
             try {navigation_database_con.parentNode.removeChild(navigation_database_con)} catch{}
         document.onkeydown = function(e) {
-           /* if (e.ctrlKey && e.keyCode == 82) { //Ctrl+r will also be disabled.
-                return false;
-            };*/
         };
     }
 }
