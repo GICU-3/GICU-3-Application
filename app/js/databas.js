@@ -86,7 +86,7 @@ function drag() {
             tem_div.style.top = top + 'px';
             tem_div.style.opacity = 1;
             e.target.parentNode.style.opacity = 0.5;
-            
+
             document.body.appendChild(tem_div);
         } else {
             console.log("problem")
@@ -499,7 +499,6 @@ function add_containers() {
     var database = JSON.parse(fs.readFileSync(fil, 'utf8'));
 
     database.forEach(function(array, q) {
-
         let skop = document.createElement("div");
         skop.className = "skop";
         document.querySelector("#admin_s").appendChild(skop);
@@ -553,24 +552,32 @@ function add_containers() {
                 document.getElementById("selected_cabinet").innerHTML = "";
                 chose();
             }
-            document.getElementById("select_cabinet_remove").onclick = function() {
-                database.splice(q, 1);
-                layout[0].splice(q, 1)
-                layout[1].splice(q, 1);
+            document.getElementById("select_cabinet_remove").onclick = function () {
+                showAlert_db("Press Remove to confirm", "warning", 5000);
+                document.getElementById("select_cabinet_remove").onclick = function () {
+                    var message = "settings(pixel_count,";
+                    database.splice(q, 1);
+                    layout[0].splice(q, 1)
+                    layout[1].splice(q, 1);
 
-                fs.writeFileSync(test, JSON.stringify(layout, null, 3));
-                database.forEach(function(obj, i) {
-                    if (i >= q) {
+                    fs.writeFileSync(test, JSON.stringify(layout, null, 3));
+                    database.forEach(function (obj, i) {
+                        if (i >= q) {
 
-                        database[i].forEach(function(element, x) {
-                            element.Id = "" + (Number(element.Id) - 60)
-                        })
-                    }
-                })
-                fs.writeFileSync(fil, JSON.stringify(database, null, 3));
-                document.getElementById("selected_cabinet").innerHTML = "";
-                document.getElementById("admin_s").innerHTML = "";
-                add_containers();
+                            database[i].forEach(function (element, x) {
+                                element.Id = "" + (Number(element.Id) - 60)
+                            })
+                        }
+                    })
+                    
+                    document.getElementById("selected_cabinet").innerHTML = "";
+                    document.getElementById("admin_s").innerHTML = "";
+                    message = message + (database.length) * 60 + ")";
+                    console.log(message);
+                    client.send(message, 0, message.length, 8089, "0.0.0.0");
+                    fs.writeFileSync(fil, JSON.stringify(database, null, 3));
+                    add_containers();
+                }
             }
             drag_cabinets();
         }
@@ -649,7 +656,10 @@ function add_containers() {
 
         document.getElementById("layout_1").onclick = function() {
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+            var message = "settings(pixel_count,";
+            var newID;
             if (document.getElementById("cabinet_name").value == "") { showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000); } else {
+                
                 if (amout_of_cabinet == 0) {
                     layout[0][amout_of_cabinet] = 1;
                     layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
@@ -668,8 +678,10 @@ function add_containers() {
                         latest_id = object.Id;
                     })
                 })
+                
                 var latest_id = ((amout_of_cabinet + 1) * 60);
-                var newID;
+
+                
                 for (let i = 0; i < 60; i++) {
                     arr[amout_of_cabinet + 1][i] = {
                         "utility": "",
@@ -686,6 +698,9 @@ function add_containers() {
                     arr[amout_of_cabinet + 1][i].utility = "­";
                     fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
                 }
+                message = message + latest_id + ")";
+                console.log(message);
+                client.send(message, 0, message.length, 8089, "0.0.0.0");
                 document.getElementById("select_layout").innerHTML = "";
                 document.getElementById("admin_s").innerHTML = "";
                 add_containers();
@@ -693,7 +708,10 @@ function add_containers() {
         }
         document.getElementById("layout_2").onclick = function() {
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+            var message = "settings(pixel_count,";
+            var newID;
             if (document.getElementById("cabinet_name").value == "") { showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000); } else {
+                
                 if (amout_of_cabinet == 0) {
                     layout[0][amout_of_cabinet] = 2;
                     layout[1][amout_of_cabinet] = document.getElementById("cabinet_name").value;
@@ -712,10 +730,12 @@ function add_containers() {
                         latest_id = object.Id;
                     })
                 })
+                                
                 var first_change = ((amout_of_cabinet + 2) * 60) - 30;
                 var second_change = ((amout_of_cabinet + 2) * 60) - 10;
                 var latest_id = ((amout_of_cabinet + 1) * 60);
-                var newID;
+
+                
                 for (let i = 0; i < 40; i++) {
                     arr[amout_of_cabinet + 1][i] = {
                         "utility": "",
@@ -742,13 +762,17 @@ function add_containers() {
                         if (latest_id == ((amout_of_cabinet + 2) * 60) - 12) { newID = (Number(latest_id)) + 2; }
                         latest_id = newID
                     } else if (latest_id == second_change) { newID = (Number(latest_id)) + 8; }
-                    latest_id = newID
+                    latest_id = newID;
+                    
 
                     arr[amout_of_cabinet + 1][i].Id = "" + newID;
                     arr[amout_of_cabinet + 1][i].utility = "­";
 
                     fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
                 }
+                message = message + (latest_id+2) + ")";
+                console.log(message);
+                client.send(message, 0, message.length, 8089, "0.0.0.0");
                 document.getElementById("select_layout").innerHTML = "";
                 document.getElementById("admin_s").innerHTML = "";
                 //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));
@@ -756,8 +780,9 @@ function add_containers() {
             }
         }
         document.getElementById("layout_3").onclick = function() {
-
             layout = JSON.parse(fs.readFileSync(test, 'utf8'));
+            var message = "settings(pixel_count,";
+            var newID;
             if (document.getElementById("cabinet_name").value == "") { showAlert_db("Vad fan gör du? Ange ett namn!", "warning", 5000); } else {
                 if (amout_of_cabinet == 0) {
                     layout[0][amout_of_cabinet] = 3;
@@ -784,7 +809,6 @@ function add_containers() {
 
                 var latest_id = ((amout_of_cabinet + 1) * 60);
 
-                var newID;
                 for (let i = 0; i < 51; i++) {
                     arr[amout_of_cabinet + 1][i] = {
                         "utility": "",
@@ -817,6 +841,9 @@ function add_containers() {
 
                     fs.writeFileSync(fil, JSON.stringify(arr, null, 3));
                 }
+                message = message + latest_id + ")";
+                console.log(message);
+                client.send(message, 0, message.length, 8089, "0.0.0.0");
                 document.getElementById("select_layout").innerHTML = "";
                 document.getElementById("admin_s").innerHTML = "";
                 //document.getElementById("select_layout").parentNode.removeChild(document.getElementById("select_layout"));

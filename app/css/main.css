@@ -154,8 +154,6 @@ body .navbar {
   padding: 0.5em;
   width: 80px;
   padding-bottom: 100%;
-  -webkit-backdrop-filter: blur(5px) grayscale(30%);
-          backdrop-filter: blur(5px) grayscale(30%);
   -webkit-box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
           box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
 }
@@ -264,18 +262,14 @@ body .bodySection .searchbar #searchResult {
   background: none;
   height: 360px;
   overflow-y: auto;
-  scroll-behavior: smooth;
+  touch-action: pan-y;
 }
 
 body .bodySection .searchbar #searchResult .componentCard {
   margin: 15px;
-  width: 512px;
+  width: 460px;
   height: 127px;
   background: var(--backgroundBlur);
-  -webkit-box-shadow: -4px 4px 3px var(--backgroundBlur);
-          box-shadow: -4px 4px 3px var(--backgroundBlur);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }

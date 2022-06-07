@@ -1,6 +1,8 @@
 const Fuse = require('fuse.js')
 const fs = require('fs');
 var dgram = require('dgram');
+var statment = true;
+var multi_times = 0;
 //const { runInContext } = require('vm'); //! VS Code flags this as unused? it this true?
 //const { DefaultDeserializer } = require('v8'); //! VS Code flags this as unused? it this true?
 //const console = require('console');
@@ -12,7 +14,7 @@ var dgram = require('dgram');
  *  process.stdin.setEncoding('utf-8');
  * // message variable to send
  * var message = "MESSAGE";
- * client.send(message, 0, message.length, 8089, "192.168.1.7");
+ * client.send(message, 0, message.length, 8089, "0.0.0.0");
  */
 
 /**
@@ -46,7 +48,7 @@ document.getElementById("search").onkeyup = function() {
 
 };
 
-document.getElementById("search").onfocus = function() {
+document.getElementById("search").onfocus = async function() {
     var list = document.getElementsByClassName("componentCard")
     if (document.getElementById("search").value.length > 0) {
         fuseSearch();
@@ -67,7 +69,7 @@ document.getElementById("search").onblur = function() {
     if (document.getElementById("search").value == 0) {
         document.getElementById("searchResult").style.display = "none";
 
-        document.addEventListener("keypress", function(e) {
+        document.addEventListener("keydown", function(e) {
             document.getElementById("search").focus();
         })
         var list = document.getElementsByClassName("componentCard")
@@ -110,7 +112,7 @@ function fuseSearch() {
     });
 
     summonBar(output);
-    add();
+    remove_component();
 
 }
 
@@ -164,46 +166,71 @@ function summonBar(inputJson) {
         var class_id = document.getElementsByClassName('componentCard');
         class_id[i].id = obj.item.Id; //Assigns an ID to every searchable element
 
-        var element_id = document.getElementById(obj.item.Id);
+        const els = document.querySelectorAll('.componentCard');
+        document.querySelectorAll('.componentCard').forEach(function(item) {
+            item.onclick = function() {
+                searchHistory(this.id);
+            }
+        })
 
-        element_id.addEventListener("click", function sayhello() {
+
+        function searchHistory(ID) {
+
+            var database = JSON.parse(fs.readFileSync('dat/utilities.json', 'utf8'));
             var client = dgram.createSocket("udp4");
             process.stdin.setEncoding('utf-8');
             var message = "pixel(";
             // message variable to send
-            var selected = document.querySelectorAll(".chosen");
-            let r = document.createElement("div");
-            let image = document.createElement("img");
-            image.src = "img/cross.svg";
-            r.className = "chosen"
-            document.querySelector("#searchHistoryContainer").appendChild(r);
-            r.innerHTML = obj.item.utility;
-            r.id = "chosen" + obj.item.Id;
-            searchHistoryContainer.appendChild(r);
-            r.appendChild(image);
-            selected.forEach(function(div, e) {
-                var a = document.getElementsByClassName("chosen")
-                var b = document.getElementById(div.id)
-                r.id = "chosen" + obj.item.Id;
-                if (r.id == div.id) {
-                    try { b.parentNode.removeChild(b) } catch {}; //ignores an error
-                    try { document.getElementById("alerts-container").innerHTML = "" } catch {};
-                    showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()  
+            database[Math.floor(ID / 60)].forEach(function(element) {
+                //console.log(element.Id, obj.item.Id)
+                if (element.Id == ID) {
+                    var selected = document.querySelectorAll(".chosen");
+                    multi_times = multi_times + 1
+                    if (multi_times > 1) {
+                        statment = false;
+                    }
+                    let r = document.createElement("div");
+                    let image = document.createElement("img");
+                    image.src = "img/cross.svg";
+                    r.className = "chosen"
+                    document.querySelector("#searchHistoryContainer").appendChild(r);
+                    r.innerHTML = element.utility;
+                    r.id = "chosen" + element.Id;
+                    searchHistoryContainer.appendChild(r);
+                    r.appendChild(image);
+
+                    if (statment) {
+                        selected.forEach(function(div, e) {
+                            var b = document.getElementById(div.id)
+                            if (r.id == div.id) {
+                                try { b.parentNode.removeChild(b) } catch {}; //ignores an error
+                                try { document.getElementById("alerts-container").innerHTML = "" } catch {};
+                                showAlert("What the fuck is wrong with you? That component has already been added!", "warning", 5000); //calls showAlert()  
+                            }
+                        })
+                    }
+
                 }
+
+
             })
+
+            statment = true;
+            multi_times = 0;
+
             message = message + ("" + (obj.item.Id - 1) + ",0xFFFFFF)")
-            client.send(message, 0, message.length, 8089, "192.168.1.7");
-            add();
 
-            /**
-             * The removebutton function removes all components from the page.
-             * 
-             * @return Removes selected components, success message
-             * @docauthor Simon Hellsing, Emil Lindén
-             * @docmodifier Emil Lindén
-             */
-        }); //säger vilket id div tillhör
+            client.send(message, 0, message.length, 8089, "0.0.0.0");
 
+            remove_component();
+        }
+        /**
+         * The removebutton function removes all components from the page.
+         * 
+         * @return Removes selected components, success message
+         * @docauthor Simon Hellsing, Emil Lindén
+         * @docmodifier Emil Lindén
+         */
         var del_history = document.getElementById("removeHistory");
         del_history.onclick = function removebutton() {
             var client = dgram.createSocket("udp4");
@@ -221,8 +248,15 @@ function summonBar(inputJson) {
                 showAlert("All components successfully removed!", "success", 5000); //calls showAlert()
 
             }
+<<<<<<< HEAD
             client.send(message, 0, message.length, 8089, "192.168.1.7");
         }
+=======
+            client.send(message, 0, message.length, 8089, "0.0.0.0");
+
+        }
+
+>>>>>>> feature/database-fix
     });
 }
 
@@ -268,16 +302,30 @@ function showAlert(message, type, closeDelay) {
 }
 
 /**
- * The add function adds a chosen class to the selected elements.
+ * The remove_component function removes a chosen component to the selected class.
  * 
  * @return The selected element
  * @docauthor Trelent
  */
-function add() {
+function remove_component() {
+
     var client = dgram.createSocket("udp4");
     process.stdin.setEncoding('utf-8');
     var selected = document.querySelectorAll(".chosen");
+    document.querySelectorAll('.chosen').forEach(item => {
+        item.addEventListener('click', event => {
+            selected.forEach(function(element) {
+                if (item.id == element.id) {
+                    var message = "pixel(";
+                    var b = document.getElementById(item.id)
+                    try { b.parentNode.removeChild(b) } catch {};
+                    var remove_id = item.id.replace(/^\D+/g, ''); // replace all leading non-digits with nothing
+                    message = message + ("" + (remove_id - 1) + ",0x000000)")
+                    client.send(message, 0, message.length, 8089, "0.0.0.0");
+                }
+            })
 
+<<<<<<< HEAD
     selected.forEach(function(_div, i) {
         var a = document.getElementsByClassName("chosen")
         var b = document.getElementById(a[i].id)
@@ -290,5 +338,9 @@ function add() {
             client.send(message, 0, message.length, 8089, "192.168.1.7");
             add()
         }
+=======
+        })
+>>>>>>> feature/database-fix
     })
+
 }
