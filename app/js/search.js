@@ -187,6 +187,8 @@ function summonBar(inputJson) {
             database[Math.floor(ID / 60)].forEach(function(element) {
                 //console.log(element.Id, obj.item.Id)
                 if (element.Id == ID) {
+                    message = message + ("" + (ID - 1) + ",0xFFFFFF)")
+                    client.send(message, 0, message.length, 8089, "0.0.0.0");
                     var selected = document.querySelectorAll(".chosen");
                     multi_times = multi_times + 1
                     if (multi_times > 1) {
@@ -220,10 +222,6 @@ function summonBar(inputJson) {
 
             statment = true;
             multi_times = 0;
-
-            message = message + ("" + (obj.item.Id - 1) + ",0xFFFFFF)")
-
-            client.send(message, 0, message.length, 8089, "0.0.0.0");
 
             remove_component();
         }
