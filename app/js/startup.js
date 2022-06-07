@@ -49,28 +49,33 @@ function startup() {
     // Part 2
 
     if (localStorage.getItem('loadingscreen') == 'active') {
-        document.getElementById("loadingscreen").style.display = "block";
-        setTimeout(() => {
-            document.getElementById("loadingscreentext1").style.opacity = "0%";
-            document.getElementById("loadingscreentext2").style.opacity = "100%";
-        }, 500);
-        setTimeout(() => {
-            document.getElementById("loadingscreentext2").style.opacity = "0%";
-            document.getElementById("loadingscreentext3").style.opacity = "100%";
-        }, 1000);
-        setTimeout(() => {
-            document.getElementById("loadingscreentext3").style.opacity = "0%";
-            document.getElementById("loadingscreentext4").style.opacity = "100%";
-        }, 1500);
-        setTimeout(() => {
-            document.getElementById("loadingscreentext4").style.opacity = "0%";
-            document.getElementById("navbar").style.display = "flex";
-            document.getElementById("bodySection").style.display = "flex";
-            document.getElementById("loadingscreen").style.display = "none";
-        }, 2000);
+        loadingscreen();
     } else {
         document.getElementById("navbar").style.display = "flex";
         document.getElementById("bodySection").style.display = "flex";
     }
 
+}
+
+function loadingscreen() {
+    document.getElementById("loadingscreen").style.display = "block";
+    document.getElementById("loadingscreen").style.zIndex = "1";
+    setTimeout(() => {
+        document.getElementById("loadingscreentext1").style.opacity = "0%";
+        document.getElementById("loadingscreentext2").style.opacity = "100%";
+    }, 500);
+    setTimeout(() => {
+        document.getElementById("loadingscreentext2").style.opacity = "0%";
+        document.getElementById("loadingscreentext3").style.opacity = "100%";
+    }, 1000);
+    setTimeout(() => {
+        document.getElementById("loadingscreentext3").style.opacity = "0%";
+        document.getElementById("loadingscreentext4").style.opacity = "100%";
+    }, 1500);
+    setTimeout(() => {
+        document.getElementById("loadingscreentext4").style.opacity = "0%";
+        document.getElementById("navbar").style.display = "flex";
+        document.getElementById("bodySection").style.display = "flex";
+        document.getElementById("loadingscreen").style.display = "none";
+    }, 2000);
 }
